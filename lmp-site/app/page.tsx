@@ -109,7 +109,7 @@ export default function Home() {
               <div className="w-full flex-1 flex items-center">
                 <div className="text-center lg:text-left space-y-4 sm:space-y-6 max-w-3xl w-full">
                   <div className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold mb-2 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: 'rgb(159, 240, 212)', color: 'rgb(0, 79, 110)' }}>
-                    RISE TO THE TOP
+                    YOUR PERSONAL HOLIDAY HERO
                   </div>
                   <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white drop-shadow-xl leading-tight">
                     <span className="inline lg:block lg:whitespace-nowrap">Make planning a holiday,</span>
@@ -249,20 +249,24 @@ export default function Home() {
           {/* About Section */}
           <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-[300px] sm:pb-[400px] lg:pb-[500px] relative">
             <div className="w-full">
-              <div className="max-w-4xl">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About Our Service</h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                  We're dedicated to making your holiday planning as enjoyable as the holiday itself.
-                  With expert knowledge and personalized service, we create unforgettable travel experiences.
-                </p>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                  Our team of travel experts works tirelessly to understand your preferences and craft
-                  the perfect getaway tailored just for you.
-                </p>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  From exotic destinations to relaxing retreats, we handle every detail so you can
-                  focus on making memories.
-                </p>
+              <div className="max-w-4xl lg:mr-20 xl:mr-28">
+                <Card className="bg-transparent border-0 shadow-none">
+                  <CardContent className="p-0">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About Our Service</h2>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+                      We're dedicated to making your holiday planning as enjoyable as the holiday itself.
+                      With expert knowledge and personalized service, we create unforgettable travel experiences.
+                    </p>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
+                      Our team of travel experts works tirelessly to understand your preferences and craft
+                      the perfect getaway tailored just for you.
+                    </p>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                      From exotic destinations to relaxing retreats, we handle every detail so you can
+                      focus on making memories.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>
@@ -279,15 +283,16 @@ export default function Home() {
               }`}
               style={{ 
                 transform: showFanCards 
-                  ? 'translateX(-40px) rotate(-8deg)' 
+                  ? 'translateX(-80px) rotate(-12deg)' 
                   : 'translateX(0) rotate(0deg)',
-                zIndex: 8,
-                backgroundColor: 'rgb(159, 213, 209)'
+                zIndex: 8
               }}
             >
-              <div className="w-full h-full flex items-center justify-center p-8">
-                <p className="text-foreground text-lg font-semibold text-center">Card 1</p>
-              </div>
+              <img
+                src="/images/29841.jpg"
+                alt="Travel destination"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </Card>
 
             {/* Card 2 - Fan right */}
@@ -297,15 +302,16 @@ export default function Home() {
               }`}
               style={{ 
                 transform: showFanCards 
-                  ? 'translateX(40px) rotate(8deg)' 
+                  ? 'translateX(80px) rotate(12deg)' 
                   : 'translateX(0) rotate(0deg)',
-                zIndex: 9,
-                backgroundColor: 'rgb(159, 240, 212)'
+                zIndex: 9
               }}
             >
-              <div className="w-full h-full flex items-center justify-center p-8">
-                <p className="text-foreground text-lg font-semibold text-center">Card 2</p>
-              </div>
+              <img
+                src="/images/4292.jpg"
+                alt="Travel destination"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </Card>
 
             {/* Main Photo Card */}
