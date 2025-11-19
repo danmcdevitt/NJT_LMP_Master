@@ -2,15 +2,16 @@
 
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
+import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { useEffect, useState } from "react";
-import { Sparkles, MapPin, Award, ArrowRight } from "lucide-react";
+import { Sparkles, MapPin, Award, ArrowRight, Plane } from "lucide-react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showFanCards, setShowFanCards] = useState(false);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY || window.pageYOffset; // Safari fallback
@@ -84,9 +85,9 @@ export default function Home() {
             </video>
 
             {/* Stylish Overlay with Noise */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-black/5 to-black/10" />
             <div
-              className="absolute inset-0 opacity-40"
+              className="absolute inset-0 opacity-15"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                 mixBlendMode: 'overlay'
@@ -106,10 +107,10 @@ export default function Home() {
             <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
                 <div className="text-center lg:text-left space-y-4 sm:space-y-6 max-w-3xl w-full">
-                  <div className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold mb-2 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: 'rgb(159, 240, 212)', color: 'rgb(0, 79, 110)' }}>
+                  <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold mb-2 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: 'rgb(159, 240, 212)', color: 'rgb(0, 79, 110)' }}>
                     YOUR PERSONAL HOLIDAY HERO
                   </div>
-                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white drop-shadow-xl leading-tight">
+                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-tight" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2)' }}>
                     <span className="inline lg:block lg:whitespace-nowrap">Make planning a holiday,</span>
                     <span className="inline lg:block lg:whitespace-nowrap"> feel like a holiday</span>
                   </h1>
@@ -118,26 +119,26 @@ export default function Home() {
                     <img
                       src="/images/logos/Trustpilot.png"
                       alt="Trustpilot"
-                      className="w-auto drop-shadow-lg"
-                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)' }}
+                      className="w-auto"
+                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
                     <img
                       src="/images/logos/abta_white.png"
                       alt="ABTA"
-                      className="w-auto drop-shadow-lg sm:h-[calc(2rem*0.85*1.2*1.2*1.2*0.85)]"
-                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)' }}
+                      className="w-auto sm:h-[calc(2rem*0.85*1.2*1.2*1.2*0.85)]"
+                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
                     <img
                       src="/images/logos/EUROPE THE TRAVEL FRANCHISE.png"
                       alt="Europe The Travel Franchise"
-                      className="w-auto drop-shadow-lg sm:h-[calc(2rem*0.85*1.2*1.2*1.2)] lg:h-[calc(2.5rem*0.85*1.2*1.2*1.2)]"
-                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2)' }}
+                      className="w-auto sm:h-[calc(2rem*0.85*1.2*1.2*1.2)] lg:h-[calc(2.5rem*0.85*1.2*1.2*1.2)]"
+                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
                     <img
                       src="/images/logos/W Travel Franchise.png"
                       alt="W Travel Franchise"
-                      className="w-auto drop-shadow-lg sm:h-[calc(2rem*0.85*1.2*1.2*1.2)] lg:h-[calc(2.5rem*0.85*1.2*1.2*1.2)]"
-                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2)' }}
+                      className="w-auto sm:h-[calc(2rem*0.85*1.2*1.2*1.2)] lg:h-[calc(2.5rem*0.85*1.2*1.2*1.2)]"
+                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
                   </div>
                 </div>
@@ -151,8 +152,8 @@ export default function Home() {
                     {/* Feature 1 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
-                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'white' }} />
-                      <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
+                      <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                         Expert knowledge for<br />unforgettable travel experiences
                       </p>
@@ -161,8 +162,8 @@ export default function Home() {
                     {/* Feature 2 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
-                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'white' }} />
-                      <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
+                      <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                         Personalised service<br />tailored to your preferences
                       </p>
@@ -171,7 +172,7 @@ export default function Home() {
                     {/* Feature 3 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)]" style={{ scrollSnapAlign: 'start' }}>
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
-                      <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                         Trusted by travellers<br />worldwide
                       </p>
@@ -184,7 +185,7 @@ export default function Home() {
                   {/* Feature 1 */}
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
-                    <Sparkles className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <Sparkles className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Expert knowledge for<br className="hidden lg:block" /> unforgettable travel experiences
                     </p>
@@ -193,7 +194,7 @@ export default function Home() {
                   {/* Feature 2 */}
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
-                    <MapPin className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <MapPin className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Personalised service<br className="hidden lg:block" /> tailored to your preferences
                     </p>
@@ -202,7 +203,7 @@ export default function Home() {
                   {/* Feature 3 */}
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
-                    <Award className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <Award className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Trusted by travellers<br className="hidden lg:block" /> worldwide
                     </p>
@@ -249,7 +250,11 @@ export default function Home() {
             <div className="w-full lg:max-w-2xl">
               <Card className="bg-transparent border-0 shadow-none">
                 <CardContent className="p-0">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">I'm so excited to have partnered with the multi-award winning Not Just Travel.</h2>
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold mb-4 sm:mb-6" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
+                    <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
+                    <span>HOLIDAY WITH THE BEST</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6" style={{ color: '#004F6E' }}>I'm so excited to have partnered with the multi-award winning Not Just Travel.</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
                     It means I can bring you amazing holidays, cruises, flights, hotels and more, combining the best choice and value with outstanding personalised service and the confidence of the world's best lifestyle franchise brand behind every booking.
                   </p>
@@ -270,10 +275,17 @@ export default function Home() {
               </Card>
             </div>
           </section>
+
         </div>
 
+
         {/* Right Column - Sticky Card that overlays hero */}
-        <div className="hidden lg:block lg:col-span-1 lg:sticky lg:self-start lg:z-40" style={{ top: '120px' }}>
+        <div 
+          className="hidden lg:block lg:col-span-1 lg:z-40 sticky self-start" 
+          style={{ 
+            top: '120px'
+          }}
+        >
           <div className="lg:-ml-[calc(95vw/3-2rem+4rem)] relative" style={{ paddingTop: 'calc((min(90vh, 800px) - 320px * 4/3) / 2 - 100px)' }}>
             {/* Fan Cards - Behind main card, appear on scroll down */}
             {/* Card 1 - Fan left */}
@@ -347,42 +359,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
-        <div className="w-full lg:max-w-2xl">
-          <Card className="bg-transparent border-0 shadow-none">
-            <CardContent className="p-0">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12">How It Works</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {/* Step 1 */}
-                <div className="flex flex-col">
-                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>01</div>
-                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Step description text goes here explaining what happens in this step of the process.
-                  </p>
-                </div>
-                {/* Step 2 */}
-                <div className="flex flex-col">
-                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>02</div>
-                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Step description text goes here explaining what happens in this step of the process.
-                  </p>
-                </div>
-                {/* Step 3 */}
-                <div className="flex flex-col">
-                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>03</div>
-                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Step description text goes here explaining what happens in this step of the process.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+      {/* How It Works Section - Feature Grid */}
+      <section id="how-it-works" className="relative">
+        <FeatureGrid />
       </section>
+
     </main>
   );
 }

@@ -163,4 +163,18 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  .zoom-in-slow {
+    animation: zoomIn 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
 }
