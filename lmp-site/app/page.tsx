@@ -93,13 +93,11 @@ export default function Home() {
               }}
             />
 
-            {/* Frosted Glass Overlay at Bottom */}
+            {/* Dreamy Fade Overlay at Bottom */}
             <div 
-              className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
+              className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none" 
               style={{ 
-                WebkitBackdropFilter: 'blur(8px)',
-                maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
+                background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 0.95) 90%, white 100%)',
                 zIndex: 5
               }} 
             />
@@ -146,36 +144,36 @@ export default function Home() {
               </div>
 
               {/* Feature Elements at Bottom */}
-              <div className="w-full pb-20 sm:pb-6 lg:pb-12">
+              <div className="w-full pb-8 sm:pb-4 lg:pb-6">
                 {/* Mobile: Horizontal scrollable carousel */}
                 <div className="lg:hidden overflow-x-auto scrollbar-hide pl-12 sm:pl-16 pr-4" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
                   <div className="flex gap-6 sm:gap-8" style={{ scrollSnapType: 'x mandatory' }}>
                     {/* Feature 1 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'rgb(159, 240, 212)' }} />
-                      <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                      <p className="text-lg sm:text-xl font-medium drop-shadow-lg leading-relaxed">
+                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'white' }} />
+                      <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                         Expert knowledge for<br />unforgettable travel experiences
                       </p>
                     </div>
 
                     {/* Feature 2 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'rgb(159, 240, 212)' }} />
-                      <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                      <p className="text-lg sm:text-xl font-medium drop-shadow-lg leading-relaxed">
-                        Personalized service<br />tailored to your preferences
+                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: 'white' }} />
+                      <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                        Personalised service<br />tailored to your preferences
                       </p>
                     </div>
 
                     {/* Feature 3 */}
                     <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)]" style={{ scrollSnapAlign: 'start' }}>
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                      <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                      <p className="text-lg sm:text-xl font-medium drop-shadow-lg leading-relaxed">
-                        Trusted by travelers<br />worldwide
+                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: 'white' }} />
+                      <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                        Trusted by travellers<br />worldwide
                       </p>
                     </div>
                   </div>
@@ -185,28 +183,28 @@ export default function Home() {
                 <div className="hidden lg:flex flex-row gap-8 max-w-2xl lg:max-w-3xl">
                   {/* Feature 1 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                    <Sparkles className="w-6 h-6 mb-2 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                    <p className="text-base font-medium drop-shadow-lg leading-relaxed">
+                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
+                    <Sparkles className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Expert knowledge for<br className="hidden lg:block" /> unforgettable travel experiences
                     </p>
                   </div>
 
                   {/* Feature 2 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                    <MapPin className="w-6 h-6 mb-2 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                    <p className="text-base font-medium drop-shadow-lg leading-relaxed">
-                      Personalized service<br className="hidden lg:block" /> tailored to your preferences
+                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
+                    <MapPin className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                      Personalised service<br className="hidden lg:block" /> tailored to your preferences
                     </p>
                   </div>
 
                   {/* Feature 3 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'rgb(159, 240, 212)' }}></div>
-                    <Award className="w-6 h-6 mb-2 drop-shadow-lg" style={{ color: 'rgb(159, 240, 212)' }} />
-                    <p className="text-base font-medium drop-shadow-lg leading-relaxed">
-                      Trusted by travelers<br className="hidden lg:block" /> worldwide
+                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
+                    <Award className="w-6 h-6 mb-2" style={{ color: 'white' }} />
+                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                      Trusted by travellers<br className="hidden lg:block" /> worldwide
                     </p>
                   </div>
                 </div>
@@ -247,27 +245,29 @@ export default function Home() {
           </div>
 
           {/* About Section */}
-          <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-[300px] sm:pb-[400px] lg:pb-[500px] relative">
-            <div className="w-full">
-              <div className="max-w-4xl lg:mr-20 xl:mr-28">
-                <Card className="bg-transparent border-0 shadow-none">
-                  <CardContent className="p-0">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About Our Service</h2>
-                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                      We're dedicated to making your holiday planning as enjoyable as the holiday itself.
-                      With expert knowledge and personalized service, we create unforgettable travel experiences.
-                    </p>
-                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 sm:mb-6">
-                      Our team of travel experts works tirelessly to understand your preferences and craft
-                      the perfect getaway tailored just for you.
-                    </p>
-                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                      From exotic destinations to relaxing retreats, we handle every detail so you can
-                      focus on making memories.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+          <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-24 relative">
+            <div className="w-full lg:max-w-2xl">
+              <Card className="bg-transparent border-0 shadow-none">
+                <CardContent className="p-0">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">I'm so excited to have partnered with the multi-award winning Not Just Travel.</h2>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                    It means I can bring you amazing holidays, cruises, flights, hotels and more, combining the best choice and value with outstanding personalised service and the confidence of the world's best lifestyle franchise brand behind every booking.
+                  </p>
+                  {/* Logo Images */}
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
+                    <img
+                      src="/images/logos/TTF website - KTP & Acc-(2).png.webp"
+                      alt="TTF Logo"
+                      className="h-auto max-w-[276px] sm:max-w-[345px]"
+                    />
+                    <img
+                      src="/images/logos/TTF website - KTP & Acc-(3).png.webp"
+                      alt="TTF Logo"
+                      className="h-auto max-w-[276px] sm:max-w-[345px]"
+                    />
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </section>
         </div>
@@ -346,6 +346,43 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+        <div className="w-full lg:max-w-2xl">
+          <Card className="bg-transparent border-0 shadow-none">
+            <CardContent className="p-0">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12">How It Works</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {/* Step 1 */}
+                <div className="flex flex-col">
+                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>01</div>
+                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Step description text goes here explaining what happens in this step of the process.
+                  </p>
+                </div>
+                {/* Step 2 */}
+                <div className="flex flex-col">
+                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>02</div>
+                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Step description text goes here explaining what happens in this step of the process.
+                  </p>
+                </div>
+                {/* Step 3 */}
+                <div className="flex flex-col">
+                  <div className="text-4xl font-bold mb-4" style={{ color: 'rgb(0, 79, 110)' }}>03</div>
+                  <h3 className="text-xl font-bold mb-3">Step Title</h3>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Step description text goes here explaining what happens in this step of the process.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
     </main>
   );
 }
