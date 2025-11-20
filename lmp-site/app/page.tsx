@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
+import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
 import { useEffect, useState } from "react";
 import { Sparkles, MapPin, Award, ArrowRight, Plane } from "lucide-react";
 
@@ -48,10 +49,10 @@ export default function Home() {
               className={`h-12 sm:h-14 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
             />
             <div className="flex items-center gap-4">
-              <p className={`hidden md:block text-lg font-bold transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
-                Contact Jane Smith on 07777 000 123
+              <p className={`hidden md:block text-[1.24rem] font-bold transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
+                Contact Jane Smith on
               </p>
-              <Button size="sm" className="shadow-none">Contact Jane</Button>
+              <Button size="sm" className="shadow-none text-[1.24rem]">07777 000 123</Button>
             </div>
           </div>
         </div>
@@ -254,8 +255,8 @@ export default function Home() {
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
                     <span>HOLIDAY WITH THE BEST</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6" style={{ color: '#004F6E' }}>I'm so excited to have partnered with the multi-award winning Not Just Travel.</h2>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to have partnered with the multi-award winning Not Just Travel</h2>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
                     It means I can bring you amazing holidays, cruises, flights, hotels and more, combining the best choice and value with outstanding personalised service and the confidence of the world's best lifestyle franchise brand behind every booking.
                   </p>
                   {/* Logo Images */}
@@ -362,6 +363,11 @@ export default function Home() {
       {/* How It Works Section - Feature Grid */}
       <section id="how-it-works" className="relative">
         <FeatureGrid />
+      </section>
+
+      {/* Holiday Types Gallery Section */}
+      <section id="holiday-types" className="relative">
+        <HolidayTypeGallery />
       </section>
 
     </main>

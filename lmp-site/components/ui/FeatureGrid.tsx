@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, User, Gift, Plane, Star } from "lucide-react";
+import { ArrowRight, User, Gift, Plane, Star, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const FeatureGrid = () => {
@@ -43,10 +43,10 @@ const FeatureGrid = () => {
             <span>HOW IT WORKS</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 lg:mb-8" style={{ color: '#004F6E' }}>
-          Everything you need from<br className="hidden lg:block" /> someone you can call anytime
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+          Everything you need, from<br className="hidden lg:block" /> someone you can call anytime
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-center mb-8 sm:mb-12 lg:mb-16 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
+        <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
           I can bring you the backing, tools, technology and deals of an<br className="hidden lg:block" /> award‑winning travel brand, except you have my personal number.
         </p>
         <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
@@ -71,8 +71,8 @@ const FeatureGrid = () => {
                 }} 
               />
               <div className="w-full relative z-10">
-                <User className="w-8 h-8 text-white mb-4" />
-                <h3 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl mb-1">
+                <User className="w-8 h-8 text-white mb-2" />
+                <h3 className="text-lg font-bold text-white sm:text-xl lg:text-2xl mb-1 leading-none">
                   Personal service
                 </h3>
                 <p className="text-sm font-medium text-white md:text-base lg:text-lg leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance">
@@ -104,8 +104,8 @@ const FeatureGrid = () => {
               }} 
             />
             <div className="relative z-10">
-              <Gift className="w-8 h-8 mb-4 text-white" />
-              <div className="mb-2 text-2xl md:text-3xl lg:text-4xl font-bold text-white">Totally free</div>
+              <Gift className="w-8 h-8 mb-2 text-white" />
+              <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-bold text-white leading-none">Totally free</div>
               <div className="text-xs md:text-base lg:text-lg leading-tight text-white">We handle every detail for you, including research, quotes, bookings, amendments and aftercare.</div>
             </div>
           </div>
@@ -164,7 +164,8 @@ const FeatureGrid = () => {
             
             {/* Headline and Body Copy */}
             <div className="mt-4 z-10">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-left mb-2">Complete protection</h3>
+              <ShieldCheck className="w-8 h-8 text-white mb-2" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white text-left mb-2 leading-none">Complete protection</h3>
               <p className="text-sm sm:text-base md:text-lg text-white/90 text-left leading-tight">All our holidays are ABTA and ATOL protected for total peace of mind.</p>
             </div>
           </div>
@@ -187,7 +188,7 @@ const FeatureGrid = () => {
               className="absolute h-full w-full object-cover object-center"
             />
             <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end p-4 transition-colors md:p-6 lg:p-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
-              <h3 className="text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+              <h3 className="text-lg font-bold text-white sm:text-xl lg:text-2xl leading-none">
                 The best brands
               </h3>
             </div>

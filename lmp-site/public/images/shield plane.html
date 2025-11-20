@@ -57,7 +57,7 @@
     <div class="aspect-[9/16] w-full max-w-sm bg-[#004F6E] rounded-3xl overflow-hidden relative shadow-2xl flex flex-col items-center justify-start pt-28 ring-1 ring-[#9FD5D1]/20">
         
         <!-- Animated Shield Composition -->
-        <div class="relative flex items-center justify-center animate-float z-10">
+        <div class="relative flex items-center justify-center z-10">
             
             <!-- Concentric Circles Background -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -82,19 +82,10 @@
                         <mask id="shieldMask">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="white"></path>
                         </mask>
-                        <!-- Gradient for scan line -->
-                        <linearGradient id="scanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#9FD5D1" stop-opacity="0"></stop>
-                            <stop offset="50%" stop-color="#9FD5D1" stop-opacity="0.6"></stop>
-                            <stop offset="100%" stop-color="#9FD5D1" stop-opacity="0"></stop>
-                        </linearGradient>
                     </defs>
 
                     <!-- Background of shield (Glassy) -->
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#9FD5D1" fill-opacity="0.05"></path>
-
-                    <!-- Scanning Beam -->
-                    <rect x="0" y="0" width="24" height="12" fill="url(#scanGradient)" mask="url(#shieldMask)" class="animate-scan"></rect>
 
                     <!-- Shield Outline -->
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>

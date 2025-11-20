@@ -1,14 +1,20 @@
 # Luxury Travel Agency - Project Structure & Components
 
+**Last Updated:** January 2025
+
+## Documentation
+
+- **[BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md)** - Complete brand guidelines, color palette, typography, and component specifications
+- **[SPECSTORY.md](./SPECSTORY.md)** - Design system story, component narratives, and implementation philosophy
+
 ## Page Structure (Single Page)
 
-1. **Header Navigation** - Logo, nav links, phone number (call/message)
-2. **Hero** - Main hero section with headline and CTA
-3. **About** - About section with company story
-4. **How It Works** - Step-by-step process explanation
-5. **Reassurance** - Trust indicators and key benefits
-6. **CTA** - Final call-to-action section
-7. **Footer** - Footer with company info and links
+1. **Header Navigation** - Fixed navigation with logo, phone number, scroll-based styling
+2. **Hero** - Full-viewport video background with headline, trust badges, and feature highlights
+3. **Profile Card** - Sticky profile card (desktop) with fan card animations
+4. **About** - About section with partnership story and trust logos
+5. **How It Works (Bento Grid)** - Feature grid showcasing key benefits with pill badge, headline, and body copy
+6. **Additional Sections** - Holiday type gallery and other content sections
 
 **Note:** No contact form - phone number in header nav for direct contact (call or message).
 
@@ -23,28 +29,14 @@
 │   └── favicon.ico                 # Site favicon
 │
 ├── components/
-│   ├── layout/
-│   │   ├── Header.tsx              # Navigation header with phone number
-│   │   ├── Footer.tsx              # Site footer
-│   │   └── Navigation.tsx          # Main navigation component
-│   │
-│   ├── sections/
-│   │   ├── Hero.tsx                # Hero section with CTA
-│   │   ├── About.tsx               # About/why choose us section
-│   │   ├── HowItWorks.tsx          # How it works/process section
-│   │   ├── Reassurance.tsx         # Trust indicators/reassurance section
-│   │   └── CTA.tsx                 # Call-to-action section
-│   │
-│   ├── ui/
-│   │   ├── Button.tsx              # Reusable button component
-│   │   ├── Card.tsx                # Card container component
-│   │   ├── Badge.tsx               # Badge/tag component
-│   │   └── ScrollReveal.tsx        # Scroll animation wrapper
-│   │
-│   └── shared/
-│       ├── Logo.tsx                # Site logo component
-│       ├── Icon.tsx                # Icon wrapper component
-│       └── Image.tsx               # Optimized image component
+│   └── ui/
+│       ├── Button.tsx              # Reusable button component (Coral/Lagoon variants)
+│       ├── Card.tsx                # Card container component (glass effects)
+│       ├── Badge.tsx               # Badge/tag component
+│       ├── FeatureGrid.tsx         # Bento grid component (How It Works section)
+│       ├── gallery15.tsx           # Gallery component
+│       ├── holidaytypegallery.tsx  # Holiday type gallery component
+│       └── feature71.tsx          # Feature component
 │
 ├── lib/
 │   ├── utils.ts                    # Utility functions (cn, etc.)
@@ -63,10 +55,13 @@
 │
 ├── .cursorrules                    # Cursor AI rules
 ├── .gitignore
-├── next.config.js                  # Next.js configuration
+├── BRAND_GUIDELINES.md            # Brand documentation and design system
+├── SPECSTORY.md                   # Design system story and component narratives
+├── PROJECT_STRUCTURE.md            # This file
+├── next.config.ts                 # Next.js configuration
 ├── package.json
-├── tsconfig.json                   # TypeScript configuration
-└── tailwind.config.ts              # Tailwind CSS configuration
+├── tsconfig.json                  # TypeScript configuration
+└── postcss.config.mjs              # PostCSS configuration
 ```
 
 ## Reusable Components List
@@ -221,13 +216,71 @@ export interface NavLink {
 - **Accessibility** (ARIA labels, keyboard navigation)
 - **Performance** (code splitting, lazy loading)
 
-## Luxury Design Considerations
+## Design System: Holiday Linen
 
-- Elegant typography (serif fonts for headings)
-- Generous white space
-- High-quality imagery
-- Subtle animations and transitions
-- Premium color palette (gold accents, deep blues, whites)
-- Refined hover effects
-- Polished micro-interactions
+**Color Palette:**
+- **Cruise Blue** (`#004F6E`) - Primary text and UI elements
+- **Island Coral** (`#FF5353`) - Primary actions and CTAs
+- **Holiday Linen** (`#F5F0EC`) - Base background
+- **Lagoon** (`#9FD5D1`) - Secondary accents
+- **Ocean** (`#9FF0D4`) - Decorative highlights
+- **Pina** (`#E1FCAD`) - Subtle accents
+
+**Typography:**
+- **Font:** Outfit (Google Fonts) - 400 (Regular), 700 (Bold)
+- **Border Radius:** 1.5rem (24px) - Heavy rounding throughout
+
+**See [BRAND_GUIDELINES.md](./BRAND_GUIDELINES.md) for complete specifications.**
+
+## Current Implementation
+
+### Actual Components in Use
+
+1. **Navigation** (in `page.tsx`)
+   - Fixed positioning with scroll-based background
+   - Logo with brightness inversion
+   - Phone number display
+   - Responsive layout
+
+2. **Hero Section** (in `page.tsx`)
+   - Full-viewport video background
+   - Centered content with max-width
+   - Trust badges (Trustpilot, ABTA, etc.)
+   - Feature highlights with mobile carousel
+
+3. **Profile Card** (in `page.tsx`)
+   - Sticky positioning on desktop
+   - Fan card animations on scroll
+   - Frosted glass effect
+   - Mobile inline version
+
+4. **About Section** (in `page.tsx`)
+   - Pill badge with plane icon
+   - Partnership story
+   - Trust logos
+   - Responsive layout
+
+5. **FeatureGrid** (`components/ui/FeatureGrid.tsx`)
+   - Bento grid layout (2 cols mobile, 4 cols desktop)
+   - Pill badge with star icon
+   - Headline and body copy
+   - Multiple box styles:
+     - Box 1: Image with overlay (Personal Service)
+     - Box 2: Coral background with image (Totally Free)
+     - Box 3: Cruise Blue with shield/plane animation (Complete Protection)
+     - Boxes 4-6: Metric displays
+
+6. **Holiday Type Gallery** (`components/ui/holidaytypegallery.tsx`)
+   - Gallery component for holiday types
+
+### Animations
+
+- Scroll-triggered fade-ins (Intersection Observer)
+- Floating animations (6s ease-in-out)
+- Slow rotations (20s linear)
+- Ping animations (3s cubic-bezier)
+- Scan animations (3s ease-in-out)
+- Zoom effects (20s ease-in-out alternate)
+
+See [SPECSTORY.md](./SPECSTORY.md) for detailed component stories and animation philosophy.
 
