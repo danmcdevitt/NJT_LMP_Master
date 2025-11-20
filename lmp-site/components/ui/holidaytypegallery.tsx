@@ -153,8 +153,8 @@ const HolidayTypeGallery = () => {
             <span>HOLIDAY TYPES</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
-          Any type of holiday,<br className="hidden lg:block" /> any kind of budget
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+          Every type of holiday,<br className="hidden lg:block" /> any kind of budget
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
           From beach escapes to city adventures,<br className="hidden lg:block" /> we'll help with any kind of holiday you like.
@@ -167,18 +167,18 @@ const HolidayTypeGallery = () => {
               variant="outline"
               onClick={() => scroll('prev')}
               disabled={!canScrollPrev}
-              className="rounded-full"
+              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] transition-colors duration-200 [&:hover_svg]:text-[rgb(159,240,212)]"
             >
-              <ArrowLeft className="size-5" />
+              <ArrowLeft className="size-5 transition-colors duration-200" />
             </Button>
             <Button
               size="icon"
               variant="outline"
               onClick={() => scroll('next')}
               disabled={!canScrollNext}
-              className="rounded-full"
+              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] transition-colors duration-200 [&:hover_svg]:text-[rgb(159,240,212)]"
             >
-              <ArrowRight className="size-5" />
+              <ArrowRight className="size-5 transition-colors duration-200" />
             </Button>
           </div>
         </div>
@@ -298,7 +298,7 @@ const HolidayTypeGallery = () => {
 
                       {/* White Headline and Body */}
                       <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-lg mb-2">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white drop-shadow-lg mb-2">
                           {product.headline}
                         </h3>
                         <p className="text-sm sm:text-base text-white/90 drop-shadow-lg leading-tight">

@@ -1,10 +1,11 @@
 "use client";
 
+import { CtaProfile } from "@/components/cta-profile";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Sparkles, MapPin, Award, ArrowRight, Plane, User } from "lucide-react";
 
 export default function Home() {
@@ -12,11 +13,23 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showFanCards, setShowFanCards] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('down');
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
+  const [carouselVisible, setCarouselVisible] = useState(false);
+  const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
+  const carouselContainerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY || window.pageYOffset; // Safari fallback
       setIsScrolled(currentScrollY > 10);
+      
+      // Track scroll direction
+      if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up');
+      }
       
       const scrollThreshold = 200; // Show cards after scrolling 200px
       const hideThreshold = 100; // Hide cards when scrolling back up below this point
@@ -37,6 +50,52 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Intersection Observer for carousel container
+  useEffect(() => {
+    if (!carouselContainerRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Only trigger animation if not already visible to prevent re-triggering
+            if (!carouselVisible) {
+              setCarouselVisible(true);
+              // Animate cards sequentially based on scroll direction
+              if (scrollDirection === 'down') {
+                // Left to right: card 0, then 1, then 2
+                setTimeout(() => setVisibleCards([true, false, false]), 100);
+                setTimeout(() => setVisibleCards([true, true, false]), 250);
+                setTimeout(() => setVisibleCards([true, true, true]), 400);
+              } else {
+                // Right to left: card 2, then 1, then 0
+                setTimeout(() => setVisibleCards([false, false, true]), 100);
+                setTimeout(() => setVisibleCards([false, true, true]), 250);
+                setTimeout(() => setVisibleCards([true, true, true]), 400);
+              }
+            }
+          } else {
+            // Reset when scrolling away from the section
+            if (scrollDirection === 'up' && scrollY < 200) {
+              setCarouselVisible(false);
+              setVisibleCards([false, false, false]);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of container is visible
+        rootMargin: '-50px 0px', // Trigger when container is 50px into viewport
+      }
+    );
+    
+    observer.observe(carouselContainerRef.current);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [scrollDirection, scrollY, carouselVisible]);
+
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'white' }}>
@@ -49,11 +108,11 @@ export default function Home() {
               alt="Not Just Travel"
               className={`h-12 sm:h-14 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
             />
-            <div className="flex items-center gap-4">
-              <p className={`hidden md:block text-[1.24rem] font-bold transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
+            <div className="flex items-center gap-2">
+              <p className={`hidden md:block text-[1.24rem] font-medium transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
                 Contact Jane Smith on
               </p>
-              <Button size="sm" className="shadow-none text-[1.24rem]">07777 000 123</Button>
+              <Button size="sm" className="shadow-none text-[1.24rem] px-5 py-4">07777 000 123</Button>
             </div>
           </div>
         </div>
@@ -88,6 +147,15 @@ export default function Home() {
 
             {/* Stylish Overlay with Noise */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-black/5 to-black/10" />
+            
+            {/* Cinematic Gradient for Text Contrast - Left side darkening */}
+            <div 
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 70%)'
+              }}
+            />
+
             <div
               className="absolute inset-0 opacity-15"
               style={{
@@ -108,13 +176,13 @@ export default function Home() {
             {/* Hero Content - Boxed */}
             <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
-                <div className="text-center lg:text-left space-y-4 sm:space-y-6 max-w-3xl w-full">
-                  <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold mb-2 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: 'rgb(159, 240, 212)', color: 'rgb(0, 79, 110)' }}>
-                    YOUR PERSONAL HOLIDAY HERO
+                <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full">
+                  <div className="inline-block px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-4 mt-4 sm:mt-8 lg:mt-12 border border-[rgb(159,240,212)]/30 bg-[rgb(159,240,212)]/10 backdrop-blur-sm text-[rgb(159,240,212)] font-sans shadow-[0_0_15px_rgba(159,240,212,0.1)]">
+                    Your Personal Holiday Hero
                   </div>
-                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-tight" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2)' }}>
+                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.1] font-medium tracking-tight font-sans">
                     <span className="inline lg:block lg:whitespace-nowrap">Make planning a holiday,</span>
-                    <span className="inline lg:block lg:whitespace-nowrap"> feel like a holiday</span>
+                    <span className="inline lg:block lg:whitespace-nowrap text-white/90"> feel like a holiday</span>
                   </h1>
                   {/* Logo Container */}
                   <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 lg:gap-4 flex-wrap">
@@ -147,12 +215,22 @@ export default function Home() {
               </div>
 
               {/* Feature Elements at Bottom */}
-              <div className="w-full pb-8 sm:pb-4 lg:pb-6">
+              <div className="w-full pb-8 sm:pb-4 lg:pb-6" ref={carouselContainerRef}>
                 {/* Mobile: Horizontal scrollable carousel */}
                 <div className="lg:hidden overflow-x-auto scrollbar-hide pl-12 sm:pl-16 pr-4" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
                   <div className="flex gap-6 sm:gap-8" style={{ scrollSnapType: 'x mandatory' }}>
                     {/* Feature 1 */}
-                    <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
+                    <div 
+                      ref={cardRefs[0]}
+                      className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative transition-all duration-700 ease-out ${
+                        visibleCards[0] && carouselVisible
+                          ? 'opacity-100 translate-x-0' 
+                          : scrollDirection === 'down' 
+                            ? 'opacity-0 -translate-x-8' 
+                            : 'opacity-0 translate-x-8'
+                      }`}
+                      style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[0] && carouselVisible ? (scrollDirection === 'down' ? '100ms' : '300ms') : '0ms' }}
+                    >
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
@@ -162,7 +240,17 @@ export default function Home() {
                     </div>
 
                     {/* Feature 2 */}
-                    <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative" style={{ scrollSnapAlign: 'start' }}>
+                    <div 
+                      ref={cardRefs[1]}
+                      className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative transition-all duration-700 ease-out ${
+                        visibleCards[1] && carouselVisible
+                          ? 'opacity-100 translate-x-0' 
+                          : scrollDirection === 'down' 
+                            ? 'opacity-0 -translate-x-8' 
+                            : 'opacity-0 translate-x-8'
+                      }`}
+                      style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[1] && carouselVisible ? (scrollDirection === 'down' ? '250ms' : '250ms') : '0ms' }}
+                    >
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
@@ -172,7 +260,17 @@ export default function Home() {
                     </div>
 
                     {/* Feature 3 */}
-                    <div className="flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)]" style={{ scrollSnapAlign: 'start' }}>
+                    <div 
+                      ref={cardRefs[2]}
+                      className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] transition-all duration-700 ease-out ${
+                        visibleCards[2] && carouselVisible
+                          ? 'opacity-100 translate-x-0' 
+                          : scrollDirection === 'down' 
+                            ? 'opacity-0 -translate-x-8' 
+                            : 'opacity-0 translate-x-8'
+                      }`}
+                      style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[2] && carouselVisible ? (scrollDirection === 'down' ? '400ms' : '100ms') : '0ms' }}
+                    >
                       <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
                       <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
@@ -240,7 +338,7 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
                 <div className="space-y-3 sm:space-y-4">
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Jane Smith</h3>
+                  <h3 className="text-3xl sm:text-4xl font-medium text-white drop-shadow-lg">Jane Smith</h3>
                   <Button size="lg" className="shadow-none w-full sm:w-auto">07777 000 123</Button>
                 </div>
               </div>
@@ -256,9 +354,9 @@ export default function Home() {
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
                     <span>HOLIDAY WITH THE BEST</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to have partnered with the multi-award winning Not Just Travel</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner with the<br className="hidden lg:block" /> award-winning Not Just Travel</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
-                    It means I can bring you amazing holidays, cruises, flights, hotels and more, combining the best choice and value with outstanding personalised service and the confidence of the world's best lifestyle franchise brand behind every booking.
+                    Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world's best lifestyle franchise behind every booking
                   </p>
                   {/* Logo Images */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
@@ -352,7 +450,7 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
                 <div className="space-y-4">
-                  <h3 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-lg">Jane Smith</h3>
+                  <h3 className="text-4xl sm:text-5xl font-medium text-white drop-shadow-lg">Jane Smith</h3>
                   <Button size="lg" className="shadow-none">07777 000 123</Button>
                 </div>
               </div>
@@ -370,6 +468,9 @@ export default function Home() {
       <section id="holiday-types" className="relative">
         <HolidayTypeGallery />
       </section>
+
+      {/* CTA Profile Section */}
+      <CtaProfile />
 
     </main>
   );

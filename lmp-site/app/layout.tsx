@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {

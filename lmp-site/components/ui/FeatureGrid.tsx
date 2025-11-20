@@ -43,11 +43,11 @@ const FeatureGrid = () => {
             <span>HOW IT WORKS</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
           Everything you need, from<br className="hidden lg:block" /> someone you can call anytime
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-          I can bring you the backing, tools, technology and deals of an<br className="hidden lg:block" /> award‑winning travel brand, except you have my personal number.
+          Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel consultant.
         </p>
         <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
           <a
@@ -72,10 +72,10 @@ const FeatureGrid = () => {
               />
               <div className="w-full relative z-10">
                 <User className="w-8 h-8 text-white mb-2" />
-                <h3 className="text-lg font-bold text-white sm:text-xl lg:text-2xl mb-1 leading-none">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none">
                   Personal service
                 </h3>
-                <p className="text-sm font-medium text-white md:text-base lg:text-lg leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance">
+                <p className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance">
                   You'll be looked after by one of the top travel agencies in the UK.
                 </p>
               </div>
@@ -105,8 +105,8 @@ const FeatureGrid = () => {
             />
             <div className="relative z-10">
               <Gift className="w-8 h-8 mb-2 text-white" />
-              <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-bold text-white leading-none">Totally free</div>
-              <div className="text-xs md:text-base lg:text-lg leading-tight text-white">We handle every detail for you, including research, quotes, bookings, amendments and aftercare.</div>
+              <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
+              <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
             </div>
           </div>
           <div className={`relative flex flex-col items-start justify-between rounded-lg p-4 md:p-6 lg:p-10 overflow-hidden ${isVisible ? 'fade-in-3' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' } : { transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' }) }}>
@@ -165,17 +165,17 @@ const FeatureGrid = () => {
             {/* Headline and Body Copy */}
             <div className="mt-4 z-10">
               <ShieldCheck className="w-8 h-8 text-white mb-2" />
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white text-left mb-2 leading-none">Complete protection</h3>
-              <p className="text-sm sm:text-base md:text-lg text-white/90 text-left leading-tight">All our holidays are ABTA and ATOL protected for total peace of mind.</p>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none">Complete protection</h3>
+              <p className="text-sm md:text-base lg:text-lg font-medium text-white text-left leading-tight">ABTA and ATOL protected for total peace of mind.</p>
             </div>
           </div>
           <div className={`flex flex-col justify-between rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-4' : ''}`} style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }) }}>
-            <div className="mb-2 text-3xl lg:text-5xl font-bold" style={{ color: '#004F6E' }}>150+</div>
-            <div className="text-xs md:text-base lg:text-lg leading-tight text-muted-foreground">Metric 3</div>
+            <div className="mb-2 text-3xl lg:text-5xl font-medium" style={{ color: '#004F6E' }}>150+</div>
+            <div className="text-sm md:text-base lg:text-lg font-medium leading-tight text-muted-foreground">Metric 3</div>
           </div>
           <div className={`flex flex-col justify-between rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
-            <div className="mb-2 text-3xl lg:text-5xl font-bold" style={{ color: '#004F6E' }}>10</div>
-            <div className="text-xs md:text-base lg:text-lg leading-tight text-muted-foreground">Metric 4</div>
+            <div className="mb-2 text-3xl lg:text-5xl font-medium" style={{ color: '#004F6E' }}>10</div>
+            <div className="text-sm md:text-base lg:text-lg font-medium leading-tight text-muted-foreground">Metric 4</div>
           </div>
           <a
             href="#"
@@ -188,7 +188,7 @@ const FeatureGrid = () => {
               className="absolute h-full w-full object-cover object-center"
             />
             <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end p-4 transition-colors md:p-6 lg:p-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
-              <h3 className="text-lg font-bold text-white sm:text-xl lg:text-2xl leading-none">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">
                 The best brands
               </h3>
             </div>
