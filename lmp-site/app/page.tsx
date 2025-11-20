@@ -356,7 +356,7 @@ export default function Home() {
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner with the<br className="hidden lg:block" /> award-winning Not Just Travel</h2>
                   <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
-                    Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world's best lifestyle franchise behind every booking
+                    Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world's best lifestyle franchise behind every booking.
                   </p>
                   {/* Logo Images */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
