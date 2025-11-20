@@ -79,10 +79,11 @@ const DATA: DatItem[] = [
     title: "AI & Machine Learning",
     price: "$5,000",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
-    hoverImage: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-5oYbG-sEImY-unsplash.jpg",
+    hoverImage: "/images/woman-looking-lake-against-sky.webp",
     tag: "Adventure",
     headline: "Adventure",
     body: "Thrilling adventure holidays for the bold, from hiking and diving to extreme sports.",
+    backgroundColor: "#667052",
   },
   {
     id: "7",
@@ -90,19 +91,20 @@ const DATA: DatItem[] = [
     price: "$2,800",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
     hoverImage: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
-    tag: "Multi centre",
-    headline: "Multi-centre",
-    body: "Combine multiple destinations in one trip, creating unforgettable multi-stop adventures.",
+    tag: "Safari",
+    headline: "Safari",
+    body: "Experience the wild beauty of Africa with unforgettable safari adventures, from game drives to luxury lodges.",
   },
   {
     id: "8",
     title: "Cybersecurity Solutions",
     price: "$4,000",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-6.svg",
-    hoverImage: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-majMgWtrF48-unsplash.jpg",
+    hoverImage: "/images/vertical-shot-sea-with-ferries-wheel-distance-blue-sky.webp",
     tag: "UK",
     headline: "UK",
     body: "Discover the beauty of the UK, from historic cities to stunning countryside and coastal escapes.",
+    backgroundColor: "#21272a",
   },
 ];
 
@@ -231,11 +233,15 @@ const HolidayTypeGallery = () => {
                           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, rgba(0,0,0,0.8) 82%, rgba(0,0,0,0.5) 86%, rgba(0,0,0,0.2) 90%, transparent 93%)',
                           objectPosition: product.tag === 'City Breaks' 
                             ? 'center 5%' 
+                            : product.tag === 'Adventure'
+                            ? 'center 10%'
                             : (product.tag === 'Cruises' || product.tag === 'Families' || product.tag === 'Ski' || product.tag === 'Lapland') 
                             ? 'center 20%' 
                             : 'center top',
                           transform: product.tag === 'City Breaks' 
                             ? 'translateY(-30%)' 
+                            : product.tag === 'Adventure'
+                            ? 'translateY(-20%)'
                             : (product.tag === 'Cruises' || product.tag === 'Families' || product.tag === 'Ski' || product.tag === 'Lapland') 
                             ? 'translateY(-10%)' 
                             : 'none'
@@ -278,6 +284,10 @@ const HolidayTypeGallery = () => {
                             ? 'rgba(227, 141, 50, 0.25)'
                             : product.backgroundColor === '#4b1c15'
                             ? 'rgba(75, 28, 21, 0.25)'
+                            : product.backgroundColor === '#667052'
+                            ? 'rgba(102, 112, 82, 0.25)'
+                            : product.backgroundColor === '#21272a'
+                            ? 'rgba(33, 39, 42, 0.25)'
                             : 'rgba(255, 255, 255, 0.25)',
                           WebkitBackdropFilter: 'blur(12px)',
                           backdropFilter: 'blur(12px)',
