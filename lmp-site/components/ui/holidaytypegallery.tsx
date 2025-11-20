@@ -230,12 +230,12 @@ const HolidayTypeGallery = () => {
                           maskImage: 'linear-gradient(to bottom, black 0%, black 75%, rgba(0,0,0,0.8) 82%, rgba(0,0,0,0.5) 86%, rgba(0,0,0,0.2) 90%, transparent 93%)',
                           WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 75%, rgba(0,0,0,0.8) 82%, rgba(0,0,0,0.5) 86%, rgba(0,0,0,0.2) 90%, transparent 93%)',
                           objectPosition: product.tag === 'City Breaks' 
-                            ? 'center 0%' 
+                            ? 'center 5%' 
                             : (product.tag === 'Cruises' || product.tag === 'Families' || product.tag === 'Ski' || product.tag === 'Lapland') 
                             ? 'center 20%' 
                             : 'center top',
                           transform: product.tag === 'City Breaks' 
-                            ? 'translateY(-35%)' 
+                            ? 'translateY(-30%)' 
                             : (product.tag === 'Cruises' || product.tag === 'Families' || product.tag === 'Ski' || product.tag === 'Lapland') 
                             ? 'translateY(-10%)' 
                             : 'none'

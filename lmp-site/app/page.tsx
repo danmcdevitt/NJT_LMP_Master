@@ -4,14 +4,16 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
-import { useEffect, useState } from "react";
-import { Sparkles, MapPin, Award, ArrowRight, Plane } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Sparkles, MapPin, Award, ArrowRight, Plane, User } from "lucide-react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showFanCards, setShowFanCards] = useState(false);
+  const [isPersonalServiceVisible, setIsPersonalServiceVisible] = useState(true);
+  const personalServiceRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,31 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  useEffect(() => {
+    const element = personalServiceRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsPersonalServiceVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+    };
+  }, []);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'white' }}>
@@ -240,7 +267,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
                 <div className="space-y-3 sm:space-y-4">
                   <h3 className="text-3xl sm:text-4xl font-bold text-white drop-shadow-lg">Jane Smith</h3>
-                  <Button size="lg" className="shadow-none w-full sm:w-auto">Contact Jane</Button>
+                  <Button size="lg" className="shadow-none w-full sm:w-auto">07777 000 123</Button>
                 </div>
               </div>
             </Card>
@@ -352,7 +379,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
                 <div className="space-y-4">
                   <h3 className="text-4xl sm:text-5xl font-bold text-white drop-shadow-lg">Jane Smith</h3>
-                  <Button size="lg" className="shadow-none">Contact Jane</Button>
+                  <Button size="lg" className="shadow-none">07777 000 123</Button>
                 </div>
               </div>
             </Card>
@@ -368,6 +395,59 @@ export default function Home() {
       {/* Holiday Types Gallery Section */}
       <section id="holiday-types" className="relative">
         <HolidayTypeGallery />
+      </section>
+
+      {/* Personal Service Full Width Section */}
+      <section 
+        ref={personalServiceRef}
+        id="personal-service-section"
+        className="relative overflow-hidden flex items-center justify-center" 
+        style={{ 
+          width: '100vw', 
+          height: 'min(60vh, 600px)', 
+          marginLeft: 'calc((100vw - 95vw) / -2)',
+          opacity: isPersonalServiceVisible ? 1 : 0,
+          transform: isPersonalServiceVisible ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'opacity 1.2s ease-out, transform 1.2s ease-out',
+          minHeight: '400px'
+        }}
+      >
+        <a
+          href="#"
+          className="group relative w-full h-full block"
+        >
+          <img
+            src="/images/amalfi.webp"
+            alt="Amalfi Coast"
+            className="absolute h-full w-full object-cover object-center zoom-in-slow"
+          />
+          
+          {/* Dreamy Fade Overlay */}
+          <div 
+            className="absolute inset-0 pointer-events-none" 
+            style={{ 
+              background: 'linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0.9) 10%, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%)',
+              zIndex: 1
+            }} 
+          />
+
+          {/* Frosted Glass Overlay */}
+          <div 
+            className="absolute bottom-0 left-0 right-0 h-[50%] backdrop-blur-sm" 
+            style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.25)',
+              WebkitBackdropFilter: 'blur(12px)',
+              backdropFilter: 'blur(12px)',
+              maskImage: 'linear-gradient(to top, black 0%, black 30%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 80%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to top, black 0%, black 30%, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 80%, transparent 100%)',
+              zIndex: 2
+            }} 
+          />
+
+          {/* Content Container */}
+          <div className="relative z-10 w-[95vw] h-full flex flex-col items-start justify-end mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-12">
+          </div>
+        </a>
       </section>
 
     </main>
