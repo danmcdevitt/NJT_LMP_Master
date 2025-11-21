@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, User, Gift, Plane, Star, ShieldCheck } from "lucide-react";
+import { ArrowRight, User, Gift, Plane, Star, ShieldCheck, Sparkles, Lightbulb, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const FeatureGrid = () => {
@@ -47,67 +47,26 @@ const FeatureGrid = () => {
           Everything you need, from<br className="hidden lg:block" /> someone you can call anytime
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-          Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel consultant.
+          Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel agent.
         </p>
         <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
           <a
             href="#"
-            className={`group relative col-span-2 overflow-clip rounded-lg sm:max-lg:col-span-1 ${isVisible ? 'fade-in-1' : ''}`}
-            style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' } : { transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' }}
+            className={`group flex flex-col justify-end col-span-2 rounded-lg p-4 md:p-6 lg:p-10 sm:max-lg:col-span-1 ${isVisible ? 'fade-in-1' : ''}`}
+            style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' } : { transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' }) }}
           >
-            <img
-              src="/images/amalfi.webp"
-              alt="Amalfi Coast"
-              className="absolute h-full w-full object-cover object-center zoom-in-slow"
-            />
-            <div className="sm:aspect-3/2 relative flex h-full w-full flex-col items-start justify-end p-4 transition-colors md:p-6 lg:p-10">
-              {/* Frosted Glass Overlay */}
-              <div 
-                className="absolute bottom-0 left-0 right-0 h-[40%] bg-white/20 backdrop-blur-sm" 
-                style={{ 
-                  WebkitBackdropFilter: 'blur(8px)',
-                  maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)'
-                }} 
-              />
-              <div className="w-full relative z-10">
-                <User className="w-8 h-8 text-white mb-2" />
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none">
-                  Personal service
-                </h3>
-                <p className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance">
-                  You'll be looked after by one of the top travel agencies in the UK.
-                </p>
-              </div>
-            </div>
+            <User className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>
+              Personal service
+            </h3>
+            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance" style={{ color: '#004F6E' }}>
+              You'll be looked after by one of the top travel agents in the UK.
+            </p>
           </a>
-          <div className={`relative flex flex-col justify-between rounded-lg overflow-hidden p-4 sm:justify-end md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }) }}>
-            <img
-              src="/images/oldercouple only.webp"
-              alt="Older couple"
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{ 
-                zIndex: 0,
-                objectPosition: '65% center'
-              }}
-            />
-            {/* Frosted Coral Gradient Overlay - Behind text, above image */}
-            <div 
-              className="absolute bottom-0 left-0 right-0 h-[75%] backdrop-blur-sm rounded-b-lg" 
-              style={{ 
-                background: 'linear-gradient(to top, rgba(255, 83, 83, 0.95) 0%, rgba(255, 83, 83, 0.85) 40%, rgba(255, 83, 83, 0.6) 70%, rgba(255, 83, 83, 0.2) 100%)',
-                WebkitBackdropFilter: 'blur(8px)',
-                backdropFilter: 'blur(8px)',
-                maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                zIndex: 1
-              }} 
-            />
-            <div className="relative z-10">
-              <Gift className="w-8 h-8 mb-2 text-white" />
-              <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
-              <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
-            </div>
+          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }) }}>
+            <Gift className="w-8 h-8 mb-2 text-white" />
+            <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
+            <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
           </div>
           <div className={`relative flex flex-col items-start justify-between rounded-lg p-4 md:p-6 lg:p-10 overflow-hidden ${isVisible ? 'fade-in-3' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' } : { transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' }) }}>
             {/* Animated Shield Composition */}
@@ -169,13 +128,19 @@ const FeatureGrid = () => {
               <p className="text-sm md:text-base lg:text-lg font-medium text-white text-left leading-tight">ABTA and ATOL protected for total peace of mind.</p>
             </div>
           </div>
-          <div className={`flex flex-col justify-between rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-4' : ''}`} style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }) }}>
-            <div className="mb-2 text-3xl lg:text-5xl font-medium" style={{ color: '#004F6E' }}>150+</div>
-            <div className="text-sm md:text-base lg:text-lg font-medium leading-tight text-muted-foreground">Metric 3</div>
+          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-4' : ''}`} style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }) }}>
+            <Sparkles className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Tailored to you,</h3>
+            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
+              Every holiday suggestion is carefully crafted.
+            </p>
           </div>
-          <div className={`flex flex-col justify-between rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
-            <div className="mb-2 text-3xl lg:text-5xl font-medium" style={{ color: '#004F6E' }}>10</div>
-            <div className="text-sm md:text-base lg:text-lg font-medium leading-tight text-muted-foreground">Metric 4</div>
+          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
+            <Lightbulb className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Insider knowledge</h3>
+            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
+              Access to exclusive deals and expert industry insights.
+            </p>
           </div>
           <a
             href="#"
@@ -183,14 +148,21 @@ const FeatureGrid = () => {
             style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.95s ease-out 0.3s, transform 0.95s ease-out 0.3s' } : { transition: 'opacity 0.95s ease-out 0.3s, transform 0.95s ease-out 0.3s' }}
           >
             <img
-              src="https://images.unsplash.com/photo-1550070881-a5d71eda5800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2NDI3NzN8MHwxfGFsbHwxMjV8fHx8fHwyfHwxNzIzNDM1Mjk4fA&ixlib=rb-4.0.3&q=80&w=1080"
-              alt="Travel destination"
+              src="/images/amalfi.webp"
+              alt="Amalfi Coast"
               className="absolute h-full w-full object-cover object-center"
             />
             <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end p-4 transition-colors md:p-6 lg:p-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">
-                The best brands
-              </h3>
+              <div className="relative z-10">
+                <Heart className="w-8 h-8 mb-2 text-white" />
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none">
+                  Honest, unbiased advice
+                </h3>
+                <p className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">
+                  No hidden agendas, just genuine<br />
+                  recommendations that put you first.
+                </p>
+              </div>
             </div>
           </a>
         </div>

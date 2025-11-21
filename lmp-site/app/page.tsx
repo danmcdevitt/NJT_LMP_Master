@@ -1,6 +1,5 @@
 "use client";
 
-import { CtaProfile } from "@/components/cta-profile";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
@@ -468,9 +467,6 @@ export default function Home() {
       <section id="holiday-types" className="relative">
         <HolidayTypeGallery />
       </section>
-
-      {/* CTA Profile Section */}
-      <CtaProfile />
 
     </main>
   );
