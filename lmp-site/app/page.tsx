@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
-import { Logos10 } from "@/components/logos10";
+import { Feature197 } from "@/components/feature197";
 import { useEffect, useState, useRef } from "react";
 import { Sparkles, MapPin, Award, ArrowRight, Plane, User } from "lucide-react";
 
@@ -469,9 +469,9 @@ export default function Home() {
         <HolidayTypeGallery />
       </section>
 
-      {/* Logos Carousel Section */}
-      <section id="logos" className="relative">
-        <Logos10 />
+      {/* Feature Accordion Section */}
+      <section id="features" className="relative">
+        <Feature197 />
       </section>
 
     </main>
