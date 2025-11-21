@@ -157,7 +157,7 @@ const HolidayTypeGallery = () => {
           Every type of holiday,<br className="hidden lg:block" /> any kind of budget
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-          From beach escapes to city adventures,<br className="hidden lg:block" /> we'll help with any kind of holiday you like.
+          From beach escapes to city adventures,<br className="hidden lg:block" /> we'll help with any holiday you want.
         </p>
         
         <div className="flex justify-end mb-6 sm:mb-8 px-4 lg:px-6">
