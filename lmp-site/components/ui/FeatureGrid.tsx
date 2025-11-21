@@ -63,10 +63,12 @@ const FeatureGrid = () => {
               You'll be looked after by one of the top travel agents in the UK.
             </p>
           </a>
-          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }) }}>
-            <Gift className="w-8 h-8 mb-2 text-white" />
-            <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
-            <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
+          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }) }}>
+            <Lightbulb className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Insider knowledge</h3>
+            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
+              Access to exclusive deals and expert industry insights.
+            </p>
           </div>
           <div className={`relative flex flex-col items-start justify-between rounded-lg p-4 md:p-6 lg:p-10 overflow-hidden ${isVisible ? 'fade-in-3' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' } : { transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' }) }}>
             {/* Animated Shield Composition */}
@@ -86,27 +88,11 @@ const FeatureGrid = () => {
                 <div className="w-20 h-20 rounded-full border border-[#9FD5D1]/30 absolute" style={{ animation: 'ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite' }}></div>
               </div>
 
-              {/* Shield SVG with Internal Masking */}
+              {/* Shield SVG without scanning beam */}
               <div className="relative drop-shadow-[0_0_25px_rgba(159,213,209,0.4)] transform scale-100 z-20">
                 <svg width="80" height="95" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#9FD5D1]">
-                  <defs>
-                    {/* Mask defined by the shield shape */}
-                    <mask id="shieldMask">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="white"></path>
-                    </mask>
-                    {/* Gradient for scan line */}
-                    <linearGradient id="scanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#9FD5D1" stopOpacity="0"></stop>
-                      <stop offset="50%" stopColor="#9FD5D1" stopOpacity="0.6"></stop>
-                      <stop offset="100%" stopColor="#9FD5D1" stopOpacity="0"></stop>
-                    </linearGradient>
-                  </defs>
-
                   {/* Background of shield (Glassy) */}
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#9FD5D1" fillOpacity="0.05"></path>
-
-                  {/* Scanning Beam */}
-                  <rect x="0" y="0" width="24" height="12" fill="url(#scanGradient)" mask="url(#shieldMask)" style={{ animation: 'scan 3s ease-in-out infinite' }}></rect>
 
                   {/* Shield Outline */}
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -135,12 +121,10 @@ const FeatureGrid = () => {
               Every holiday suggestion is carefully crafted.
             </p>
           </div>
-          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
-            <Lightbulb className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Insider knowledge</h3>
-            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
-              Access to exclusive deals and expert industry insights.
-            </p>
+          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
+            <Gift className="w-8 h-8 mb-2 text-white" />
+            <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
+            <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
           </div>
           <a
             href="#"

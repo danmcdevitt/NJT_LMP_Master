@@ -90,10 +90,11 @@ const DATA: DatItem[] = [
     title: "DevOps Services",
     price: "$2,800",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
-    hoverImage: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/simone-hutsch-duxeKbu9FDE-unsplash.jpg",
+    hoverImage: "/images/safariholiday.webp",
     tag: "Safari",
     headline: "Safari",
     body: "Experience the wild beauty of Africa with unforgettable safari adventures, from game drives to luxury lodges.",
+    backgroundColor: "#bca17b",
   },
   {
     id: "8",
@@ -288,6 +289,8 @@ const HolidayTypeGallery = () => {
                             ? 'rgba(102, 112, 82, 0.25)'
                             : product.backgroundColor === '#21272a'
                             ? 'rgba(33, 39, 42, 0.25)'
+                            : product.backgroundColor === '#bca17b'
+                            ? 'rgba(188, 161, 123, 0.25)'
                             : 'rgba(255, 255, 255, 0.25)',
                           WebkitBackdropFilter: 'blur(12px)',
                           backdropFilter: 'blur(12px)',
