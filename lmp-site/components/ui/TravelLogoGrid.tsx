@@ -50,7 +50,6 @@ const TravelLogoGrid = () => {
               alt={logo.name}
               className="relative z-10 w-full h-full object-contain"
               style={{ 
-                filter: 'brightness(0) invert(1)',
                 maxWidth: '120%',
                 maxHeight: '120%',
               }}

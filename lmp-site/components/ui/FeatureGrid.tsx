@@ -44,10 +44,10 @@ const FeatureGrid = () => {
             <span>HOW IT WORKS</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-2 sm:mb-2 lg:mb-3 leading-tight" style={{ color: '#004F6E' }}>
           Truly personal service, from<br className="hidden lg:block" /> someone you can call anytime
         </h2>
-        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
+        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
           Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel agent.
         </p>
         <div className="grid w-full grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">

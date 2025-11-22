@@ -146,23 +146,16 @@ export default function Home() {
             </video>
 
             {/* Stylish Overlay with Noise */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/15 via-black/5 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/12 via-black/4 to-black/8" />
             
             {/* Cinematic Gradient for Text Contrast - Left side darkening */}
             <div 
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: 'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0) 70%)'
+                background: 'linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0) 75%)'
               }}
             />
 
-            <div
-              className="absolute inset-0 opacity-15"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-                mixBlendMode: 'overlay'
-              }}
-            />
 
             {/* Dreamy Fade Overlay at Bottom */}
             <div 
@@ -177,8 +170,8 @@ export default function Home() {
             <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
                 <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full">
-                  <div className="inline-block px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-4 mt-4 sm:mt-8 lg:mt-12 border border-[rgb(159,240,212)]/50 bg-[rgb(159,240,212)]/20 backdrop-blur-sm text-[rgb(159,240,212)] font-sans shadow-[0_0_15px_rgba(159,240,212,0.2)]">
-                    Your Personal Holiday Hero
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold uppercase mb-4 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: '#9FF0D4', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
+                    <span>Your Personal Holiday Hero</span>
                   </div>
                   <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.1] font-medium tracking-tight font-sans">
                     <span className="inline lg:block lg:whitespace-nowrap">Make planning a holiday,</span>

@@ -154,10 +154,10 @@ const HolidayTypeGallery = () => {
             <span>ALL HOLIDAY TYPES</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-2 sm:mb-2 lg:mb-3 leading-tight" style={{ color: '#004F6E' }}>
           Every type of holiday,<br className="lg:hidden" /><br className="hidden lg:block" /> any kind of budget
         </h2>
-        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
+        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
           From beach escapes to city adventures,<br className="lg:hidden" /><br className="hidden lg:block" /> we'll help with any holiday you want.
         </p>
         

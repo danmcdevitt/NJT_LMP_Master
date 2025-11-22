@@ -53,7 +53,6 @@ const defaultFeatures: FeatureItem[] = [
   {
     id: 4,
     title: "Exclusive travel offers",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
     backgroundImage: "/images/amalfi.webp",
     description:
       "Get access to special deals and exclusive offers that aren't available to the general public. As a Not Just Travel agent, we can secure you better prices, added extras, and unique packages that make your holiday even more special.",
@@ -79,15 +78,14 @@ const Feature197 = ({
   const activeFeature = features.find(f => f.id === activeTabId) || features[0];
   const backgroundImage = activeFeature?.backgroundImage;
 
-  // All accordion items use Cruise Blue
-  const activeColor = '#004F6E';
+  // All accordion items use Holiday Linen
+  const activeColor = '#F5F0EC';
 
   return (
     <section className="pt-3 sm:pt-8 lg:pt-12 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
       <style dangerouslySetInnerHTML={{__html: `
-        button[data-state="open"] svg,
-        [data-state="open"] svg {
-          color: #9FF0D4 !important;
+        button svg {
+          color: #004F6E;
         }
       `}} />
       <div className="w-full">
@@ -98,10 +96,10 @@ const Feature197 = ({
             <span>WHY CHOOSE US</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-2 sm:mb-2 lg:mb-3 leading-tight" style={{ color: '#004F6E' }}>
           Everything you need for<br className="lg:hidden" /><br className="hidden lg:block" /> the perfect holiday
         </h2>
-        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
+        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-8 sm:mb-12 lg:mb-16 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
           From trusted brands to complete protection,<br className="lg:hidden" /><br className="hidden lg:block" /> we handle every detail so you can relax and enjoy.
         </p>
         
@@ -127,24 +125,24 @@ const Feature197 = ({
                       key={tab.id}
                       value={`item-${tab.id}`}
                       className={`transition-opacity hover:opacity-80 ${index === features.length - 1 ? '!border-b-0' : ''}`}
-                      style={index === features.length - 1 ? { borderBottom: 'none' } : { borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                      style={index === features.length - 1 ? { borderBottom: 'none' } : { borderColor: 'rgba(0, 79, 110, 0.2)' }}
                     >
                       <AccordionTrigger
                         onClick={() => {
                           setActiveContent(tab.component || tab.image);
                           setActiveTabId(tab.id);
                         }}
-                        className={`!no-underline cursor-pointer py-4 sm:py-5 transition [&_svg]:text-white ${tab.id === activeTabId ? '[&[data-state=open]_svg]:!text-[#9FF0D4]' : ''}`}
+                        className="!no-underline cursor-pointer py-4 sm:py-5 transition [&_svg]:text-[#004F6E]"
                       >
                         <h4
                           className={`text-lg sm:text-xl lg:text-2xl font-medium text-left ${tab.id === activeTabId ? "" : ""}`}
-                          style={{ color: tab.id === activeTabId ? '#9FF0D4' : '#ffffff' }}
+                          style={{ color: '#004F6E' }}
                         >
                           {tab.title}
                         </h4>
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="text-lg sm:text-xl leading-relaxed" style={{ color: '#ffffff' }}>
+                        <p className="text-lg sm:text-xl leading-relaxed" style={{ color: '#004F6E' }}>
                           {tab.description}
                         </p>
                         <div className="mt-4 md:hidden">
