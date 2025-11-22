@@ -21,15 +21,21 @@ const OfferCard = ({
 }: OfferCardProps) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const [textCanMove, setTextCanMove] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     if (disableAnimation) {
+      setIsVisible(true);
       return; // Skip all animations if disabled
     }
 
+    // First: fade in the card
+    setIsVisible(true);
+
+    // Then: start white overlay animation after fade-in completes
     const timer1 = setTimeout(() => {
       setIsAnimated(true);
-    }, 1500); // 1.5 seconds delay - start white overlay animation
+    }, 1500); // 0.5s fade-in + 1s delay = 1.5s total before white overlay starts
     
     // Allow text to move AFTER white overlay completely finishes
     // White overlay: starts at 1.5s, duration 1s, finishes at 2.5s
@@ -47,7 +53,7 @@ const OfferCard = ({
   return (
     <Card
       className={`overflow-hidden shadow-none relative rounded-lg md:rounded-2xl cursor-pointer bg-transparent w-full max-w-[280px] mx-auto md:max-w-none md:w-[358px] aspect-[280/400] md:aspect-[358/475] ${className}`}
-      style={{ 
+      style={{
         maxWidth: '100%',
         maxHeight: 'none',
         border: '0px solid white',
@@ -55,6 +61,8 @@ const OfferCard = ({
         backdropFilter: 'none',
         WebkitBackdropFilter: 'none',
         background: 'transparent',
+        opacity: isVisible ? 1 : 0,
+        transition: 'opacity 0.5s ease-in',
       }}
     >
       {/* Background Image */}

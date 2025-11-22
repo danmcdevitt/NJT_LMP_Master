@@ -10,8 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { TravelLogoGrid } from "@/components/ui/TravelLogoGrid";
 import { OfferCard } from "@/components/ui/OfferCard";
+import { Logos13 } from "@/components/logos13";
 
 interface FeatureItem {
   id: number;
@@ -31,7 +31,7 @@ const defaultFeatures: FeatureItem[] = [
     id: 1,
     title: "All the best brands",
     backgroundImage: "/images/family2.webp",
-    component: <TravelLogoGrid />,
+    component: <Logos13 />,
     description:
       "We work with the world's leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from Jet2Holidays, TUI, P&O Cruises, Virgin Voyages, and many more, all in one place.",
   },
@@ -126,7 +126,7 @@ const Feature197 = ({
           borderColor: 'rgba(220, 215, 211, 0.6)'
         }}>
           {/* Split Layout: Left (Color) + Right (Image) */}
-          <div className="flex flex-col md:flex-row min-h-[500px]">
+          <div className="flex flex-col md:flex-row" style={{ minHeight: '500px' }}>
             {/* Left Half - Color Background */}
             <div 
               className="w-full md:w-1/2 relative p-6 md:p-6 lg:p-8 transition-colors duration-700 ease-in-out"
@@ -164,7 +164,7 @@ const Feature197 = ({
                         <p className="text-lg sm:text-xl leading-relaxed" style={{ color: '#004F6E' }}>
                           {tab.description}
                         </p>
-                        <div className="mt-4 md:hidden">
+                        <div className={`mt-4 md:hidden ${tab.id === 1 ? 'min-h-[500px]' : ''}`}>
                           {tab.component ? (
                             <div className="w-full flex justify-center">
                               {tab.component}
@@ -260,7 +260,7 @@ const Feature197 = ({
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full max-w-md aspect-4/3 flex items-center justify-center" style={{ minHeight: '300px' }}>
+                  <div className="w-full max-w-md flex items-center justify-center overflow-visible" style={{ minHeight: '450px' }}>
                     {activeContent}
                   </div>
                 )}
