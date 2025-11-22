@@ -37,7 +37,7 @@ const defaultFeatures: FeatureItem[] = [
   },
   {
     id: 2,
-    title: "5-star rated",
+    title: "5-star service",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
     backgroundImage: "/images/4292.jpg",
     description:

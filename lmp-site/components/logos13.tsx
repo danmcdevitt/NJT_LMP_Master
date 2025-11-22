@@ -1,4 +1,11 @@
+"use client";
+
+import { useState, useEffect, useRef, useCallback } from "react";
+
 const Logos13 = () => {
+  const [visibleRows, setVisibleRows] = useState<number[]>([]);
+  const gridRef = useRef<HTMLUListElement>(null);
+
   const logos = [
     {
       id: "logo-1",
@@ -62,20 +69,77 @@ const Logos13 = () => {
     },
   ];
 
+  const startAnimation = useCallback(() => {
+    setVisibleRows([]);
+    
+    // Animate rows one at a time (4 rows total)
+    const totalRows = 4;
+    for (let rowIndex = 0; rowIndex < totalRows; rowIndex++) {
+      setTimeout(() => {
+        setVisibleRows((prev) => [...prev, rowIndex]);
+      }, rowIndex * 200); // 200ms delay between each row
+    }
+  }, []);
+
+  const resetAnimation = useCallback(() => {
+    setVisibleRows([]);
+  }, []);
+
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Element is visible, start animation after a short delay
+            setTimeout(() => {
+              startAnimation();
+            }, 100);
+          } else {
+            // Element is not visible, reset animation
+            resetAnimation();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+      }
+    );
+
+    observer.observe(gridRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [startAnimation, resetAnimation]);
+
   return (
-    <ul className="grid w-full grid-cols-3 gap-x-4 gap-y-4 md:gap-x-6 md:gap-y-[3px]">
-      {logos.map((logo) => (
-        <li
-          key={logo.id}
-          className="relative flex items-center justify-center rounded-2xl px-4 py-1 md:py-0.5 min-h-[100px] md:min-h-[120px]"
-        >
-          <img
-            src={logo.image}
-            alt={logo.name}
-            className="max-h-full max-w-full object-contain"
-          />
-        </li>
-      ))}
+    <ul 
+      ref={gridRef}
+      className="grid w-full grid-cols-3 gap-x-4 gap-y-4 md:gap-x-6 md:gap-y-[3px]"
+    >
+      {logos.map((logo, index) => {
+        // Determine which row this logo belongs to (0-indexed)
+        const rowIndex = Math.floor(index / 3);
+        const isRowVisible = visibleRows.includes(rowIndex);
+
+        return (
+          <li
+            key={logo.id}
+            className="relative flex items-center justify-center rounded-2xl px-4 py-1 md:py-0.5 min-h-[100px] md:min-h-[120px] transition-opacity duration-500"
+            style={{
+              opacity: isRowVisible ? 1 : 0,
+            }}
+          >
+            <img
+              src={logo.image}
+              alt={logo.name}
+              className="max-h-full max-w-full object-contain"
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 };
