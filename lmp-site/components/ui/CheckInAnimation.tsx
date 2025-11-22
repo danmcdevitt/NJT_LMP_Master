@@ -74,7 +74,7 @@ const CheckInAnimation = () => {
       `}} />
       
       {/* Container */}
-      <div className="relative rounded-[2rem] overflow-hidden transition-all duration-700 ease-out" style={{ backgroundColor: '#004F6E' }}>
+      <div className="relative rounded-[2rem] overflow-hidden transition-all duration-700 ease-out" style={{ backgroundColor: 'transparent' }}>
         {/* Status Area */}
         <div className="px-6 py-6">
           <div className={`backdrop-blur-xl rounded-2xl p-5 transition-all duration-500 relative overflow-hidden ${isVisible ? 'checkin-container-enter-active' : 'checkin-container-enter'}`} style={{

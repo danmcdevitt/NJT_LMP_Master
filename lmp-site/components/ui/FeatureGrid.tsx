@@ -179,6 +179,15 @@ const FeatureGrid = () => {
             </div>
           </div>
           <div className={`relative flex flex-col justify-end overflow-hidden rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
+            {/* NJ Logo Image Layer - Above Background */}
+            <div className="absolute inset-0 z-[0.5] flex items-start justify-center pointer-events-none">
+              <img 
+                src="/images/NJ-only-white.png" 
+                alt="NJ Logo" 
+                className="w-auto h-auto max-w-full max-h-full object-contain"
+                style={{ opacity: 0.1 }}
+              />
+            </div>
             {/* Check-in Animation - Behind Content */}
             <div className="absolute inset-0 flex items-center justify-center z-0" style={{ top: '-5%' }}>
               <div className="w-full h-full" style={{ aspectRatio: 'inherit' }}>
