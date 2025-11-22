@@ -105,7 +105,7 @@ const Feature197 = ({
           From trusted brands to complete protection,<br className="lg:hidden" /><br className="hidden lg:block" /> we handle every detail so you can relax and enjoy.
         </p>
         
-        <div className="overflow-hidden rounded-lg border-0 md:border-2" style={{ 
+        <div className="overflow-hidden rounded-none md:rounded-lg border-0 md:border-2 -mx-5 sm:mx-0" style={{ 
           borderColor: 'rgba(220, 215, 211, 0.6)'
         }}>
           {/* Split Layout: Left (Color) + Right (Image) */}
@@ -149,14 +149,14 @@ const Feature197 = ({
                         </p>
                         <div className="mt-4 md:hidden">
                           {tab.component ? (
-                            <div className="w-full max-w-[320px] mx-auto">
+                            <div className="w-full flex justify-center">
                               {tab.component}
                             </div>
                           ) : tab.image ? (
                             <img
                               src={tab.image}
                               alt={tab.title}
-                              className="h-full max-h-80 w-full rounded-lg object-cover"
+                              className="h-full max-h-80 w-full object-cover"
                             />
                           ) : null}
                         </div>

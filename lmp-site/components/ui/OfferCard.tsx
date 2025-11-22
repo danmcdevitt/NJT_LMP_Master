@@ -29,13 +29,11 @@ const OfferCard = ({
 
   return (
     <Card
-      className={`overflow-hidden shadow-none relative rounded-2xl cursor-pointer bg-transparent ${className}`}
+      className={`overflow-hidden shadow-none relative rounded-lg md:rounded-2xl cursor-pointer bg-transparent w-full max-w-[280px] mx-auto md:max-w-none md:w-[358px] aspect-[280/400] md:aspect-[358/475] ${className}`}
       style={{ 
-        width: '358px', 
-        height: '475px', 
-        maxWidth: '358px', 
-        maxHeight: '475px',
-        border: '10px solid white',
+        maxWidth: '100%',
+        maxHeight: 'none',
+        border: '0px solid white',
         boxShadow: 'none',
         backdropFilter: 'none',
         WebkitBackdropFilter: 'none',
@@ -46,29 +44,26 @@ const OfferCard = ({
       <img
         src={image}
         alt="Exclusive travel offer"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{
-          borderRadius: '1rem',
-        }}
+        className="absolute inset-0 w-full h-full object-cover rounded-lg md:rounded-2xl"
       />
       
       {/* Exclusive Badge - Top Left */}
       <div 
-        className="absolute top-4 left-4 z-10 h-10 rounded-full flex items-center justify-center px-3"
+        className="absolute top-3 md:top-4 left-3 md:left-4 z-10 h-8 md:h-10 rounded-full flex items-center justify-center px-2 md:px-3"
         style={{ 
           backgroundColor: 'rgba(255, 255, 255, 0.2)',
           backdropFilter: 'blur(10px)',
           WebkitBackdropFilter: 'blur(10px)',
         }}
       >
-        <span className="text-xs font-medium text-white uppercase tracking-wide whitespace-nowrap">
+        <span className="text-[10px] md:text-xs font-medium text-white uppercase tracking-wide whitespace-nowrap">
           exclusive
         </span>
       </div>
 
       {/* Heart Icon - Top Right */}
       <div 
-        className={`absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 ${isAnimated ? 'heart-tap-animation' : ''}`}
+        className={`absolute top-3 md:top-4 right-3 md:right-4 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110 ${isAnimated ? 'heart-tap-animation' : ''}`}
         style={{ 
           backgroundColor: 'rgba(255, 255, 255, 0.2)',
           backdropFilter: 'blur(10px)',
@@ -76,7 +71,7 @@ const OfferCard = ({
         }}
       >
         <Heart 
-          className={`w-5 h-5 transition-all duration-300 relative z-10 ${isAnimated ? 'text-pink-500 fill-pink-500' : 'text-white'}`} 
+          className={`w-4 h-4 md:w-5 md:h-5 transition-all duration-300 relative z-10 ${isAnimated ? 'text-pink-500 fill-pink-500' : 'text-white'}`} 
           strokeWidth={2}
           fill={isAnimated ? 'currentColor' : 'none'}
           style={{
@@ -112,9 +107,9 @@ const OfferCard = ({
       />
       
       {/* Top Section - Headline and Nights (moves up on animation) */}
-      <div className={`absolute left-0 right-0 z-20 px-6 transition-all duration-500 ${isAnimated ? 'top-[calc(50%+1rem)]' : 'bottom-20'}`}>
+      <div className={`absolute left-0 right-0 z-20 px-4 md:px-6 transition-all duration-500 ${isAnimated ? 'top-[calc(50%+0.5rem)] md:top-[calc(50%+1rem)]' : 'bottom-16 md:bottom-20'}`}>
         <h3 
-          className={`text-xl sm:text-2xl font-bold text-left mb-0 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+          className={`text-xl md:text-2xl font-bold text-left mb-0 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
           style={{
             transitionDelay: isAnimated ? '650ms' : '0s',
           }}
@@ -122,7 +117,7 @@ const OfferCard = ({
           {destination}
         </h3>
         <p 
-          className={`text-sm sm:text-base text-left -mt-0.5 mb-2 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white/90 drop-shadow-lg'}`}
+          className={`text-sm md:text-base text-left -mt-0.5 mb-2 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white/90 drop-shadow-lg'}`}
           style={{
             transitionDelay: isAnimated ? '650ms' : '0s',
           }}
@@ -131,14 +126,14 @@ const OfferCard = ({
         </p>
         {/* Body Copy - appears on animation below "7 nights" */}
         <div className={`transition-all duration-300 overflow-hidden ${isAnimated ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0'}`}>
-          <p className="text-xs sm:text-sm text-[#004F6E]/80 leading-tight mb-0 mt-2">
+          <p className="text-sm md:text-sm text-[#004F6E]/80 leading-tight mb-0 mt-2 pr-8 md:pr-0">
             {description}
           </p>
         </div>
         
         {/* NJT Logo - Absolutely positioned, doesn't affect layout */}
         <div 
-          className={`absolute right-6 transition-opacity duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute right-4 md:right-6 transition-opacity duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
           style={{
             top: '4px',
             transitionDelay: isAnimated ? '1.1s' : '0s',
@@ -147,25 +142,24 @@ const OfferCard = ({
           <img
             src="/images/logos/NJT Logo Cruise Blue.webp"
             alt="Not Just Travel"
-            className="w-auto object-contain"
-            style={{ height: '30px' }}
+            className="w-auto object-contain h-6 md:h-[30px]"
           />
         </div>
       </div>
 
       {/* Bottom Section - Price and Plane/Airport (stays fixed at bottom) */}
-      <div className="absolute bottom-6 left-0 right-0 z-20 px-6">
+      <div className="absolute bottom-4 md:bottom-6 left-0 right-0 z-20 px-4 md:px-6">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <Tag 
-              className={`w-4 h-4 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`} 
+              className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`} 
               strokeWidth={2}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
               }}
             />
             <span 
-              className={`text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
               }}
@@ -175,14 +169,14 @@ const OfferCard = ({
           </div>
           <div className="flex items-center gap-1.5">
             <Plane 
-              className={`w-4 h-4 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`} 
+              className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`} 
               strokeWidth={2}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
               }}
             />
             <span 
-              className={`text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
               }}
