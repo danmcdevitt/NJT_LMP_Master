@@ -346,4 +346,66 @@
   .animate-enter-message {
     animation: enterMessage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
+
+  @keyframes heartTap {
+    0% { transform: scale(1); }
+    30% { transform: scale(0.85); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  .heart-tap-animation {
+    animation: heartTap 0.4s ease-out;
+  }
+
+  @keyframes sparkle {
+    0% { 
+      opacity: 0; 
+      transform: translate(-50%, -50%) scale(0);
+    }
+    20% { 
+      opacity: 0.8; 
+      transform: translate(calc(-50% + var(--sparkle-x, 0)), calc(-50% + var(--sparkle-y, 0))) scale(1);
+    }
+    100% { 
+      opacity: 0; 
+      transform: translate(calc(-50% + var(--sparkle-x, 0) * 1.2), calc(-50% + var(--sparkle-y, 0) * 1.2)) scale(0);
+    }
+  }
+
+  .sparkle-1 {
+    --sparkle-x: -6px;
+    --sparkle-y: -6px;
+    animation: sparkle 0.5s ease-out 0.1s forwards;
+  }
+
+  .sparkle-2 {
+    --sparkle-x: 6px;
+    --sparkle-y: -6px;
+    animation: sparkle 0.5s ease-out 0.15s forwards;
+  }
+
+  .sparkle-3 {
+    --sparkle-x: -6px;
+    --sparkle-y: 6px;
+    animation: sparkle 0.5s ease-out 0.2s forwards;
+  }
+
+  .sparkle-4 {
+    --sparkle-x: 6px;
+    --sparkle-y: 6px;
+    animation: sparkle 0.5s ease-out 0.25s forwards;
+  }
+
+  .sparkle-5 {
+    --sparkle-x: -8px;
+    --sparkle-y: 0px;
+    animation: sparkle 0.5s ease-out 0.1s forwards;
+  }
+
+  .sparkle-6 {
+    --sparkle-x: 8px;
+    --sparkle-y: 0px;
+    animation: sparkle 0.5s ease-out 0.2s forwards;
+  }
 }

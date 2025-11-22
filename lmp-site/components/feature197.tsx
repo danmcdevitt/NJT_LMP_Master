@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { TravelLogoGrid } from "@/components/ui/TravelLogoGrid";
+import { OfferCard } from "@/components/ui/OfferCard";
 
 interface FeatureItem {
   id: number;
@@ -54,6 +55,7 @@ const defaultFeatures: FeatureItem[] = [
     id: 4,
     title: "Exclusive travel offers",
     backgroundImage: "/images/amalfi.webp",
+    component: <OfferCard image="/images/amalfi.webp" destination="Amalfi Coast" description="Discover the breathtaking beauty of Italy's most stunning coastline. Enjoy luxury accommodations, world-class cuisine, and unforgettable views of the Mediterranean." />,
     description:
       "Get access to special deals and exclusive offers that aren't available to the general public. As a Not Just Travel agent, we can secure you better prices, added extras, and unique packages that make your holiday even more special.",
   },
@@ -107,7 +109,7 @@ const Feature197 = ({
           borderColor: 'rgba(220, 215, 211, 0.6)'
         }}>
           {/* Split Layout: Left (Color) + Right (Image) */}
-          <div className="flex flex-col md:flex-row min-h-[600px]">
+          <div className="flex flex-col md:flex-row min-h-[500px]">
             {/* Left Half - Color Background */}
             <div 
               className="w-full md:w-1/2 relative p-6 md:p-6 lg:p-8 transition-colors duration-700 ease-in-out"
@@ -175,7 +177,7 @@ const Feature197 = ({
                 className="absolute inset-0 z-[1] noise-texture opacity-30" 
               />
               {/* Content */}
-              <div className="relative z-10 h-full flex items-center justify-center p-4 md:p-6 lg:p-8">
+              <div className="relative z-10 h-full flex items-center justify-center p-4 md:p-6 lg:p-8" style={{ minHeight: '500px' }}>
                 {typeof activeContent === 'string' ? (
                   <img
                     src={activeContent}
@@ -183,10 +185,8 @@ const Feature197 = ({
                     className="aspect-4/3 rounded-lg object-cover w-full max-w-md"
                   />
                 ) : (
-                  <div className="w-full max-w-md aspect-4/3 flex items-center justify-center">
-                    <div className="w-full flex items-center justify-center">
-                      {activeContent}
-                    </div>
+                  <div className="w-full max-w-md aspect-4/3 flex items-center justify-center" style={{ minHeight: '300px' }}>
+                    {activeContent}
                   </div>
                 )}
               </div>
