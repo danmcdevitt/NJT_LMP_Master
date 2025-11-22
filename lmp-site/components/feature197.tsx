@@ -27,12 +27,6 @@ const defaultFeatures: FeatureItem[] = [
   {
     id: 1,
     title: "All the best brands",
-    component: <BrandCard 
-      backgroundImage="/images/family2.webp" 
-      logoImage="/images/logos/TUI_Logo_2016.svg.png"
-      logoAlt="TUI Logo"
-      className="max-w-[320px] mx-auto" 
-    />,
     description:
       "We work with the world's leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from Jet2Holidays, TUI, P&O Cruises, Virgin Voyages, and many more, all in one place.",
   },
