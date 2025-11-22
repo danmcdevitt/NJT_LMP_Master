@@ -119,7 +119,7 @@ const Feature197 = ({
           Everything you need for<br className="lg:hidden" /><br className="hidden lg:block" /> the perfect holiday
         </h2>
         <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-8 sm:mb-12 lg:mb-16 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
-          From trusted brands to complete protection,<br className="lg:hidden" /><br className="hidden lg:block" /> we handle every detail so you can relax and enjoy.
+          From trusted brands to complete protection,<br className="hidden lg:block" /> we handle every detail so you can relax and enjoy.
         </p>
         
         <div className="overflow-hidden rounded-none md:rounded-lg border-0 md:border-2 -mx-5 sm:mx-0" style={{ 

@@ -168,7 +168,7 @@ const HolidayTypeGallery = () => {
               variant="outline"
               onClick={() => scroll('prev')}
               disabled={!canScrollPrev}
-              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] active:bg-[#004F6E] active:border-[#004F6E] transition-colors duration-200 [&:hover_svg]:text-[rgb(159,240,212)] [&:active_svg]:text-[rgb(159,240,212)]"
+              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]"
             >
               <ArrowLeft className="size-5 transition-colors duration-200" />
             </Button>
@@ -177,7 +177,7 @@ const HolidayTypeGallery = () => {
               variant="outline"
               onClick={() => scroll('next')}
               disabled={!canScrollNext}
-              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] active:bg-[#004F6E] active:border-[#004F6E] transition-colors duration-200 [&:hover_svg]:text-[rgb(159,240,212)] [&:active_svg]:text-[rgb(159,240,212)]"
+              className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]"
             >
               <ArrowRight className="size-5 transition-colors duration-200" />
             </Button>

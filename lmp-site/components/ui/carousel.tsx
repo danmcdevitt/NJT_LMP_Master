@@ -206,7 +206,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "absolute h-8 w-8 rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -216,7 +216,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className="h-4 w-4 transition-colors duration-200" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -235,7 +235,7 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute h-8 w-8 rounded-full",
+        "absolute h-8 w-8 rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]",
         orientation === "horizontal"
           ? "-right-12 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -245,7 +245,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4 transition-colors duration-200" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

@@ -111,7 +111,7 @@ const FeatureGrid = () => {
           </div>
           <div className={`relative flex flex-col items-start justify-between rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 overflow-hidden min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-3' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' } : { transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' }) }}>
             {/* Animated Shield Composition */}
-            <div className="relative flex items-center justify-center flex-1 w-full" style={{ animation: 'float 6s ease-in-out infinite' }}>
+            <div className="relative flex items-center justify-center flex-1 w-full self-center" style={{ animation: 'float 6s ease-in-out infinite' }}>
               {/* Concentric Circles Background */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 {/* Inner Circle */}
@@ -147,7 +147,7 @@ const FeatureGrid = () => {
             </div>
             
             {/* Headline and Body Copy */}
-            <div className="mt-4 z-10">
+            <div className="relative z-10">
               <ShieldCheck className="w-8 h-8 text-white mb-2" />
               <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Complete protection</h3>
               <p className="text-lg md:text-base lg:text-lg font-medium text-white text-left leading-tight">ABTA and ATOL protected<br className="lg:hidden" /> for total peace of mind.</p>
