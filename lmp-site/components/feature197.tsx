@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/accordion";
 import { OfferCard } from "@/components/ui/OfferCard";
 import { Logos13 } from "@/components/logos13";
+import { ReviewCard } from "@/components/ui/ReviewCard";
 
 interface FeatureItem {
   id: number;
@@ -38,8 +39,8 @@ const defaultFeatures: FeatureItem[] = [
   {
     id: 2,
     title: "5-star service",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
     backgroundImage: "/images/4292.jpg",
+    component: <ReviewCard />,
     description:
       "Our exceptional service has earned us outstanding reviews from satisfied travellers. With top ratings on Trustpilot and countless happy customers, you can book with confidence knowing you're in expert hands.",
   },
