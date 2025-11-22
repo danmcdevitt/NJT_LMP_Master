@@ -10,7 +10,7 @@ const CtaProfile = () => {
       {/* Background with subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[rgb(245,240,236)] to-[rgb(240,235,231)]" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content */}
@@ -25,7 +25,7 @@ const CtaProfile = () => {
               Magical memories start<br className="hidden lg:block" /> with a simple message
             </h2>
             
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-xl sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Ready to start planning your dream getaway?<br className="hidden lg:block" /> Drop me a message or give me a call.
             </p>
             

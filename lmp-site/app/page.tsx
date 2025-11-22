@@ -102,7 +102,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
         <div className="w-[95vw] mx-auto py-4">
-          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between px-5 sm:px-6 lg:px-8">
             <img
               src="/images/logos/NJT Logo Cruise Blue.webp"
               alt="Not Just Travel"
@@ -174,10 +174,10 @@ export default function Home() {
             />
 
             {/* Hero Content - Boxed */}
-            <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-4 sm:px-6 lg:px-12 py-8 lg:py-0">
+            <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
                 <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full">
-                  <div className="inline-block px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-4 mt-4 sm:mt-8 lg:mt-12 border border-[rgb(159,240,212)]/30 bg-[rgb(159,240,212)]/10 backdrop-blur-sm text-[rgb(159,240,212)] font-sans shadow-[0_0_15px_rgba(159,240,212,0.1)]">
+                  <div className="inline-block px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-4 mt-4 sm:mt-8 lg:mt-12 border border-[rgb(159,240,212)]/50 bg-[rgb(159,240,212)]/20 backdrop-blur-sm text-[rgb(159,240,212)] font-sans shadow-[0_0_15px_rgba(159,240,212,0.2)]">
                     Your Personal Holiday Hero
                   </div>
                   <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.1] font-medium tracking-tight font-sans">
@@ -286,7 +286,7 @@ export default function Home() {
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
                     <Sparkles className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
-                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                    <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Expert knowledge for<br className="hidden lg:block" /> unforgettable travel experiences
                     </p>
                   </div>
@@ -295,7 +295,7 @@ export default function Home() {
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
                     <MapPin className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
-                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                    <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Personalised service<br className="hidden lg:block" /> tailored to your preferences
                     </p>
                   </div>
@@ -304,7 +304,7 @@ export default function Home() {
                   <div className="flex flex-col items-start text-white flex-1">
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
                     <Award className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
-                    <p className="text-base font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
+                    <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
                       Trusted by travellers<br className="hidden lg:block" /> worldwide
                     </p>
                   </div>
@@ -314,7 +314,7 @@ export default function Home() {
           </section>
 
           {/* Mobile Portrait Card - Below Hero (Mobile Only) */}
-          <div className="lg:hidden w-[90vw] mx-auto px-4 sm:px-6 -mt-8 sm:-mt-12 relative z-20">
+          <div className="lg:hidden w-[90vw] mx-auto px-5 sm:px-6 -mt-8 sm:-mt-12 relative z-20">
             <Card
               glass
               className="border-0 overflow-hidden aspect-[3/4] w-full mx-auto relative"
@@ -346,7 +346,7 @@ export default function Home() {
           </div>
 
           {/* About Section */}
-          <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-24 relative">
+          <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-5 sm:px-6 lg:px-8 pb-6 sm:pb-16 lg:pb-24 relative">
             <div className="w-full lg:max-w-2xl">
               <Card className="bg-transparent border-0 shadow-none">
                 <CardContent className="p-0">
@@ -354,8 +354,8 @@ export default function Home() {
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
                     <span>HOLIDAY WITH THE BEST</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner with the<br className="hidden lg:block" /> award-winning Not Just Travel</h2>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner<br className="lg:hidden" /> with the<br className="hidden lg:block" /> award-winning<br className="lg:hidden" /> Not Just Travel</h2>
+                  <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
                     Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world's best lifestyle franchise behind every booking.
                   </p>
                   {/* Logo Images */}

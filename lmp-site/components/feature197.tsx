@@ -69,7 +69,7 @@ const Feature197 = ({
   );
 
   return (
-    <section className="pt-0 sm:pt-1 lg:pt-2 pb-12 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+    <section className="pt-0 sm:pt-1 lg:pt-2 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
       <div className="w-full">
         <div className="flex w-full items-start justify-between gap-8 lg:gap-12">
           <div className="w-full md:w-1/2">
@@ -96,7 +96,7 @@ const Feature197 = ({
                     </h4>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                       {tab.description}
                     </p>
                     <div className="mt-4 md:hidden">

@@ -146,22 +146,22 @@ const HolidayTypeGallery = () => {
   const progressOffset = currentIndex * progressIndicatorWidth;
 
   return (
-    <section className="pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-12 lg:pb-24 px-4 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+    <section className="pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-12 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
       <div className="w-full">
-        <div className="flex justify-center mb-4 sm:mb-6">
+        <div className="flex justify-start lg:justify-center mb-4 sm:mb-6">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
             <MapPin className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
-            <span>HOLIDAY TYPES</span>
+            <span>ALL HOLIDAY TYPES</span>
           </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
-          Every type of holiday,<br className="hidden lg:block" /> any kind of budget
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
+          Every type of holiday,<br className="lg:hidden" /><br className="hidden lg:block" /> any kind of budget
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl mx-auto leading-relaxed text-muted-foreground">
-          From beach escapes to city adventures,<br className="hidden lg:block" /> we'll help with any holiday you want.
+        <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
+          From beach escapes to city adventures,<br className="lg:hidden" /><br className="hidden lg:block" /> we'll help with any holiday you want.
         </p>
         
-        <div className="flex justify-end mb-6 sm:mb-8 px-4 lg:px-6">
+        <div className="flex justify-end mb-6 sm:mb-8 px-5 lg:px-6">
           <div className="flex shrink-0 items-center justify-start gap-2">
             <Button
               size="icon"
@@ -188,7 +188,7 @@ const HolidayTypeGallery = () => {
           <div
             ref={scrollContainerRef}
             onScroll={checkScrollability}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-4 lg:px-6 pb-10"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-5 lg:px-6 pb-10"
             style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
           >
             {DATA.map((product, index) => (
@@ -303,10 +303,10 @@ const HolidayTypeGallery = () => {
 
                       {/* White Headline and Body */}
                       <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-medium text-white drop-shadow-lg mb-2">
+                        <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white drop-shadow-lg mb-2" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
                           {product.headline}
                         </h3>
-                        <p className="text-sm sm:text-base text-white/90 drop-shadow-lg leading-tight">
+                        <p className="text-base sm:text-base text-white/90 drop-shadow-lg leading-tight">
                           {product.body}
                         </p>
                       </div>
