@@ -1,0 +1,173 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Requests Sequence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      /* Custom Animations */
+      @keyframes enterMessage {
+          0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      @keyframes typingPulse {
+          0%, 100% { transform: translateY(0); opacity: 0.5; }
+          50% { transform: translateY(-3px); opacity: 1; }
+      }
+
+      @keyframes typingContainerFade {
+          0% { opacity: 0; transform: translateY(5px); }
+          10% { opacity: 1; transform: translateY(0); }
+          90% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-2px); display: none; }
+      }
+
+      /* Right Side (Green) Sequence */
+      .msg-right-1 {
+          animation: enterMessage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0s forwards;
+          opacity: 0;
+      }
+      .msg-right-2 {
+          animation: enterMessage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+          opacity: 0;
+      }
+      .msg-right-3 {
+          animation: enterMessage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 1.2s forwards;
+          opacity: 0;
+      }
+
+      /* Left Side Response */
+      .typing-indicator {
+          animation: typingContainerFade 1.5s ease-in-out 1.8s forwards;
+          opacity: 0;
+      }
+      .msg-response {
+          animation: enterMessage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 3.3s forwards;
+          opacity: 0;
+      }
+
+      .dot-1 { animation: typingPulse 1s infinite 0s; }
+      .dot-2 { animation: typingPulse 1s infinite 0.2s; }
+      .dot-3 { animation: typingPulse 1s infinite 0.4s; }
+
+      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    </style>
+  </head>
+  <body class="bg-[#FDFDFC] min-h-screen flex items-center justify-center p-6 overflow-hidden font-sans text-stone-800">
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-emerald-100/40 to-teal-100/40 blur-[120px]"></div>
+      <div class="absolute bottom-[-10%] left-[-5%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-blue-100/40 to-indigo-100/40 blur-[120px]"></div>
+    </div>
+
+    <!-- Card Container -->
+    <div class="relative z-10 w-full max-w-sm mx-auto">
+      <!-- Glass Card -->
+      <div class="relative flex flex-col h-[640px] bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[32px] shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] overflow-hidden ring-1 ring-white/30">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-white/5 backdrop-blur-sm z-20">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div class="w-9 h-9 rounded-full bg-gradient-to-br from-stone-100 to-stone-200 border border-white/40 flex items-center justify-center text-xs font-semibold text-stone-600 shadow-sm">
+                A
+              </div>
+              <div class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full shadow-sm"></div>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-sm font-semibold text-stone-800 tracking-tight leading-none">
+                Sarah Jones
+              </span>
+              <span class="text-[10px] font-medium text-stone-500 mt-1 tracking-wide uppercase opacity-80">
+                Online
+              </span>
+            </div>
+          </div>
+          <button class="text-stone-400 hover:text-stone-600 transition-colors">
+            <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="flex-1 flex flex-col px-5 py-6 gap-1.5 overflow-y-auto scrollbar-hide">
+          <!-- Date -->
+          <div class="flex justify-center mb-4">
+            <span class="text-[10px] font-semibold text-stone-400/80 uppercase tracking-wider">
+              Today 9:41 AM
+            </span>
+          </div>
+
+          <!-- Request 1: Greek Islands -->
+          <div class="msg-right-1 flex flex-col items-end self-end max-w-[85%]">
+            <div class="bg-[#9FF0D4] backdrop-blur-sm text-[#004F6E] px-4 py-2.5 rounded-2xl rounded-tr-sm shadow-sm border border-[#004F6E]/5">
+              <p class="text-sm font-medium leading-relaxed">
+                Been thinking about the Greek islands for next year
+              </p>
+            </div>
+          </div>
+
+          <!-- Request 2: Corfu -->
+          <div class="msg-right-2 flex flex-col items-end self-end max-w-[85%]">
+            <div class="bg-[#9FF0D4] backdrop-blur-sm text-[#004F6E] px-4 py-2.5 rounded-2xl rounded-r-sm shadow-sm border border-[#004F6E]/5">
+              <p class="text-sm font-medium leading-relaxed">
+                How about Corfu?
+              </p>
+            </div>
+          </div>
+
+          <!-- Request 3: Hotel Preference -->
+          <div class="msg-right-3 flex flex-col items-end self-end max-w-[85%]">
+            <div class="bg-[#9FF0D4] backdrop-blur-sm text-[#004F6E] px-4 py-2.5 rounded-2xl rounded-br-sm shadow-sm border border-[#004F6E]/5">
+              <p class="text-sm font-medium leading-relaxed">
+                Looking for an adults-only boutique hotel 🥂
+              </p>
+            </div>
+            <span class="text-[10px] text-stone-400 font-medium pr-1 pt-1 mix-blend-multiply">
+              Delivered
+            </span>
+          </div>
+
+          <!-- Response: Left (White) -->
+          <div class="relative flex flex-col items-start pt-2 max-w-[85%]">
+            <!-- Typing Indicator -->
+            <div class="typing-indicator absolute top-2 left-0 bg-white/60 backdrop-blur-md border border-white/40 px-3 py-3 rounded-2xl rounded-tl-sm shadow-sm flex items-center gap-1 w-auto z-20">
+              <div class="w-1 h-1 bg-stone-400 rounded-full dot-1"></div>
+              <div class="w-1 h-1 bg-stone-400 rounded-full dot-2"></div>
+              <div class="w-1 h-1 bg-stone-400 rounded-full dot-3"></div>
+            </div>
+
+            <!-- Message -->
+            <div class="msg-response w-fit">
+              <div class="bg-white/60 backdrop-blur-md border border-white/50 text-stone-800 px-4 py-2.5 rounded-2xl rounded-tl-sm shadow-sm">
+                <p class="text-sm font-normal leading-relaxed">
+                  I know just the place
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Footer -->
+        <div class="p-4 bg-white/5 backdrop-blur-xl border-t border-white/10">
+          <div class="relative flex items-center gap-3">
+            <button class="p-2 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-white/10 active:scale-95">
+              <i data-lucide="plus" class="w-5 h-5"></i>
+            </button>
+            <div class="flex-1 bg-white/20 backdrop-blur-lg border border-white/30 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] rounded-full h-10 px-4 flex items-center group transition-all focus-within:bg-white/40 focus-within:ring-2 focus-within:ring-white/20">
+              <span class="text-sm text-stone-500/80 font-normal group-hover:text-stone-600 cursor-text">
+                Message...
+              </span>
+            </div>
+            <button class="p-2 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-white/10 active:scale-95">
+              <i data-lucide="mic" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  
+</body></html>

@@ -2,6 +2,7 @@
 
 import { ArrowRight, User, Gift, Plane, Star, ShieldCheck, Sparkles, Lightbulb, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { CheckInAnimation } from "@/components/ui/CheckInAnimation";
 
 const FeatureGrid = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,25 +51,63 @@ const FeatureGrid = () => {
           Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel agent.
         </p>
         <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
-          <a
-            href="#"
-            className={`group flex flex-col justify-end col-span-2 rounded-lg p-4 md:p-6 lg:p-10 sm:max-lg:col-span-1 ${isVisible ? 'fade-in-1' : ''}`}
-            style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' } : { transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' }) }}
+          <div
+            className={`group relative flex flex-col col-span-2 rounded-lg p-4 md:p-6 lg:p-10 sm:max-lg:col-span-1 overflow-hidden ${isVisible ? 'fade-in-1' : ''}`}
+            style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' } : { transition: 'opacity 0.8s ease-out 0s, transform 0.8s ease-out 0s' }}
           >
-            <User className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>
-              Personal service
-            </h3>
-            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance" style={{ color: '#004F6E' }}>
-              You'll be looked after by one of the top travel agents in the UK.
-            </p>
-          </a>
-          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={{ backgroundColor: 'rgba(159, 213, 209, 0.2)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }) }}>
-            <Lightbulb className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Insider knowledge</h3>
-            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
-              Access to exclusive deals and expert industry insights.
-            </p>
+            {/* Background Image */}
+            <img
+              src="/images/corfu.webp"
+              alt="Corfu"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            {/* Frosted Glass Overlay from Bottom */}
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-[80%] backdrop-blur-xl z-0" 
+              style={{ 
+                backgroundColor: 'rgba(9, 24, 36, 0.3)',
+                WebkitBackdropFilter: 'blur(24px)',
+                backdropFilter: 'blur(24px)',
+                maskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)'
+              }} 
+            />
+            
+            <div className="relative z-10 flex flex-col justify-end h-full">
+              <User className="w-8 h-8 mb-2 text-white" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white">
+                Personal service
+              </h3>
+              <p className="text-sm md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white">
+                You'll be looked after by one of the top travel agents in the UK.
+              </p>
+            </div>
+          </div>
+          <div className={`group relative flex flex-col justify-end overflow-hidden rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-2' : ''}`} style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' } : { transition: 'opacity 0.9s ease-out 0.1s, transform 0.9s ease-out 0.1s' }}>
+            {/* Background Image */}
+            <img
+              src="/images/friendlyadvice.webp"
+              alt="Friendly advice"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            {/* Frosted Glass Overlay from Bottom */}
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-[80%] backdrop-blur-xl z-0" 
+              style={{ 
+                backgroundColor: 'rgba(9, 24, 36, 0.3)',
+                WebkitBackdropFilter: 'blur(24px)',
+                backdropFilter: 'blur(24px)',
+                maskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)'
+              }} 
+            />
+            <div className="relative z-10">
+              <Lightbulb className="w-8 h-8 mb-2 text-white" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white">Friendly advice</h3>
+              <p className="text-sm md:text-base lg:text-lg font-medium leading-tight text-white">
+                Get helpful guidance and recommendations.
+              </p>
+            </div>
           </div>
           <div className={`relative flex flex-col items-start justify-between rounded-lg p-4 md:p-6 lg:p-10 overflow-hidden ${isVisible ? 'fade-in-3' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' } : { transition: 'opacity 0.7s ease-out 0.2s, transform 0.7s ease-out 0.2s' }) }}>
             {/* Animated Shield Composition */}
@@ -114,17 +153,58 @@ const FeatureGrid = () => {
               <p className="text-sm md:text-base lg:text-lg font-medium text-white text-left leading-tight">ABTA and ATOL protected for total peace of mind.</p>
             </div>
           </div>
-          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-4' : ''}`} style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }) }}>
-            <Sparkles className="w-8 h-8 mb-2" style={{ color: '#004F6E' }} />
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none" style={{ color: '#004F6E' }}>Tailored to you,</h3>
-            <p className="text-sm md:text-base lg:text-lg font-medium leading-tight" style={{ color: '#004F6E' }}>
-              Every holiday suggestion is carefully crafted.
-            </p>
+          <div className={`group relative flex flex-col justify-end overflow-clip rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-4' : ''}`} style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }}>
+            <img
+              src="/images/villa1.webp"
+              alt="Villa"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            {/* Frosted Glass Overlay from Bottom */}
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-[40%] backdrop-blur-md" 
+              style={{ 
+                backgroundColor: 'rgba(9, 24, 36, 0.3)',
+                WebkitBackdropFilter: 'blur(12px)',
+                backdropFilter: 'blur(12px)',
+                maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)'
+              }} 
+            />
+            <div className="relative z-10">
+              <Sparkles className="w-8 h-8 mb-2 text-white" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white">Tailored to you,</h3>
+              <p className="text-sm md:text-base lg:text-lg font-medium leading-tight text-white">
+                Every holiday suggestion is carefully crafted.
+              </p>
+            </div>
           </div>
-          <div className={`flex flex-col justify-end rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
-            <Gift className="w-8 h-8 mb-2 text-white" />
-            <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
-            <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
+          <div className={`relative flex flex-col justify-end overflow-hidden rounded-lg p-4 md:p-6 lg:p-10 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
+            {/* Check-in Animation - Behind Content */}
+            <div className="absolute inset-0 flex items-center justify-center z-0" style={{ top: '-5%' }}>
+              <div className="w-full h-full" style={{ aspectRatio: 'inherit' }}>
+                <div className="w-full h-full flex items-center justify-center" style={{ transform: 'scale(0.922)' }}>
+                  <CheckInAnimation />
+                </div>
+              </div>
+            </div>
+            {/* Frosted Glass Overlay - Behind Text */}
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-[80%] backdrop-blur-xl" 
+              style={{ 
+                backgroundColor: 'rgba(255, 83, 83, 0.39)',
+                WebkitBackdropFilter: 'blur(24px)',
+                backdropFilter: 'blur(24px)',
+                maskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)',
+                zIndex: 5
+              }} 
+            />
+            {/* Text Content - On Top */}
+            <div className="relative z-10 flex flex-col justify-end">
+              <Gift className="w-8 h-8 mb-2 text-white" />
+              <div className="mb-2 text-lg sm:text-xl lg:text-2xl font-medium text-white leading-none">Totally free</div>
+              <div className="text-sm md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of, without costing you a penny.</div>
+            </div>
           </div>
           <a
             href="#"

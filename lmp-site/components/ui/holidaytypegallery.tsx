@@ -24,11 +24,11 @@ const DATA: DatItem[] = [
     title: "Custom Web Development",
     price: "$1,500",
     image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
-    hoverImage: "/images/close-up-kids-looking-sky.webp",
+    hoverImage: "/images/family2.webp",
     tag: "Families",
     headline: "Families",
     body: "Perfect holidays designed for families of all sizes, with activities and accommodations everyone will love.",
-    backgroundColor: "#5c3a23",
+    backgroundColor: "#a7675a",
   },
   {
     id: "2",
@@ -277,6 +277,8 @@ const HolidayTypeGallery = () => {
                         style={{ 
                           backgroundColor: product.backgroundColor === '#0e2232' 
                             ? 'rgba(14, 34, 50, 0.25)' 
+                            : product.backgroundColor === '#a7675a'
+                            ? 'rgba(167, 103, 90, 0.25)'
                             : product.backgroundColor === '#5c3a23'
                             ? 'rgba(92, 58, 35, 0.25)'
                             : product.backgroundColor === '#162532'
