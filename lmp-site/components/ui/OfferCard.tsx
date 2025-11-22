@@ -18,13 +18,24 @@ const OfferCard = ({
   className = "",
 }: OfferCardProps) => {
   const [isAnimated, setIsAnimated] = useState(false);
+  const [textCanMove, setTextCanMove] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer1 = setTimeout(() => {
       setIsAnimated(true);
-    }, 1500); // 1.5 seconds delay
+    }, 1500); // 1.5 seconds delay - start white overlay animation
+    
+    // Allow text to move AFTER white overlay completely finishes
+    // White overlay: starts at 1.5s, duration 1s, finishes at 2.5s
+    // Add 100ms buffer to ensure overlay is completely done
+    const timer2 = setTimeout(() => {
+      setTextCanMove(true);
+    }, 2600); // 2.6 seconds - white overlay finishes + buffer, text can move
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, []);
 
   return (
@@ -107,25 +118,41 @@ const OfferCard = ({
       />
       
       {/* Top Section - Headline and Nights (moves up on animation) */}
-      <div className={`absolute left-0 right-0 z-20 px-4 md:px-6 transition-all duration-500 ${isAnimated ? 'top-[calc(50%+0.5rem)] md:top-[calc(50%+1rem)]' : 'bottom-16 md:bottom-20'}`}>
+      <div 
+        className="absolute left-0 right-0 z-20 px-4 md:px-6"
+        style={{
+          bottom: textCanMove ? 'auto' : '4rem',
+          top: textCanMove ? 'calc(50% + 0.5rem)' : 'auto',
+          transition: textCanMove 
+            ? 'top 0.5s ease-in-out 0s' 
+            : 'none',
+        }}
+      >
         <h3 
-          className={`text-xl md:text-2xl font-bold text-left mb-0 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+          className={`text-xl md:text-2xl font-bold text-left mb-0 transition-colors duration-150 ${textCanMove ? 'text-[#004F6E]' : 'text-white'}`}
           style={{
-            transitionDelay: isAnimated ? '650ms' : '0s',
+            transitionDelay: textCanMove ? '0ms' : '0s',
+            textShadow: 'none',
           }}
         >
           {destination}
         </h3>
         <p 
-          className={`text-sm md:text-base text-left -mt-0.5 mb-2 transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white/90 drop-shadow-lg'}`}
+          className={`text-sm md:text-base text-left -mt-0.5 mb-2 transition-colors duration-150 ${textCanMove ? 'text-[#004F6E]' : 'text-white/90'}`}
           style={{
-            transitionDelay: isAnimated ? '650ms' : '0s',
+            transitionDelay: textCanMove ? '0ms' : '0s',
+            textShadow: 'none',
           }}
         >
           7 nights
         </p>
         {/* Body Copy - appears on animation below "7 nights" */}
-        <div className={`transition-all duration-300 overflow-hidden ${isAnimated ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0'}`}>
+        <div 
+          className={`transition-all duration-300 overflow-hidden ${textCanMove ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0'}`}
+          style={{
+            transitionDelay: textCanMove ? '800ms' : '0s',
+          }}
+        >
           <p className="text-sm md:text-sm text-[#004F6E]/80 leading-tight mb-0 mt-2 pr-8 md:pr-0">
             {description}
           </p>
@@ -133,10 +160,10 @@ const OfferCard = ({
         
         {/* NJT Logo - Absolutely positioned, doesn't affect layout */}
         <div 
-          className={`absolute right-4 md:right-6 transition-opacity duration-500 ${isAnimated ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute right-4 md:right-6 transition-opacity duration-500 ${textCanMove ? 'opacity-100' : 'opacity-0'}`}
           style={{
             top: '4px',
-            transitionDelay: isAnimated ? '1.1s' : '0s',
+            transitionDelay: textCanMove ? '800ms' : '0s',
           }}
         >
           <img
@@ -159,9 +186,10 @@ const OfferCard = ({
               }}
             />
             <span 
-              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
+                textShadow: 'none',
               }}
             >
               from £999pp
@@ -176,9 +204,10 @@ const OfferCard = ({
               }}
             />
             <span 
-              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white drop-shadow-lg'}`}
+              className={`text-sm md:text-sm transition-colors duration-300 ${isAnimated ? 'text-[#004F6E]' : 'text-white'}`}
               style={{
                 transitionDelay: isAnimated ? '300ms' : '0s',
+                textShadow: 'none',
               }}
             >
               MCR
