@@ -9,6 +9,7 @@ interface OfferCardProps {
   destination?: string;
   description?: string;
   className?: string;
+  disableAnimation?: boolean;
 }
 
 const OfferCard = ({
@@ -16,11 +17,16 @@ const OfferCard = ({
   destination = "New York",
   description = "Experience the stunning beauty of this breathtaking destination with luxury accommodations and unforgettable moments.",
   className = "",
+  disableAnimation = false,
 }: OfferCardProps) => {
   const [isAnimated, setIsAnimated] = useState(false);
   const [textCanMove, setTextCanMove] = useState(false);
 
   useEffect(() => {
+    if (disableAnimation) {
+      return; // Skip all animations if disabled
+    }
+
     const timer1 = setTimeout(() => {
       setIsAnimated(true);
     }, 1500); // 1.5 seconds delay - start white overlay animation
@@ -36,7 +42,7 @@ const OfferCard = ({
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [disableAnimation]);
 
   return (
     <Card

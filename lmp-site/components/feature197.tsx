@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ReactNode } from "react";
 import { Sparkles } from "lucide-react";
 
@@ -76,12 +76,29 @@ const Feature197 = ({
   const [activeContent, setActiveContent] = useState<ReactNode | string | undefined>(
     features[0].component || features[0].image
   );
+  const [showFanCards, setShowFanCards] = useState(false);
 
   const activeFeature = features.find(f => f.id === activeTabId) || features[0];
   const backgroundImage = activeFeature?.backgroundImage;
 
   // All accordion items use Holiday Linen
   const activeColor = '#F5F0EC';
+
+  // Check if activeContent is an OfferCard and trigger fan cards animation
+  useEffect(() => {
+    const isOfferCard = activeTabId === 4; // Feature id 4 is "Exclusive travel offers" with OfferCard
+    
+    if (isOfferCard) {
+      // Main card animation completes around 3.5s (1.5s initial delay + 1s overlay + 0.5s text move + 0.5s buffer)
+      const timer = setTimeout(() => {
+        setShowFanCards(true);
+      }, 3500);
+
+      return () => clearTimeout(timer);
+    } else {
+      setShowFanCards(false);
+    }
+  }, [activeTabId]);
 
   return (
     <section className="pt-3 sm:pt-8 lg:pt-12 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
@@ -169,7 +186,7 @@ const Feature197 = ({
 
             {/* Right Half - Content Only */}
             <div 
-              className="hidden md:block w-full md:w-1/2 relative overflow-hidden transition-colors duration-700 ease-in-out"
+              className="hidden md:block w-full md:w-1/2 relative overflow-visible transition-colors duration-700 ease-in-out"
               style={{ backgroundColor: activeColor }}
             >
               {/* Noise Texture */}
@@ -177,13 +194,71 @@ const Feature197 = ({
                 className="absolute inset-0 z-[1] noise-texture opacity-30" 
               />
               {/* Content */}
-              <div className="relative z-10 h-full flex items-center justify-center p-4 md:p-6 lg:p-8" style={{ minHeight: '500px' }}>
+              <div className="relative z-10 h-full flex items-center justify-center p-4 md:p-6 lg:p-8 overflow-visible" style={{ minHeight: '500px', paddingBottom: '100px' }}>
                 {typeof activeContent === 'string' ? (
                   <img
                     src={activeContent}
                     alt="Feature preview"
                     className="aspect-4/3 rounded-lg object-cover w-full max-w-md"
                   />
+                ) : activeTabId === 4 ? (
+                  // OfferCard with fan cards wrapper (desktop only)
+                  <div className="relative w-full max-w-md flex items-center justify-center overflow-visible" style={{ minHeight: '300px', paddingBottom: '150px', paddingTop: '20px' }}>
+                    {/* Left Fan Card - Desktop Only */}
+                    <div
+                      className="hidden md:block absolute transition-all duration-700 ease-out"
+                      style={{
+                        top: '0',
+                        left: '0',
+                        opacity: showFanCards ? 1 : 0,
+                        transform: showFanCards 
+                          ? 'translateX(-55px) rotate(-14deg) scale(0.75)' 
+                          : 'translateX(0) rotate(0deg) scale(0.75)',
+                        transformOrigin: 'center center',
+                        zIndex: showFanCards ? 10 : 15,
+                      }}
+                    >
+                      <div className="relative">
+                        <OfferCard
+                          image="/images/moon-rise-midtown-manhattan-with-city-skyline-night.webp"
+                          destination="New York"
+                          description="Experience the stunning beauty of this breathtaking destination with luxury accommodations and unforgettable moments."
+                          disableAnimation={true}
+                          className="w-[280px]"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Main Card */}
+                    <div className="relative z-20">
+                      {activeContent}
+                    </div>
+
+                    {/* Right Fan Card - Desktop Only */}
+                    <div
+                      className="hidden md:block absolute transition-all duration-700 ease-out"
+                      style={{
+                        top: '0',
+                        left: '0',
+                        opacity: showFanCards ? 1 : 0,
+                        transform: showFanCards 
+                          ? 'translateX(166px) rotate(14deg) scale(0.75)' 
+                          : 'translateX(0) rotate(0deg) scale(0.75)',
+                        transformOrigin: 'center center',
+                        zIndex: showFanCards ? 10 : 15,
+                      }}
+                    >
+                      <div className="relative">
+                        <OfferCard
+                          image="/images/4292.jpg"
+                          destination="Destination"
+                          description="Experience the stunning beauty of this breathtaking destination with luxury accommodations and unforgettable moments."
+                          disableAnimation={true}
+                          className="w-[280px]"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className="w-full max-w-md aspect-4/3 flex items-center justify-center" style={{ minHeight: '300px' }}>
                     {activeContent}
