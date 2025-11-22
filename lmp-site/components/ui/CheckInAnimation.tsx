@@ -68,17 +68,21 @@ const CheckInAnimation = () => {
       <div className="relative rounded-[2rem] overflow-hidden transition-all duration-700 ease-out" style={{ backgroundColor: 'rgba(255, 83, 83, 0.6)' }}>
         {/* Status Area */}
         <div className="px-6 py-6">
-          <div className="backdrop-blur-md rounded-2xl p-5 border shadow-sm transition-all duration-500 bg-emerald-50/80 border-emerald-100/50">
+          <div className="backdrop-blur-xl rounded-2xl p-5 border shadow-sm transition-all duration-500 border-emerald-100/30" style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.22)',
+            WebkitBackdropFilter: 'blur(20px)',
+            backdropFilter: 'blur(20px)'
+          }}>
             {/* Success State */}
             <div className="flex flex-col items-center justify-center py-1 space-y-3">
               <div className={`h-10 w-10 bg-green-100 rounded-full flex items-center justify-center text-emerald-600 transition-transform duration-500 ease-out ${isVisible ? 'scale-100' : 'scale-0'}`}>
                 <Check className="w-6 h-6" />
               </div>
               <div className="text-center space-y-0.5">
-                <h3 className={`text-lg font-medium text-slate-900 tracking-tight ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`}>
+                <h3 className={`text-lg font-medium tracking-tight ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`} style={{ color: 'rgba(255, 245, 250, 0.98)' }}>
                   You're all checked in
                 </h3>
-                <p className={`text-xs text-slate-500 ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`}>
+                <p className={`text-xs ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`} style={{ color: 'rgba(250, 250, 250, 0.9)' }}>
                   Boarding pass sent to your wallet.
                 </p>
               </div>
