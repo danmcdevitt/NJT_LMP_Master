@@ -243,6 +243,41 @@
     100% { transform: translateX(200%) translateY(-50%) rotate(45deg); opacity: 0; }
   }
 
+  @keyframes logoGrow {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .logo-grow-animation {
+    animation: logoGrow 3s ease-in-out infinite;
+  }
+
+  @keyframes logoRowFadeIn {
+    0% {
+      opacity: 0;
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  .logo-row-fade-in {
+    animation: logoRowFadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @media (min-width: 768px) {
+    .logo-row-fade-in {
+      animation-delay: var(--desktop-delay) !important;
+    }
+  }
+
   .sunlight-animation {
     animation: sunlight 8s ease-in-out infinite;
     filter: blur(30px);

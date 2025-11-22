@@ -45,7 +45,7 @@ const FeatureGrid = () => {
           </div>
         </div>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 leading-tight" style={{ color: '#004F6E' }}>
-          Everything you need, from<br className="hidden lg:block" /> someone you can call anytime
+          Truly personal service, from<br className="hidden lg:block" /> someone you can call anytime
         </h2>
         <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-3 sm:mb-4 lg:mb-6 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
           Get all the benefits, deals and protection of a major travel brand,<br className="hidden lg:block" /> as well as the personal number of your travel agent.
@@ -76,7 +76,7 @@ const FeatureGrid = () => {
             <div className="relative z-10 flex flex-col justify-end h-full">
               <User className="w-8 h-8 mb-2 text-white" />
               <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
-                Personal service
+                The best service
               </h3>
               <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white">
                 You'll be looked after by one of the top travel agents in the UK.
@@ -178,7 +178,7 @@ const FeatureGrid = () => {
               </p>
             </div>
           </div>
-          <div className={`relative flex flex-col justify-end overflow-hidden rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#FF5353', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
+          <div className={`relative flex flex-col justify-end overflow-hidden rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-5' : ''}`} style={{ backgroundColor: '#004F6E', ...(!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' } : { transition: 'opacity 0.85s ease-out 0.25s, transform 0.85s ease-out 0.25s' }) }}>
             {/* Check-in Animation - Behind Content */}
             <div className="absolute inset-0 flex items-center justify-center z-0" style={{ top: '-5%' }}>
               <div className="w-full h-full" style={{ aspectRatio: 'inherit' }}>
@@ -191,7 +191,7 @@ const FeatureGrid = () => {
             <div 
               className="absolute bottom-0 left-0 right-0 h-[80%] backdrop-blur-xl" 
               style={{ 
-                backgroundColor: 'rgba(255, 83, 83, 0.39)',
+                backgroundColor: 'rgba(0, 79, 110, 0.5)',
                 WebkitBackdropFilter: 'blur(24px)',
                 backdropFilter: 'blur(24px)',
                 maskImage: 'linear-gradient(to top, black 0%, black 20%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0.1) 90%, transparent 100%)',
