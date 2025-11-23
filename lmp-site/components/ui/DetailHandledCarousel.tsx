@@ -227,7 +227,7 @@ const DetailHandledCarousel = () => {
               </div>
               {/* Glass icon - top right */}
               <div
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center"
+                className="absolute top-4 right-4 z-10 w-7 h-7 md:w-10 md:h-10 rounded-full flex items-center justify-center"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.2)',
                   backdropFilter: 'blur(10px)',
@@ -236,9 +236,9 @@ const DetailHandledCarousel = () => {
                 }}
               >
                 {item.iconText ? (
-                  <span className="text-white text-xl font-bold">{item.iconText}</span>
+                  <span className="text-white text-base md:text-xl font-bold">{item.iconText}</span>
                 ) : item.icon ? (
-                  <item.icon className="w-5 h-5 text-white" strokeWidth={2} />
+                  <item.icon className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={2} />
                 ) : null}
               </div>
               <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">

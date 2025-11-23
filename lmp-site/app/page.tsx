@@ -5,8 +5,9 @@ import { Card, CardContent } from "@/components/ui/Card";
 import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
 import { Feature197 } from "@/components/feature197";
+import { Footer13 } from "@/components/footer13";
 import { useEffect, useState, useRef } from "react";
-import { Sparkles, MapPin, Award, ArrowRight, Plane, User } from "lucide-react";
+import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone } from "lucide-react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,6 +19,12 @@ export default function Home() {
   const [carouselVisible, setCarouselVisible] = useState(false);
   const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const carouselContainerRef = useRef<HTMLDivElement>(null);
+  
+  // Profile card name font sizing
+  const mobileNameRef = useRef<HTMLHeadingElement>(null);
+  const desktopNameRef = useRef<HTMLHeadingElement>(null);
+  const [mobileFontSize, setMobileFontSize] = useState<string>('text-3xl sm:text-4xl');
+  const [desktopFontSize, setDesktopFontSize] = useState<string>('text-4xl sm:text-5xl');
   
   useEffect(() => {
     const handleScroll = () => {
@@ -96,6 +103,51 @@ export default function Home() {
     };
   }, [scrollDirection, scrollY, carouselVisible]);
 
+  // Adjust mobile name font size if it exceeds 2 lines
+  useEffect(() => {
+    const adjustFontSize = (ref: React.RefObject<HTMLHeadingElement | null>, setFontSize: (size: string) => void, baseSize: string) => {
+      if (!ref.current) return;
+      
+      const element = ref.current;
+      const lineHeight = parseFloat(window.getComputedStyle(element).lineHeight);
+      const scrollHeight = element.scrollHeight;
+      
+      // Check if text exceeds 2 lines (allowing some tolerance)
+      if (scrollHeight > lineHeight * 2.2) {
+        // Reduce font size progressively
+        if (baseSize.includes('text-4xl')) {
+          setFontSize('text-2xl sm:text-3xl');
+        } else if (baseSize.includes('text-3xl')) {
+          setFontSize('text-xl sm:text-2xl');
+        } else if (baseSize.includes('text-5xl')) {
+          setFontSize('text-3xl sm:text-4xl');
+        }
+      }
+    };
+
+    // Use ResizeObserver and check on mount/resize
+    const checkMobile = () => adjustFontSize(mobileNameRef, setMobileFontSize, 'text-3xl sm:text-4xl');
+    const checkDesktop = () => adjustFontSize(desktopNameRef, setDesktopFontSize, 'text-4xl sm:text-5xl');
+
+    // Check on mount
+    setTimeout(() => {
+      checkMobile();
+      checkDesktop();
+    }, 100);
+
+    // Check on resize
+    const resizeObserver = new ResizeObserver(() => {
+      checkMobile();
+      checkDesktop();
+    });
+
+    if (mobileNameRef.current) resizeObserver.observe(mobileNameRef.current);
+    if (desktopNameRef.current) resizeObserver.observe(desktopNameRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'white' }}>
@@ -112,7 +164,12 @@ export default function Home() {
               <p className={`hidden md:block text-[1.24rem] font-medium transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
                 Contact Jane Smith on
               </p>
-              <Button size="sm" className="shadow-none text-[1.24rem] px-5 py-4">07777 000 123</Button>
+              <Button asChild size="lg" className="shadow-none group" style={{ backgroundColor: '#FF5353', color: 'white' }}>
+                <a href="tel:07777000123" className="flex items-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  07777 000 123
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -185,11 +242,12 @@ export default function Home() {
                       className="w-auto"
                       style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
+                    <span className="w-full sm:hidden"></span>
                     <img
                       src="/images/logos/abta_white.png"
                       alt="ABTA"
                       className="w-auto sm:h-[calc(2rem*0.85*1.2*1.2*1.2*0.85)]"
-                      style={{ height: 'calc(1.5rem * 0.85 * 1.2 * 1.2 * 1.2 * 0.85)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
+                      style={{ height: 'calc(1rem * 0.85 * 1.2 * 1.2)', filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }}
                     />
                     <img
                       src="/images/logos/EUROPE THE TRAVEL FRANCHISE.png"
@@ -228,7 +286,7 @@ export default function Home() {
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Expert knowledge for<br />unforgettable travel experiences
+                        Expert knowledge for<br />unforgettable experiences
                       </p>
                     </div>
 
@@ -280,7 +338,7 @@ export default function Home() {
                     <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
                     <Sparkles className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Expert knowledge for<br className="hidden lg:block" /> unforgettable travel experiences
+                      Expert knowledge for<br className="hidden lg:block" /> unforgettable experiences
                     </p>
                   </div>
 
@@ -331,8 +389,13 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
                 <div className="space-y-3 sm:space-y-4">
-                  <h3 className="text-3xl sm:text-4xl font-medium text-white drop-shadow-lg">Jane Smith</h3>
-                  <Button size="lg" className="shadow-none w-full sm:w-auto">07777 000 123</Button>
+                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
+                  <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
+                    <a href="tel:07777000123" className="flex items-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      07777 000 123
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -443,8 +506,13 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
                 <div className="space-y-4">
-                  <h3 className="text-4xl sm:text-5xl font-medium text-white drop-shadow-lg">Jane Smith</h3>
-                  <Button size="lg" className="shadow-none">07777 000 123</Button>
+                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
+                  <Button asChild size="lg" className="shadow-none">
+                    <a href="tel:07777000123" className="flex items-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      07777 000 123
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -466,6 +534,9 @@ export default function Home() {
       <section id="features" className="relative">
         <Feature197 />
       </section>
+
+      {/* Footer */}
+      <Footer13 />
 
     </main>
   );
