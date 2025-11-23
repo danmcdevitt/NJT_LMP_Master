@@ -222,20 +222,9 @@ export default function Home() {
                 objectFit: 'cover'
               }}
             >
-              <source src="/hero-video-2.mp4" type="video/mp4" />
+              <source src="/Sequence%2002-converted.webm" type="video/webm" />
+              <source src="/Sequence%2002-converted.mp4" type="video/mp4" />
             </video>
-
-            {/* Stylish Overlay with Noise */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/12 via-black/4 to-black/8" />
-            
-            {/* Cinematic Gradient for Text Contrast - Left side darkening */}
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0) 75%)'
-              }}
-            />
-
 
             {/* Dreamy Fade Overlay at Bottom */}
             <div 
