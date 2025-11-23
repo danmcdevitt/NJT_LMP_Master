@@ -181,10 +181,10 @@ export default function Home() {
             <img
               src="/images/logos/NJT Logo Cruise Blue.webp"
               alt="Not Just Travel"
-              className={`h-12 sm:h-14 w-auto transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
+              className="h-12 sm:h-14 w-auto transition-all duration-300"
             />
             <div className="flex items-center gap-2">
-              <p className={`hidden md:block text-[1.24rem] font-medium transition-all duration-300 ${!isScrolled ? 'text-white' : 'text-foreground'}`}>
+              <p className="hidden md:block text-[1.24rem] font-medium transition-all duration-300" style={{ color: '#004F6E' }}>
                 Contact Jane Smith on
               </p>
               <Button asChild size="lg" className="shadow-none group" style={{ backgroundColor: '#FF5353', color: 'white' }}>
@@ -203,15 +203,38 @@ export default function Home() {
         {/* Left Column - Hero and About Sections */}
         <div className="lg:col-span-1">
           {/* Hero Section - Full Viewport Width */}
-          <section className="relative overflow-hidden flex items-center justify-center" style={{ width: '100vw', height: 'min(90vh, 800px)', marginLeft: 'calc((100vw - 95vw) / -2)' }}>
+          <section 
+            className="relative overflow-hidden flex items-center justify-center" 
+            style={{ 
+              width: '100vw', 
+              height: 'min(90vh, 800px)', 
+              marginLeft: 'calc((100vw - 95vw) / -2)',
+              backgroundImage: 'url(/images/hero-video-2-poster.webp)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundColor: '#87CEEB'
+            }}
+          >
+            {/* Background Image Fallback - Shows immediately while video loads */}
+            <div 
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: 'url(/images/hero-video-2-poster.webp)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            
             {/* Video Background */}
             <video
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
+              poster="/images/hero-video-2-poster.webp"
+              className="absolute z-[1]"
               style={{
-                position: 'absolute',
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
@@ -236,15 +259,15 @@ export default function Home() {
             />
 
             {/* Hero Content - Boxed */}
-            <div className="relative z-10 w-[95vw] max-w-7xl h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
+            <div className="relative z-20 w-[95vw] max-w-7xl h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
-                <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full">
-                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold uppercase mb-4 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: '#9FF0D4', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
+                <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full lg:-mt-4">
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold uppercase mb-4 mt-4 sm:mt-8 lg:mt-4" style={{ backgroundColor: '#9FF0D4', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
                     <span>Your Personal Holiday Hero</span>
                   </div>
-                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.1] font-medium tracking-tight font-sans">
+                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] font-medium tracking-tight font-sans" style={{ color: '#004F6E' }}>
                     <span className="inline lg:block lg:whitespace-nowrap">Make planning a holiday,</span>
-                    <span className="inline lg:block lg:whitespace-nowrap text-white/90"> feel like a holiday</span>
+                    <span className="inline lg:block lg:whitespace-nowrap"> feel like a holiday</span>
                   </h1>
                   {/* Logo Container */}
                   <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 lg:gap-4 flex-wrap">
