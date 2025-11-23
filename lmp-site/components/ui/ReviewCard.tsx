@@ -1,7 +1,7 @@
 "use client";
 
 import { Star, CheckCircle2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 interface ReviewCardProps {
   name?: string;
@@ -15,30 +15,95 @@ interface ReviewCardProps {
 const ReviewCard = ({
   name = "Rachel",
   initials = "RS",
-  review = "First time of using a travel agent and Becky was recommended by a friend. Our first holiday aboard with two boys they were keen to go but nervous about going, along with a husband who hadn't travelled for a long time either! Becky listened to all our quirks and came up with two good places and we tweaked flights etc and then booked! We had great flights, the hotel was just what we needed and overall non of us wanted to come home! The service we had from Becky was excellent, very easy to talk to but listened to the brief and hit it perfectly. The communication continued even after we had arrived to make sure we were having a great time! We cannot thank you enough!",
+  review = "First time using a travel agent and Becky was recommended by a friend. Our first holiday aboard with two boys they were keen to go but nervous about going, along with a husband who hadn't travelled for a long time either! Becky listened to all our quirks and came up with two good places and we tweaked flights etc and then booked! We had great flights, the hotel was just what we needed and overall none of us wanted to come home! The service we had from Becky was excellent, very easy to talk to but listened to the brief and hit it perfectly. The communication continued even after we had arrived to make sure we were having a great time! We cannot thank you enough!",
   trip = "Trip to Europe",
   trustpilotUrl = "https://www.trustpilot.com/review/www.notjusttravel.com",
   className = "",
 }: ReviewCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showStack2, setShowStack2] = useState(false);
+  const [showStack3, setShowStack3] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Fade in animation
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
+    if (!cardRef.current) return;
 
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Small delay for subtle entrance
+            setTimeout(() => {
+              setIsVisible(true);
+              // Show first stacked card after main card appears
+              setTimeout(() => {
+                setShowStack2(true);
+                // Show second stacked card after first one
+                setTimeout(() => {
+                  setShowStack3(true);
+                }, 400);
+              }, 600);
+            }, 200);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the card is visible
+        rootMargin: '0px',
+      }
+    );
+
+    observer.observe(cardRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
-    <div className={`relative w-full max-w-xl ${className}`}>
+    <div ref={cardRef} className={`relative w-full max-w-xl ${className}`} style={{ transform: 'scale(0.85)', transformOrigin: 'center', margin: '0 auto' }}>
+      {/* Stacked Card Layers - Background Cards */}
+      {/* Second Card (middle) - animates in first */}
+      <div
+        className="absolute bg-white/65 backdrop-blur-xl border border-neutral-200/70 rounded-3xl"
+        style={{
+          top: '10px',
+          left: '-6px',
+          right: '6px',
+          bottom: '-10px',
+          transform: showStack2 ? 'rotate(-1deg) translateY(0)' : 'rotate(-1deg) translateY(8px)',
+          zIndex: 2,
+          opacity: showStack2 ? 0.85 : 0,
+          boxShadow: showStack2 ? '0 10px 35px rgba(0, 0, 0, 0.15)' : '0 5px 20px rgba(0, 0, 0, 0.08)',
+          transition: 'opacity 1s ease-out, transform 1s ease-out, box-shadow 1s ease-out',
+          pointerEvents: showStack2 ? 'auto' : 'none',
+        }}
+      />
+      {/* Third Card (furthest back) - animates in second */}
+      <div
+        className="absolute bg-white/60 backdrop-blur-xl border border-neutral-200/70 rounded-3xl"
+        style={{
+          top: '20px',
+          left: '-12px',
+          right: '12px',
+          bottom: '-20px',
+          transform: showStack3 ? 'rotate(-2deg) translateY(0)' : 'rotate(-2deg) translateY(10px)',
+          zIndex: 1,
+          opacity: showStack3 ? 0.75 : 0,
+          boxShadow: showStack3 ? '0 8px 30px rgba(0, 0, 0, 0.12)' : '0 4px 15px rgba(0, 0, 0, 0.06)',
+          transition: 'opacity 1s ease-out, transform 1s ease-out, box-shadow 1s ease-out',
+          pointerEvents: showStack3 ? 'auto' : 'none',
+        }}
+      />
+      
       {/* Main Glass Card */}
       <div
-        className="relative bg-white/60 backdrop-blur-xl border border-neutral-200/60 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 md:p-8 overflow-hidden flex flex-col transition-opacity duration-800 ease-out"
+        className="relative bg-white/60 backdrop-blur-xl border border-neutral-200/60 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 md:p-8 overflow-hidden flex flex-col transition-all duration-700 ease-out"
         style={{
           opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
+          transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+          zIndex: 3,
         }}
       >
         {/* Subtle top highlight */}

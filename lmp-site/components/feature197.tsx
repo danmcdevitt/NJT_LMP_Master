@@ -13,6 +13,7 @@ import {
 import { OfferCard } from "@/components/ui/OfferCard";
 import { Logos13 } from "@/components/logos13";
 import { ReviewCard } from "@/components/ui/ReviewCard";
+import { DetailHandledCarousel } from "@/components/ui/DetailHandledCarousel";
 
 interface FeatureItem {
   id: number;
@@ -47,10 +48,10 @@ const defaultFeatures: FeatureItem[] = [
   {
     id: 3,
     title: "Every detail handled",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg",
     backgroundImage: "/images/29841.jpg",
+    component: <DetailHandledCarousel />,
     description:
-      "From flights and hotels to transfers and excursions, we take care of every aspect of your holiday planning. No stress, no hassle—just relax and look forward to your perfect getaway while we handle all the arrangements.",
+      "From flights and hotels to transfers and excursions, we take care of every aspect of your holiday planning. No stress, no hassle, just relax and look forward to your perfect getaway while we handle all the arrangements.",
   },
   {
     id: 4,
