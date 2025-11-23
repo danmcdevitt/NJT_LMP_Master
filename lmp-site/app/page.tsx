@@ -465,14 +465,14 @@ export default function Home() {
                 className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
                 style={{ 
                   WebkitBackdropFilter: 'blur(8px)',
-                  maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)'
+                  maskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)'
                 }} 
               />
 
               {/* Content at Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
-                <div className="space-y-1.5 sm:space-y-2">
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-6 sm:p-8">
+                <div className="space-y-1.5 sm:space-y-2 text-center">
                   <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
                     <a href="tel:07777000123" className="flex items-center gap-2">
@@ -584,14 +584,14 @@ export default function Home() {
                 className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
                 style={{ 
                   WebkitBackdropFilter: 'blur(8px)',
-                  maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)'
+                  maskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)'
                 }} 
               />
 
               {/* Content at Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
-                <div className="space-y-2">
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-8">
+                <div className="space-y-2 text-center">
                   <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none">
                     <a href="tel:07777000123" className="flex items-center gap-2">

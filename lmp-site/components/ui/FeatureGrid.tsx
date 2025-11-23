@@ -228,20 +228,49 @@ const FeatureGrid = () => {
             className={`group relative lg:col-span-2 overflow-clip rounded-lg sm:max-lg:col-span-1 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-6' : ''}`}
             style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 0.95s ease-out 0.3s, transform 0.95s ease-out 0.3s' } : { transition: 'opacity 0.95s ease-out 0.3s, transform 0.95s ease-out 0.3s' }}
           >
-            <img
-              src="/images/amalfi.webp"
-              alt="Amalfi Coast"
-              className="absolute h-full w-full object-cover object-center"
+            {/* Background Image Fallback - Shows immediately while video loads */}
+            <div 
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: 'url(/images/sequence_03_poster.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             />
-            <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end pb-8 pt-4 pl-5 pr-4 transition-colors md:p-6 lg:p-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
+            
+            {/* Video Background */}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/images/sequence_03_poster.jpg"
+              className="absolute z-[1]"
+              style={{
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                minWidth: '100%',
+                minHeight: '100%',
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'cover'
+              }}
+            >
+              <source src="/Sequence%2003-converted.webm" type="video/webm" />
+              <source src="/Sequence%2003-converted.mp4" type="video/mp4" />
+            </video>
+            
+            <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end pb-8 pt-4 pl-5 pr-4 transition-colors md:p-6 lg:p-10 z-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
               <div className="relative z-10">
                 <Heart className="w-8 h-8 mb-2 text-white" />
                 <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
-                  <span className="lg:text-[1.275rem]">Honest, unbiased advice</span>
+                  <span className="lg:text-[1.275rem]">One contact</span>
                 </h3>
                 <p className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]">
-                  No hidden agendas, just genuine<br />
-                  recommendations that put you first.
+                  One dedicated person from planning<br />
+                  to your return, always here for you.
                 </p>
               </div>
             </div>
