@@ -247,7 +247,7 @@ const DetailHandledCarousel = () => {
                 </p>
               </div>
               {/* Arrow indicator - bottom right */}
-              <div className="absolute bottom-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-sm border border-white/30">
+              <div className="hidden md:flex absolute bottom-4 right-4 z-10 w-8 h-8 rounded-full items-center justify-center bg-white/20 backdrop-blur-sm border border-white/30">
                 <ChevronRight className="w-4 h-4" style={{ color: 'rgb(159, 240, 212)' }} strokeWidth={2.5} />
               </div>
             </div>
