@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 
 type CarouselApi = UseEmblaCarouselType[1];
-type UseCarouselParameters = Parameters<typeof useEmblaCarousel>[0];
-type CarouselOptions = UseCarouselParameters[0];
-type CarouselPlugin = UseCarouselParameters[1];
+type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
+type CarouselOptions = UseCarouselParameters[0] extends undefined ? never : UseCarouselParameters[0];
+type CarouselPlugin = UseCarouselParameters[1] extends undefined ? never : UseCarouselParameters[1];
 
 type CarouselProps = {
   opts?: CarouselOptions;

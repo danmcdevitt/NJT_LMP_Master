@@ -1,7 +1,7 @@
 import { ArrowDownRight, Star } from "lucide-react";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 
 const Hero4 = () => {
   return (
