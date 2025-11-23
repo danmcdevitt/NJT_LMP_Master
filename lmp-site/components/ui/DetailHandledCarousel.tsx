@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sparkles } from "lucide-react";
+import { Search, Calendar, Edit, Heart } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -18,30 +18,36 @@ const carouselItems = [
   {
     image: "/images/29841.jpg",
     title: "Research",
+    icon: Search,
     description:
       <>We help you research to<br />create the ideal experience.</>,
   },
   {
     image: "/images/4292.jpg",
     title: "Price quotes",
+    icon: null,
+    iconText: "£",
     description:
       "Get comprehensive price quotes with all options clearly explained.",
   },
   {
     image: "/images/amalfi.webp",
     title: "Bookings",
+    icon: Calendar,
     description:
       "We handle all your bookings from start to finish.",
   },
   {
     image: "/images/family2.webp",
     title: "Amendments",
+    icon: Edit,
     description:
       "We'll handle all amendments quickly and efficiently.",
   },
   {
     image: "/images/home-snow-mountain.webp",
     title: "Aftercare",
+    icon: Heart,
     description:
       "We're here to help with any questions, even after you return home.",
   },
@@ -64,13 +70,13 @@ const DetailHandledCarousel = () => {
   }, [api]);
 
   return (
-    <div className="w-full">
+    <div className="w-full mt-8 md:mt-12">
       <Carousel setApi={setApi}>
         <div className="flex flex-col items-center gap-4">
-          <CarouselContent className="max-w-[350px] select-none">
+          <CarouselContent className="max-w-[420px] select-none">
             {carouselItems.map((item, idx) => (
               <CarouselItem className="w-fit" key={idx}>
-                <div className="aspect-4/5 relative max-h-[450px] rounded-2xl overflow-hidden">
+                <div className="aspect-square relative max-w-[420px] max-h-[420px] rounded-2xl overflow-hidden">
                   <div className="bg-gradient-to-b from-[#004F6E] absolute inset-0 rounded-2xl to-transparent to-40%" />
                   <img
                     src={item.image}
@@ -112,7 +118,11 @@ const DetailHandledCarousel = () => {
                       border: '1px solid rgba(255, 255, 255, 0.3)',
                     }}
                   >
-                    <Sparkles className="w-5 h-5 text-white" strokeWidth={2} />
+                    {item.iconText ? (
+                      <span className="text-white text-xl font-bold">{item.iconText}</span>
+                    ) : item.icon ? (
+                      <item.icon className="w-5 h-5 text-white" strokeWidth={2} />
+                    ) : null}
                   </div>
                   <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
                     <p className="text-white/90 text-base md:text-lg font-semibold">

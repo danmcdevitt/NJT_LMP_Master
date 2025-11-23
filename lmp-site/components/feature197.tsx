@@ -51,7 +51,7 @@ const defaultFeatures: FeatureItem[] = [
     backgroundImage: "/images/29841.jpg",
     component: <DetailHandledCarousel />,
     description:
-      "From flights and hotels to transfers and excursions, we take care of every aspect of your holiday planning. No stress, no hassle, just relax and look forward to your perfect getaway while we handle all the arrangements.",
+      "From researching your options, getting the best prices and booking your trip, to catching up when you get home, we'll take care of all the little touches that mean the most.",
   },
   {
     id: 4,
