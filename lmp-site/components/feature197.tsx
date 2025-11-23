@@ -95,7 +95,7 @@ const Feature197 = ({
   }, [activeTabId]);
 
   return (
-    <section className="pt-3 sm:pt-8 lg:pt-12 pb-0 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+    <section className="pt-3 sm:pt-8 lg:pt-12 pb-0 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] max-w-7xl mx-auto">
       <style dangerouslySetInnerHTML={{__html: `
         button svg {
           color: #004F6E;

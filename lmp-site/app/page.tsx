@@ -7,7 +7,7 @@ import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
 import { Feature197 } from "@/components/feature197";
 import { Footer13 } from "@/components/footer13";
 import { useEffect, useState, useRef } from "react";
-import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone } from "lucide-react";
+import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone, Heart } from "lucide-react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,14 +17,15 @@ export default function Home() {
   const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('down');
   const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
   const [carouselVisible, setCarouselVisible] = useState(false);
+  const [sparkleAnimated, setSparkleAnimated] = useState(false);
   const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const carouselContainerRef = useRef<HTMLDivElement>(null);
   
   // Profile card name font sizing
   const mobileNameRef = useRef<HTMLHeadingElement>(null);
   const desktopNameRef = useRef<HTMLHeadingElement>(null);
-  const [mobileFontSize, setMobileFontSize] = useState<string>('text-3xl sm:text-4xl');
-  const [desktopFontSize, setDesktopFontSize] = useState<string>('text-4xl sm:text-5xl');
+  const [mobileFontSize, setMobileFontSize] = useState<string>('text-[1.5rem] sm:text-[1.8rem]');
+  const [desktopFontSize, setDesktopFontSize] = useState<string>('text-[1.8rem] sm:text-[2.4rem]');
   
   useEffect(() => {
     const handleScroll = () => {
@@ -103,6 +104,28 @@ export default function Home() {
     };
   }, [scrollDirection, scrollY, carouselVisible]);
 
+  // Sparkle animation observer - triggers once when features section is visible
+  useEffect(() => {
+    if (!carouselContainerRef.current || sparkleAnimated) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !sparkleAnimated) {
+            setSparkleAnimated(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(carouselContainerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [sparkleAnimated]);
+
   // Adjust mobile name font size if it exceeds 2 lines
   useEffect(() => {
     const adjustFontSize = (ref: React.RefObject<HTMLHeadingElement | null>, setFontSize: (size: string) => void, baseSize: string) => {
@@ -114,13 +137,13 @@ export default function Home() {
       
       // Check if text exceeds 2 lines (allowing some tolerance)
       if (scrollHeight > lineHeight * 2.2) {
-        // Reduce font size progressively
-        if (baseSize.includes('text-4xl')) {
-          setFontSize('text-2xl sm:text-3xl');
-        } else if (baseSize.includes('text-3xl')) {
-          setFontSize('text-xl sm:text-2xl');
-        } else if (baseSize.includes('text-5xl')) {
-          setFontSize('text-3xl sm:text-4xl');
+        // Reduce font size progressively (20% smaller than original)
+        if (baseSize.includes('text-4xl') || baseSize.includes('1.8rem')) {
+          setFontSize('text-[1.2rem] sm:text-[1.5rem]');
+        } else if (baseSize.includes('text-3xl') || baseSize.includes('1.5rem')) {
+          setFontSize('text-[1rem] sm:text-[1.2rem]');
+        } else if (baseSize.includes('text-5xl') || baseSize.includes('2.4rem')) {
+          setFontSize('text-[1.5rem] sm:text-[1.8rem]');
         }
       }
     };
@@ -153,7 +176,7 @@ export default function Home() {
     <main className="min-h-screen" style={{ backgroundColor: 'white' }}>
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
-        <div className="w-[95vw] mx-auto py-4">
+        <div className="w-[95vw] max-w-7xl mx-auto py-4">
           <div className="flex items-center justify-between px-5 sm:px-6 lg:px-8">
             <img
               src="/images/logos/NJT Logo Cruise Blue.webp"
@@ -224,7 +247,7 @@ export default function Home() {
             />
 
             {/* Hero Content - Boxed */}
-            <div className="relative z-10 w-[95vw] h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
+            <div className="relative z-10 w-[95vw] max-w-7xl h-full flex flex-col justify-between mx-auto px-5 sm:px-6 lg:px-12 py-8 lg:py-0">
               <div className="w-full flex-1 flex items-center">
                 <div className="text-center lg:text-left space-y-6 sm:space-y-8 max-w-3xl w-full">
                   <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold uppercase mb-4 mt-4 sm:mt-8 lg:mt-12" style={{ backgroundColor: '#9FF0D4', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
@@ -267,6 +290,43 @@ export default function Home() {
 
               {/* Feature Elements at Bottom */}
               <div className="w-full pb-8 sm:pb-4 lg:pb-6" ref={carouselContainerRef}>
+                <style dangerouslySetInnerHTML={{__html: `
+                  @keyframes sparkleMove {
+                    0% {
+                      left: -20px;
+                      opacity: 0;
+                    }
+                    10% {
+                      opacity: 1;
+                    }
+                    90% {
+                      opacity: 1;
+                    }
+                    100% {
+                      left: calc(100% + 20px);
+                      opacity: 0;
+                    }
+                  }
+                  .sparkle {
+                    position: absolute;
+                    top: 0;
+                    width: 40px;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, rgba(159, 240, 212, 0.6), transparent);
+                    filter: blur(3px);
+                    animation: sparkleMove 1.5s ease-in-out;
+                    pointer-events: none;
+                  }
+                  .sparkle-delay-1 {
+                    animation-delay: 0.3s;
+                  }
+                  .sparkle-delay-2 {
+                    animation-delay: 1.1s;
+                  }
+                  .sparkle-delay-3 {
+                    animation-delay: 1.9s;
+                  }
+                `}} />
                 {/* Mobile: Horizontal scrollable carousel */}
                 <div className="lg:hidden overflow-x-auto scrollbar-hide pl-12 sm:pl-16 pr-4" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
                   <div className="flex gap-6 sm:gap-8" style={{ scrollSnapType: 'x mandatory' }}>
@@ -282,11 +342,13 @@ export default function Home() {
                       }`}
                       style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[0] && carouselVisible ? (scrollDirection === 'down' ? '100ms' : '300ms') : '0ms' }}
                     >
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <div className="w-full border-t mb-4 sm:mb-4 relative" style={{ borderColor: 'white' }}>
+                        {sparkleAnimated && <div className="sparkle sparkle-delay-1"></div>}
+                      </div>
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Expert knowledge for<br />unforgettable experiences
+                        Expert help to find the<br className="hidden lg:block" /> right holiday for you
                       </p>
                     </div>
 
@@ -302,11 +364,13 @@ export default function Home() {
                       }`}
                       style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[1] && carouselVisible ? (scrollDirection === 'down' ? '250ms' : '250ms') : '0ms' }}
                     >
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <div className="w-full border-t mb-4 sm:mb-4 relative" style={{ borderColor: 'white' }}>
+                        {sparkleAnimated && <div className="sparkle sparkle-delay-2"></div>}
+                      </div>
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
-                      <MapPin className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
+                      <Heart className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Personalised service<br />tailored to your preferences
+                        A completely personal<br className="hidden lg:block" /> travel experience
                       </p>
                     </div>
 
@@ -322,10 +386,12 @@ export default function Home() {
                       }`}
                       style={{ scrollSnapAlign: 'start', transitionDelay: visibleCards[2] && carouselVisible ? (scrollDirection === 'down' ? '400ms' : '100ms') : '0ms' }}
                     >
-                      <div className="w-full border-t mb-4 sm:mb-4" style={{ borderColor: 'white' }}></div>
+                      <div className="w-full border-t mb-4 sm:mb-4 relative" style={{ borderColor: 'white' }}>
+                        {sparkleAnimated && <div className="sparkle sparkle-delay-3"></div>}
+                      </div>
                       <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Trusted by travellers<br />worldwide
+                        Award-winning<br className="hidden lg:block" /> customer service
                       </p>
                     </div>
                   </div>
@@ -335,28 +401,34 @@ export default function Home() {
                 <div className="hidden lg:flex flex-row gap-8 max-w-2xl lg:max-w-3xl">
                   {/* Feature 1 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
+                    <div className="w-full border-t mb-4 relative" style={{ borderColor: 'white' }}>
+                      {sparkleAnimated && <div className="sparkle sparkle-delay-1"></div>}
+                    </div>
                     <Sparkles className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Expert knowledge for<br className="hidden lg:block" /> unforgettable experiences
+                      Expert help to find the<br className="hidden lg:block" /> right holiday for you
                     </p>
                   </div>
 
                   {/* Feature 2 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
-                    <MapPin className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
+                    <div className="w-full border-t mb-4 relative" style={{ borderColor: 'white' }}>
+                      {sparkleAnimated && <div className="sparkle sparkle-delay-2"></div>}
+                    </div>
+                    <Heart className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Personalised service<br className="hidden lg:block" /> tailored to your preferences
+                      A completely personal<br className="hidden lg:block" /> travel experience
                     </p>
                   </div>
 
                   {/* Feature 3 */}
                   <div className="flex flex-col items-start text-white flex-1">
-                    <div className="w-full border-t mb-4" style={{ borderColor: 'white' }}></div>
+                    <div className="w-full border-t mb-4 relative" style={{ borderColor: 'white' }}>
+                      {sparkleAnimated && <div className="sparkle sparkle-delay-3"></div>}
+                    </div>
                     <Award className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Trusted by travellers<br className="hidden lg:block" /> worldwide
+                      Award-winning<br className="hidden lg:block" /> customer service
                     </p>
                   </div>
                 </div>
@@ -388,7 +460,7 @@ export default function Home() {
 
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-6 sm:p-8">
-                <div className="space-y-3 sm:space-y-4">
+                <div className="space-y-1.5 sm:space-y-2">
                   <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
                     <a href="tel:07777000123" className="flex items-center gap-2">
@@ -402,13 +474,14 @@ export default function Home() {
           </div>
 
           {/* About Section */}
-          <section id="about-section" className="py-12 sm:py-16 lg:py-24 px-5 sm:px-6 lg:px-8 pb-6 sm:pb-16 lg:pb-24 relative">
-            <div className="w-full lg:max-w-2xl">
+          <section id="about-section" className="py-12 sm:py-16 lg:py-24 pb-6 sm:pb-16 lg:pb-24 relative">
+            <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+              <div className="w-full lg:max-w-2xl">
               <Card className="bg-transparent border-0 shadow-none">
                 <CardContent className="p-0">
                   <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold mb-4 sm:mb-6" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
-                    <span>HOLIDAY WITH THE BEST</span>
+                    <span>YOUR BEST EVER HOLIDAY</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner<br className="lg:hidden" /> with the<br className="hidden lg:block" /> award-winning<br className="lg:hidden" /> Not Just Travel</h2>
                   <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
@@ -429,6 +502,7 @@ export default function Home() {
                   </div>
                 </CardContent>
               </Card>
+              </div>
             </div>
           </section>
 
@@ -505,7 +579,7 @@ export default function Home() {
 
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
-                <div className="space-y-4">
+                <div className="space-y-2">
                   <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none">
                     <a href="tel:07777000123" className="flex items-center gap-2">

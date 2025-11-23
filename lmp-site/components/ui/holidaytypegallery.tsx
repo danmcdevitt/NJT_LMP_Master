@@ -146,7 +146,7 @@ const HolidayTypeGallery = () => {
   const progressOffset = currentIndex * progressIndicatorWidth;
 
   return (
-    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-12 lg:pb-12 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+    <section className="pt-6 pb-6 sm:pt-8 sm:pb-8 lg:pt-12 lg:pb-12 px-5 sm:px-6 lg:px-8 relative w-[95vw] max-w-7xl mx-auto">
       <div className="w-full">
         <div className="flex justify-start lg:justify-center mb-4 sm:mb-6">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>

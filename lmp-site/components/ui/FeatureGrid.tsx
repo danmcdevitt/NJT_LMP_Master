@@ -36,7 +36,7 @@ const FeatureGrid = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-6 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] mx-auto">
+    <section ref={sectionRef} className="pt-6 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] max-w-7xl mx-auto">
       <div className="w-full">
         <div className="flex justify-start lg:justify-center mb-4 sm:mb-6">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
@@ -76,9 +76,9 @@ const FeatureGrid = () => {
             <div className="relative z-10 flex flex-col justify-end h-full">
               <User className="w-8 h-8 mb-2 text-white" />
               <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
-                The best service
+                <span className="lg:text-[1.275rem]">The best service</span>
               </h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white">
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white lg:text-[0.96rem]">
                 You'll be looked after by one of the top travel agents in the UK.
               </p>
             </div>
@@ -103,8 +103,10 @@ const FeatureGrid = () => {
             />
             <div className="relative z-10">
               <Lightbulb className="w-8 h-8 mb-2 text-white" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Friendly advice</h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white">
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                <span className="lg:text-[1.275rem]">Friendly advice</span>
+              </h3>
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]">
                 Get helpful guidance and recommendations.
               </p>
             </div>
@@ -149,8 +151,10 @@ const FeatureGrid = () => {
             {/* Headline and Body Copy */}
             <div className="relative z-10">
               <ShieldCheck className="w-8 h-8 text-white mb-2" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Complete protection</h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium text-white text-left leading-tight">ABTA and ATOL protected<br className="lg:hidden" /> for total peace of mind.</p>
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                <span className="lg:text-[1.275rem]">Complete protection</span>
+              </h3>
+              <p className="text-lg md:text-base lg:text-lg font-medium text-white text-left leading-tight lg:text-[0.96rem]">ABTA and ATOL protected<br className="lg:hidden" /> for total peace of mind.</p>
             </div>
           </div>
           <div className={`group relative flex flex-col justify-end overflow-clip rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-4' : ''}`} style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }}>
@@ -172,8 +176,10 @@ const FeatureGrid = () => {
             />
             <div className="relative z-10">
               <Sparkles className="w-8 h-8 mb-2 text-white" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Tailored to you,</h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white">
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                <span className="lg:text-[1.275rem]">Tailored to you,</span>
+              </h3>
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]">
                 Every holiday suggestion<br className="lg:hidden" /> is carefully crafted.
               </p>
             </div>
@@ -211,8 +217,10 @@ const FeatureGrid = () => {
             {/* Text Content - On Top */}
             <div className="relative z-10 flex flex-col justify-end">
               <Gift className="w-8 h-8 mb-2 text-white" />
-              <div className="mb-2 text-xl sm:text-xl lg:text-2xl font-medium text-white leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>Totally free</div>
-              <div className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight">Every detail taken care of,<br className="lg:hidden" /> without costing you a penny.</div>
+              <div className="mb-2 text-xl sm:text-xl lg:text-2xl font-medium text-white leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                <span className="lg:text-[1.275rem]">Totally free</span>
+              </div>
+              <div className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]">Every detail taken care of,<br className="lg:hidden" /> without costing you a penny.</div>
             </div>
           </div>
           <a
@@ -229,9 +237,9 @@ const FeatureGrid = () => {
               <div className="relative z-10">
                 <Heart className="w-8 h-8 mb-2 text-white" />
                 <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
-                  Honest, unbiased advice
+                  <span className="lg:text-[1.275rem]">Honest, unbiased advice</span>
                 </h3>
-                <p className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight">
+                <p className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]">
                   No hidden agendas, just genuine<br />
                   recommendations that put you first.
                 </p>

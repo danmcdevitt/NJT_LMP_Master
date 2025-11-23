@@ -10,7 +10,7 @@ const Footer13 = () => {
     <section className="pb-0" style={{ color: 'white' }}>
       {/* Your Best Memories Section */}
       <div className="w-full pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 sm:pb-16" style={{ backgroundColor: '#004F6E' }}>
-        <div className="w-[95vw] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <footer>
             <div>
               <div className="flex flex-col items-center text-center">
@@ -40,7 +40,7 @@ const Footer13 = () => {
 
       {/* ABTA Information Section */}
       <nav className="w-full border-b py-8 sm:py-10 md:py-12 lg:py-14" style={{ backgroundColor: '#010101', borderColor: 'rgba(159, 240, 212, 0.2)' }}>
-        <div className="w-[95vw] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:gap-6 items-center md:items-start">
             <div className="w-full md:flex-[3] md:pr-6">
               <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
@@ -75,7 +75,7 @@ const Footer13 = () => {
 
       {/* Bottom Section */}
       <div className="w-full" style={{ backgroundColor: '#010101', paddingTop: '12px', paddingBottom: '12px' }}>
-        <div className="w-[95vw] mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-4">
             <p className="text-white/80 font-medium text-sm sm:text-base text-center sm:text-left">
               © {new Date().getFullYear()} Not Just Travel

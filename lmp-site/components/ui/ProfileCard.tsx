@@ -37,8 +37,8 @@ const ProfileCard = ({
 
       {/* Content at Bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
-        <div className="space-y-4">
-          <h3 className="text-4xl sm:text-5xl font-medium text-white drop-shadow-lg">{name}</h3>
+        <div className="space-y-2">
+          <h3 className="text-[1.8rem] sm:text-[2.4rem] font-medium text-white drop-shadow-lg">{name}</h3>
           <Button size="lg" className="shadow-none">{phone}</Button>
         </div>
       </div>
