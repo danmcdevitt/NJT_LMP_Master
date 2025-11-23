@@ -35,23 +35,7 @@ const defaultFeatures: FeatureItem[] = [
     backgroundImage: "/images/family2.webp",
     component: <Logos13 />,
     description:
-      "We work with the world's leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from Jet2Holidays, TUI, P&O Cruises, Virgin Voyages, and many more, all in one place.",
-  },
-  {
-    id: 2,
-    title: "5-star service",
-    backgroundImage: "/images/4292.jpg",
-    component: <ReviewCard />,
-    description:
-      "Our exceptional service has earned us outstanding reviews from satisfied travellers. With top ratings on Trustpilot and countless happy customers, you can book with confidence knowing you're in expert hands.",
-  },
-  {
-    id: 3,
-    title: "Every detail handled",
-    backgroundImage: "/images/29841.jpg",
-    component: <DetailHandledCarousel />,
-    description:
-      "From researching your options, getting the best prices and booking your trip, to catching up when you get home, we'll take care of all the little touches that mean the most.",
+      "We work with all the leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from Jet2Holidays, TUI, P&O Cruises, Virgin Voyages, and hundreds more, all in one place.",
   },
   {
     id: 4,
@@ -62,12 +46,20 @@ const defaultFeatures: FeatureItem[] = [
       "Get access to special deals and exclusive offers that aren't available to the general public. As a Not Just Travel agent, we can secure you better prices, added extras, and unique packages that make your holiday even more special.",
   },
   {
-    id: 5,
-    title: "Stress free support",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-5.svg",
-    backgroundImage: "/images/home-snow-mountain.webp",
+    id: 3,
+    title: "Every detail taken care of",
+    backgroundImage: "/images/29841.jpg",
+    component: <DetailHandledCarousel />,
     description:
-      "We're here for you every step of the way, from initial planning to your return home. If anything changes or you need assistance, just give us a call. Our personal service means you always have someone to turn to, making your holiday truly worry-free.",
+      "From researching your options, getting the best prices and booking your trip, to catching up when you get home, we'll take care of all the little touches that mean the most.",
+  },
+  {
+    id: 2,
+    title: "5-star service",
+    backgroundImage: "/images/4292.jpg",
+    component: <ReviewCard />,
+    description:
+      "Our exceptional service has earned us outstanding reviews from satisfied travellers. With top ratings on Trustpilot and countless happy customers, you can book with confidence knowing you're in expert hands.",
   },
 ];
 
@@ -153,17 +145,17 @@ const Feature197 = ({
                           setActiveContent(tab.component || tab.image);
                           setActiveTabId(tab.id);
                         }}
-                        className="!no-underline cursor-pointer py-4 sm:py-5 transition [&_svg]:text-[#004F6E]"
+                        className="!no-underline cursor-pointer py-6 sm:py-7 lg:py-8 transition [&_svg]:text-[#004F6E]"
                       >
                         <h4
-                          className={`text-lg sm:text-xl lg:text-2xl font-medium text-left ${tab.id === activeTabId ? "" : ""}`}
+                          className={`text-xl sm:text-xl lg:text-2xl font-medium text-left ${tab.id === activeTabId ? "" : ""}`}
                           style={{ color: '#004F6E' }}
                         >
                           {tab.title}
                         </h4>
                       </AccordionTrigger>
-                      <AccordionContent>
-                        <p className="text-lg sm:text-xl leading-relaxed" style={{ color: '#004F6E' }}>
+                      <AccordionContent className="pb-2">
+                        <p className="text-lg sm:text-xl leading-relaxed mb-4" style={{ color: '#004F6E' }}>
                           {tab.description}
                         </p>
                         <div className={`mt-4 md:hidden ${tab.id === 1 ? 'min-h-[500px]' : ''}`}>
