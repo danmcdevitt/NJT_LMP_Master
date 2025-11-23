@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd lmp-site && npm install && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "lmp-site/.next",
-  "installCommand": "cd lmp-site && npm install",
+  "installCommand": "npm install",
   "framework": "nextjs"
 }
 
