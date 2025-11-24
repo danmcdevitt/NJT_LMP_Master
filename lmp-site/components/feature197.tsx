@@ -193,7 +193,7 @@ const Feature197 = ({
                 {typeof activeContent === 'string' ? (
                   <img
                     src={activeContent}
-                    alt="Feature preview"
+                    alt={features.find(f => f.id === activeTabId)?.title || "Feature preview"}
                     className="aspect-4/3 rounded-lg object-cover w-full max-w-md"
                   />
                 ) : activeTabId === 4 ? (

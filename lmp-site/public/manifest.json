@@ -1,0 +1,24 @@
+{
+  "name": "Not Just Travel - Expert Holiday Planning",
+  "short_name": "Not Just Travel",
+  "description": "Expert travel agent providing personalized holiday planning services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#004F6E",
+  "icons": [
+    {
+      "src": "/images/NJfavicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/NJfavicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

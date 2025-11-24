@@ -38,7 +38,10 @@ export default function Home() {
         if (playPromise !== undefined) {
           playPromise.catch((error) => {
             // Autoplay was prevented - this is normal for some browsers
-            console.log('Video autoplay prevented:', error);
+            // Video autoplay prevented - this is normal for some browsers
+            if (process.env.NODE_ENV === 'development') {
+              console.log('Video autoplay prevented:', error);
+            }
           });
         }
       }
@@ -544,12 +547,12 @@ export default function Home() {
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
                     <img
                       src="/images/logos/TTF website - KTP & Acc-(2).png.webp"
-                      alt="NJT and TTF awards images 1"
+                      alt="Not Just Travel and The Travel Franchise partnership awards and certifications"
                       className="h-auto max-w-[276px] sm:max-w-[345px]"
                     />
                     <img
                       src="/images/logos/TTF website - KTP & Acc-(3).png.webp"
-                      alt="TTF awards images 2"
+                      alt="The Travel Franchise awards and certifications"
                       className="h-auto max-w-[276px] sm:max-w-[345px]"
                     />
                   </div>
@@ -585,7 +588,7 @@ export default function Home() {
             >
               <img
                 src="/images/29841.jpg"
-                alt="Travel destination"
+                alt="Beautiful travel destination landscape"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </Card>
@@ -604,7 +607,7 @@ export default function Home() {
             >
               <img
                 src="/images/4292.jpg"
-                alt="Travel destination"
+                alt="Scenic travel destination view"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </Card>

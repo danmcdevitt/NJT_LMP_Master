@@ -22,6 +22,7 @@ const BrandCard = ({
       <img
         src={backgroundImage}
         alt=""
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
       

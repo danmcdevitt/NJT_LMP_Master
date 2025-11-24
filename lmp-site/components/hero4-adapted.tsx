@@ -7,7 +7,7 @@ const Hero4Adapted = () => {
         <div className="bg-muted flex justify-end">
           <img
             src="/images/ctawaves.webp"
-            alt="Travel destination"
+            alt="Ocean waves and beach destination"
             className="max-h-[600px] w-full rounded-md object-cover lg:max-h-[800px]"
           />
         </div>
@@ -20,7 +20,7 @@ const Hero4Adapted = () => {
             Big brands with a personal touch
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            We partner with the world&apos;s leading travel brands to bring you exclusive deals and packages. From luxury cruise lines to trusted tour operators, access the best holidays all in one place with personalized service.
           </p>
           <div className="mb-12 flex w-fit flex-col items-center gap-4 sm:flex-row">
             <div className="flex items-center">

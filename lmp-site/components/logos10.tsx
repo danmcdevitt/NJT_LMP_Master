@@ -30,7 +30,7 @@ const Logos10 = () => {
     },
     {
       id: "logo-4",
-      description: "NCLH",
+      description: "Norwegian Cruise Line Holdings",
       image: "/images/logos/NCLH_BIG-28a413a2.png",
       className: "max-h-10 w-auto",
     },
@@ -54,7 +54,7 @@ const Logos10 = () => {
     },
     {
       id: "logo-8",
-      description: "Logo",
+      description: "Travel brand logo",
       image: "/images/logos/logo.fa71aa996cd64c0e4df7.webp",
       className: "max-h-10 w-auto",
     },

@@ -7,8 +7,6 @@ import { Button } from "@/components/ui/Button";
 
 interface DatItem {
   id: string;
-  title: string;
-  price: string;
   image: string;
   hoverImage: string;
   tag: string;
@@ -21,9 +19,7 @@ interface DatItem {
 const DATA: DatItem[] = [
   {
     id: "1",
-    title: "Custom Web Development",
-    price: "$1,500",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
+    image: "/images/family2.webp",
     hoverImage: "/images/family2.webp",
     tag: "Families",
     headline: "Families",
@@ -33,9 +29,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "2",
-    title: "Mobile App Development",
-    price: "$2,000",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
+    image: "/images/4292.jpg",
     hoverImage: "/images/4292.jpg",
     tag: "Cruises",
     headline: "Cruises",
@@ -45,9 +39,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "3",
-    title: "Cloud Solutions",
-    price: "$3,000",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
+    image: "/images/moon-rise-midtown-manhattan-with-city-skyline-night.webp",
     hoverImage: "/images/moon-rise-midtown-manhattan-with-city-skyline-night.webp",
     tag: "City Breaks",
     headline: "City Breaks",
@@ -57,9 +49,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "4",
-    title: "UI/UX Design",
-    price: "$1,200",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-6.svg",
+    image: "/images/photo-boy-ski-top-vigo-mountain.webp",
     hoverImage: "/images/photo-boy-ski-top-vigo-mountain.webp",
     tag: "Ski",
     headline: "Ski",
@@ -69,9 +59,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "5",
-    title: "E-Commerce Platforms",
-    price: "$2,500",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
+    image: "/images/home-snow-mountain.webp",
     hoverImage: "/images/home-snow-mountain.webp",
     tag: "Lapland",
     headline: "Lapland",
@@ -81,9 +69,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "6",
-    title: "AI & Machine Learning",
-    price: "$5,000",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
+    image: "/images/woman-looking-lake-against-sky.webp",
     hoverImage: "/images/woman-looking-lake-against-sky.webp",
     tag: "Adventure",
     headline: "Adventure",
@@ -93,9 +79,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "7",
-    title: "DevOps Services",
-    price: "$2,800",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
+    image: "/images/safariholiday.webp",
     hoverImage: "/images/safariholiday.webp",
     tag: "Safari",
     headline: "Safari",
@@ -105,9 +89,7 @@ const DATA: DatItem[] = [
   },
   {
     id: "8",
-    title: "Cybersecurity Solutions",
-    price: "$4,000",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-6.svg",
+    image: "/images/vertical-shot-sea-with-ferries-wheel-distance-blue-sky.webp",
     hoverImage: "/images/vertical-shot-sea-with-ferries-wheel-distance-blue-sky.webp",
     tag: "UK",
     headline: "UK",
@@ -163,7 +145,7 @@ const HolidayTypeGallery = () => {
           </div>
         </div>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-left lg:text-center mb-2 sm:mb-2 lg:mb-3 leading-tight" style={{ color: '#004F6E' }}>
-          Every type of holiday,<br className="lg:hidden" /><br className="hidden lg:block" /> any kind of budget
+          Every type of holiday,<br className="lg:hidden" /><br className="hidden lg:block" /> perfectly planned for you
         </h2>
         <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
           From beach escapes to city adventures,<br className="lg:hidden" /><br className="hidden lg:block" /> we&apos;ll help with any holiday you want.

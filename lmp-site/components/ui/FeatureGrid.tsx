@@ -68,7 +68,10 @@ const FeatureGrid = () => {
         }
       } catch (error) {
         // Autoplay was prevented - try again on user interaction
-        console.log('Contact video autoplay prevented, will retry:', error);
+        // Contact video autoplay prevented - will retry on user interaction
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Contact video autoplay prevented, will retry:', error);
+        }
       }
     };
     
@@ -118,7 +121,7 @@ const FeatureGrid = () => {
             {/* Background Image */}
             <img
               src="/images/corfu.webp"
-              alt="Corfu"
+              alt="Beautiful Corfu coastline with crystal clear waters"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             {/* Frosted Glass Overlay from Bottom */}
@@ -147,7 +150,7 @@ const FeatureGrid = () => {
             {/* Background Image */}
             <img
               src="/images/friendlyadvice.webp"
-              alt="Friendly advice"
+              alt="Travel agent providing friendly advice to customers"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             {/* Frosted Glass Overlay from Bottom */}
@@ -220,7 +223,7 @@ const FeatureGrid = () => {
           <div className={`group relative flex flex-col justify-end overflow-clip rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-4' : ''}`} style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }}>
             <img
               src="/images/villa1.webp"
-              alt="Villa"
+              alt="Luxury villa accommodation with beautiful surroundings"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             {/* Frosted Glass Overlay from Bottom */}
@@ -249,7 +252,7 @@ const FeatureGrid = () => {
             <div className="absolute inset-0 z-[0.5] flex items-start justify-center pointer-events-none">
               <img 
                 src="/images/NJ-only-white.png" 
-                alt="NJ Logo" 
+                alt="Not Just Travel logo" 
                 className="w-auto h-auto max-w-full max-h-full object-contain"
                 style={{ opacity: 0.1 }}
               />
@@ -307,7 +310,7 @@ const FeatureGrid = () => {
               playsInline
               preload={videoPreload}
               poster="/images/sequence_03_poster.jpg"
-              aria-label="Background video showing personal travel service"
+              aria-label="Video showing personal travel service consultation"
               className="absolute z-[1]"
               style={{
                 top: '50%',

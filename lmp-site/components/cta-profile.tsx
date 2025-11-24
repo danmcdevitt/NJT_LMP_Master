@@ -50,7 +50,7 @@ const CtaProfile = () => {
               >
                 <img
                   src="/images/29841.jpg"
-                  alt="Travel destination"
+                  alt="Beautiful travel destination landscape"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </Card>
@@ -62,7 +62,7 @@ const CtaProfile = () => {
               >
                 <img
                   src="/images/4292.jpg"
-                  alt="Travel destination"
+                  alt="Scenic travel destination view"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </Card>

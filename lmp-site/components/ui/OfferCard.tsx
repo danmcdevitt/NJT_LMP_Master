@@ -70,7 +70,7 @@ const OfferCard = ({
       {/* Background Image */}
       <img
         src={image}
-        alt="Exclusive travel offer"
+        alt={destination ? `Exclusive travel offer to ${destination}` : "Exclusive travel offer destination"}
         className="absolute inset-0 w-full h-full object-cover rounded-lg md:rounded-2xl"
       />
       
