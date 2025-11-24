@@ -16,6 +16,7 @@ interface DatItem {
   headline: string;
   body: string;
   backgroundColor?: string;
+  altText: string;
 }
 
 const DATA: DatItem[] = [
@@ -29,6 +30,7 @@ const DATA: DatItem[] = [
     headline: "Families",
     body: "Perfect holidays designed for families of all sizes, with activities and accommodations everyone will love.",
     backgroundColor: "#a7675a",
+    altText: "Family enjoying a sunny beach holiday together",
   },
   {
     id: "2",
@@ -40,6 +42,7 @@ const DATA: DatItem[] = [
     headline: "Cruises",
     body: "Luxury cruise experiences to stunning destinations, with world-class dining and entertainment on board.",
     backgroundColor: "#0e2232",
+    altText: "Luxury cruise ship sailing on blue ocean waters",
   },
   {
     id: "3",
@@ -51,6 +54,7 @@ const DATA: DatItem[] = [
     headline: "City Breaks",
     body: "Explore vibrant cities around the world, from cultural landmarks to hidden local gems.",
     backgroundColor: "#162532",
+    altText: "City skyline at night with illuminated buildings",
   },
   {
     id: "4",
@@ -62,6 +66,7 @@ const DATA: DatItem[] = [
     headline: "Ski",
     body: "Hit the slopes at world-renowned ski resorts with perfectly planned winter getaways.",
     backgroundColor: "#e38d32",
+    altText: "Person skiing down snow-covered mountain slope",
   },
   {
     id: "5",
@@ -73,6 +78,7 @@ const DATA: DatItem[] = [
     headline: "Lapland",
     body: "Magical Lapland experiences including Northern Lights, husky sledding, and Santa's village.",
     backgroundColor: "#4b1c15",
+    altText: "Snow-covered mountain landscape in Lapland",
   },
   {
     id: "6",
@@ -84,6 +90,7 @@ const DATA: DatItem[] = [
     headline: "Adventure",
     body: "Thrilling adventure holidays for the bold, from hiking and diving to extreme sports.",
     backgroundColor: "#667052",
+    altText: "Person enjoying outdoor adventure by a scenic lake",
   },
   {
     id: "7",
@@ -95,6 +102,7 @@ const DATA: DatItem[] = [
     headline: "Safari",
     body: "Experience the wild beauty of Africa with unforgettable safari adventures, from game drives to luxury lodges.",
     backgroundColor: "#bca17b",
+    altText: "Wildlife safari in African savanna landscape",
   },
   {
     id: "8",
@@ -106,6 +114,7 @@ const DATA: DatItem[] = [
     headline: "UK",
     body: "Discover the beauty of the UK, from historic cities to stunning countryside and coastal escapes.",
     backgroundColor: "#21272a",
+    altText: "UK coastal scene with sea and blue sky",
   },
 ];
 
@@ -241,7 +250,7 @@ const HolidayTypeGallery = () => {
                       {/* Image with Gradient Mask - fades out at bottom */}
                       <img
                         src={product.hoverImage}
-                        alt={product.title}
+                        alt={product.altText}
                         className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:brightness-75 group-hover:scale-110 z-0"
                         style={{  
                           maskImage: 'linear-gradient(to bottom, black 0%, black 75%, rgba(0,0,0,0.8) 82%, rgba(0,0,0,0.5) 86%, rgba(0,0,0,0.2) 90%, transparent 93%)',
