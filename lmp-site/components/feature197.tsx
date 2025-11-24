@@ -72,9 +72,6 @@ const Feature197 = ({
   );
   const [showFanCards, setShowFanCards] = useState(false);
 
-  const activeFeature = features.find(f => f.id === activeTabId) || features[0];
-  const backgroundImage = activeFeature?.backgroundImage;
-
   // All accordion items use Holiday Linen
   const activeColor = '#F5F0EC';
 
@@ -90,7 +87,11 @@ const Feature197 = ({
 
       return () => clearTimeout(timer);
     } else {
-      setShowFanCards(false);
+      // Use setTimeout to avoid synchronous setState in effect
+      const timer = setTimeout(() => {
+        setShowFanCards(false);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [activeTabId]);
 
@@ -132,7 +133,7 @@ const Feature197 = ({
               />
               {/* Content */}
               <div className="relative z-10">
-                <Accordion type="single" className="w-full" defaultValue="item-1">
+                <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
                   {features.map((tab, index) => (
                     <AccordionItem
                       key={tab.id}

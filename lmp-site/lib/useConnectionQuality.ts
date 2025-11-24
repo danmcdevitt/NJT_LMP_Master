@@ -30,10 +30,13 @@ export function useConnectionQuality() {
 
     if (!connection) {
       // Network Information API not supported, assume good connection
-      setConnectionType('unknown');
-      setIsSlowConnection(false);
-      setShouldAutoplayVideo(true);
-      setVideoPreload('metadata');
+      // Use setTimeout to avoid synchronous setState in effect
+      setTimeout(() => {
+        setConnectionType('unknown');
+        setIsSlowConnection(false);
+        setShouldAutoplayVideo(true);
+        setVideoPreload('metadata');
+      }, 0);
       return;
     }
 

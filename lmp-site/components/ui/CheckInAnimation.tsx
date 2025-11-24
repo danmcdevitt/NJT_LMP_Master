@@ -98,7 +98,7 @@ const CheckInAnimation = () => {
               </div>
               <div className="text-center space-y-0.5">
                 <h3 className={`text-lg font-medium tracking-tight ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`} style={{ color: 'rgba(255, 245, 250, 0.98)' }}>
-                  You're all checked in
+                  You&apos;re all checked in
                 </h3>
                 <p className={`text-xs ${isVisible ? 'checkin-fade-enter-active' : 'checkin-fade-enter'}`} style={{ color: 'rgba(250, 250, 250, 0.9)' }}>
                   Boarding pass sent to your wallet.

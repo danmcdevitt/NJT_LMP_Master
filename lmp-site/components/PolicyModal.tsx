@@ -8,7 +8,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { PRIVACY_POLICY, BOOKING_TERMS } from "@/lib/policies";
-import { X } from "lucide-react";
 
 type PolicyType = "privacy" | "terms" | null;
 

@@ -25,12 +25,14 @@ const OfferCard = ({
 
   useEffect(() => {
     if (disableAnimation) {
-      setIsVisible(true);
+      // Use setTimeout to avoid synchronous setState in effect
+      setTimeout(() => setIsVisible(true), 0);
       return; // Skip all animations if disabled
     }
 
     // First: fade in the card
-    setIsVisible(true);
+    // Use setTimeout to avoid synchronous setState in effect
+    setTimeout(() => setIsVisible(true), 0);
 
     // Then: start white overlay animation after fade-in completes
     const timer1 = setTimeout(() => {

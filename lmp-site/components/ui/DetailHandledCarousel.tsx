@@ -9,7 +9,7 @@ const carouselItems = [
     title: "Research",
     icon: Search,
     description:
-      <>We'll help you research<br />and create the ideal experience</>,
+      <>We&apos;ll help you research<br />and create the ideal experience</>,
   },
   {
     image: "/images/research.webp",
@@ -24,14 +24,14 @@ const carouselItems = [
     title: "Bookings",
     icon: Calendar,
     description:
-      <>We'll take care of everything<br />so you can relax from the start</>,
+      <>We&apos;ll take care of everything<br />so you can relax from the start</>,
   },
   {
     image: "/images/onholiday.webp",
     title: "On Holiday",
     icon: Edit,
     description:
-      <>We're just a call or text away<br />while you're on holiday</>,
+      <>We&apos;re just a call or text away<br />while you&apos;re on holiday</>,
   },
 ];
 

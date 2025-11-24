@@ -8,7 +8,7 @@ import { Feature197 } from "@/components/feature197";
 import { Footer13 } from "@/components/footer13";
 import { PolicyModal } from "@/components/PolicyModal";
 import { useEffect, useState, useRef } from "react";
-import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone, Heart } from "lucide-react";
+import { Sparkles, Award, ArrowRight, Plane, Phone, Heart } from "lucide-react";
 import { useConnectionQuality } from "@/lib/useConnectionQuality";
 
 export default function Home() {
@@ -20,12 +20,11 @@ export default function Home() {
   const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false, false]);
   const [carouselVisible, setCarouselVisible] = useState(false);
   const [sparkleAnimated, setSparkleAnimated] = useState(false);
-  const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const carouselContainerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   // Connection quality detection for slow connections
-  const { shouldAutoplayVideo, videoPreload, isSlowConnection } = useConnectionQuality();
+  const { shouldAutoplayVideo, videoPreload } = useConnectionQuality();
   
   // Ensure video autoplays (fallback for browser autoplay policies)
   useEffect(() => {
@@ -389,7 +388,6 @@ export default function Home() {
                   <div className="flex gap-6 sm:gap-8" style={{ scrollSnapType: 'x mandatory' }}>
                     {/* Feature 1 */}
                     <div 
-                      ref={cardRefs[0]}
                       className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative transition-all duration-700 ease-out ${
                         visibleCards[0] && carouselVisible
                           ? 'opacity-100 translate-x-0' 
@@ -411,7 +409,6 @@ export default function Home() {
 
                     {/* Feature 2 */}
                     <div 
-                      ref={cardRefs[1]}
                       className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] relative transition-all duration-700 ease-out ${
                         visibleCards[1] && carouselVisible
                           ? 'opacity-100 translate-x-0' 
@@ -433,7 +430,6 @@ export default function Home() {
 
                     {/* Feature 3 */}
                     <div 
-                      ref={cardRefs[2]}
                       className={`flex flex-col items-start text-white flex-shrink-0 w-[calc(100vw-6rem)] sm:w-[calc(100vw-7rem)] transition-all duration-700 ease-out ${
                         visibleCards[2] && carouselVisible
                           ? 'opacity-100 translate-x-0' 
@@ -540,20 +536,20 @@ export default function Home() {
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
                     <span>YOUR BEST EVER HOLIDAY</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I'm so excited to partner<br className="lg:hidden" /> with the<br className="hidden lg:block" /> award-winning<br className="lg:hidden" /> Not Just Travel</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I&apos;m so excited to partner<br className="lg:hidden" /> with the<br className="hidden lg:block" /> award-winning<br className="lg:hidden" /> Not Just Travel</h2>
                   <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
-                    Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world's best lifestyle franchise behind every booking.
+                    Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world&apos;s best lifestyle franchise behind every booking.
                   </p>
                   {/* Logo Images */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
                     <img
                       src="/images/logos/TTF website - KTP & Acc-(2).png.webp"
-                      alt="TTF Logo"
+                      alt="NJT and TTF awards images 1"
                       className="h-auto max-w-[276px] sm:max-w-[345px]"
                     />
                     <img
                       src="/images/logos/TTF website - KTP & Acc-(3).png.webp"
-                      alt="TTF Logo"
+                      alt="TTF awards images 2"
                       className="h-auto max-w-[276px] sm:max-w-[345px]"
                     />
                   </div>

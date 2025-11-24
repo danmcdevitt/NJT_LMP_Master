@@ -43,9 +43,6 @@ const defaultMessages: Message[] = [
 
 const MessageSequence = ({
   messages = defaultMessages,
-  agentName = "Sarah Jones",
-  agentInitial = "A",
-  showInput = true,
 }: MessageSequenceProps) => {
   const [visibleMessages, setVisibleMessages] = useState<Set<string>>(new Set());
 

@@ -3,7 +3,6 @@
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 interface DatItem {
@@ -167,7 +166,7 @@ const HolidayTypeGallery = () => {
           Every type of holiday,<br className="lg:hidden" /><br className="hidden lg:block" /> any kind of budget
         </h2>
         <p className="text-lg sm:text-lg md:text-xl text-left lg:text-center mb-6 sm:mb-8 lg:mb-10 max-w-3xl lg:mx-auto leading-relaxed text-muted-foreground">
-          From beach escapes to city adventures,<br className="lg:hidden" /><br className="hidden lg:block" /> we'll help with any holiday you want.
+          From beach escapes to city adventures,<br className="lg:hidden" /><br className="hidden lg:block" /> we&apos;ll help with any holiday you want.
         </p>
         
         <div className="flex justify-end mb-6 sm:mb-8 px-5 lg:px-6">

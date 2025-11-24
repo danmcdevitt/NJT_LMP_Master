@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, User, Gift, Plane, Star, ShieldCheck, Sparkles, Lightbulb, Heart } from "lucide-react";
+import { User, Gift, Plane, Star, ShieldCheck, Sparkles, Lightbulb, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CheckInAnimation } from "@/components/ui/CheckInAnimation";
 import { useConnectionQuality } from "@/lib/useConnectionQuality";
@@ -21,7 +21,8 @@ const FeatureGrid = () => {
     const rect = element.getBoundingClientRect();
     const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
     if (isInViewport) {
-      setIsVisible(true);
+      // Use setTimeout to avoid synchronous setState in effect
+      setTimeout(() => setIsVisible(true), 0);
     }
 
     const observer = new IntersectionObserver(
@@ -138,7 +139,7 @@ const FeatureGrid = () => {
                 <span className="lg:text-[1.275rem]">The best service</span>
               </h3>
               <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white lg:text-[0.96rem]" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
-                You'll be looked after by one of the top travel agents in the UK.
+                You&apos;ll be looked after by one of the top travel agents in the UK.
               </p>
             </div>
           </div>

@@ -45,13 +45,13 @@ const Footer13 = () => {
             <div className="w-full md:flex-[3] md:pr-6">
               <div className="space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Not Just Travel (Agency) Ltd, sells travel services on behalf of Hays Travel Limited and benefits from Hays Travel's membership of ABTA with membership number K9413. ABTA and ABTA Members help holidaymakers to get the most from their travel and assist them when things do not go according to plan. We are obliged to maintain a high standard of service to you by ABTA's Code of Conduct.
+                  Not Just Travel (Agency) Ltd, sells travel services on behalf of Hays Travel Limited and benefits from Hays Travel&apos;s membership of ABTA with membership number K9413. ABTA and ABTA Members help holidaymakers to get the most from their travel and assist them when things do not go according to plan. We are obliged to maintain a high standard of service to you by ABTA&apos;s Code of Conduct.
                 </p>
                 <p>
                   For further information about ABTA, the Code of Conduct and the arbitration scheme available to you if you have a complaint, contact ABTA, 30 Park Street, London SE1 9EQ. Tel: 020 3117 0599 or www.abta.com.
                 </p>
                 <p>
-                  Book with Confidence. We are a Member of ABTA which means you have the benefit of ABTA's assistance and Code of Conduct. We provide financial protection for your money when you buy a package holiday. If you buy other travel arrangements such as accommodation only this protection doesn't apply.
+                  Book with Confidence. We are a Member of ABTA which means you have the benefit of ABTA&apos;s assistance and Code of Conduct. We provide financial protection for your money when you buy a package holiday. If you buy other travel arrangements such as accommodation only this protection doesn&apos;t apply.
                 </p>
               </div>
             </div>
