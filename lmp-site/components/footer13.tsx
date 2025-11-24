@@ -39,7 +39,7 @@ const Footer13 = () => {
       </div>
 
       {/* ABTA Information Section */}
-      <nav className="w-full border-b py-8 sm:py-10 md:py-12 lg:py-14" style={{ backgroundColor: '#010101', borderColor: 'rgba(159, 240, 212, 0.2)' }}>
+      <nav aria-label="Footer navigation" className="w-full border-b py-8 sm:py-10 md:py-12 lg:py-14" style={{ backgroundColor: '#010101', borderColor: 'rgba(159, 240, 212, 0.2)' }}>
         <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:gap-6 items-center md:items-start">
             <div className="w-full md:flex-[3] md:pr-6">

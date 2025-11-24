@@ -133,11 +133,11 @@ const FeatureGrid = () => {
             />
             
             <div className="relative z-10 flex flex-col justify-end h-full">
-              <User className="w-8 h-8 mb-2 text-white" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+              <User className="w-8 h-8 mb-2 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))' }} />
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 <span className="lg:text-[1.275rem]">The best service</span>
               </h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white lg:text-[0.96rem]">
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight max-w-[18rem] sm:max-w-[20rem] text-balance text-white lg:text-[0.96rem]" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 You'll be looked after by one of the top travel agents in the UK.
               </p>
             </div>
@@ -161,11 +161,11 @@ const FeatureGrid = () => {
               }} 
             />
             <div className="relative z-10">
-              <Lightbulb className="w-8 h-8 mb-2 text-white" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+              <Lightbulb className="w-8 h-8 mb-2 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))' }} />
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 <span className="lg:text-[1.275rem]">Friendly advice</span>
               </h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]">
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 Get helpful guidance and recommendations.
               </p>
             </div>
@@ -209,11 +209,11 @@ const FeatureGrid = () => {
             
             {/* Headline and Body Copy */}
             <div className="relative z-10">
-              <ShieldCheck className="w-8 h-8 text-white mb-2" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+              <ShieldCheck className="w-8 h-8 text-white mb-2" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }} />
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white text-left mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>
                 <span className="lg:text-[1.275rem]">Complete protection</span>
               </h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium text-white text-left leading-tight lg:text-[0.96rem]">ABTA and ATOL protected<br className="lg:hidden" /> for total peace of mind.</p>
+              <p className="text-lg md:text-base lg:text-lg font-medium text-white text-left leading-tight lg:text-[0.96rem]" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>ABTA and ATOL protected<br className="lg:hidden" /> for total peace of mind.</p>
             </div>
           </div>
           <div className={`group relative flex flex-col justify-end overflow-clip rounded-lg pb-8 pt-4 pl-5 pr-4 md:p-6 lg:p-10 min-h-[360px] lg:min-h-0 ${isVisible ? 'fade-in-4' : ''}`} style={!isVisible ? { opacity: 0, transform: 'translateY(20px)', transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' } : { transition: 'opacity 1s ease-out 0.15s, transform 1s ease-out 0.15s' }}>
@@ -234,11 +234,11 @@ const FeatureGrid = () => {
               }} 
             />
             <div className="relative z-10">
-              <Sparkles className="w-8 h-8 mb-2 text-white" />
-              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+              <Sparkles className="w-8 h-8 mb-2 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))' }} />
+              <h3 className="text-xl sm:text-xl lg:text-2xl font-medium mb-2 leading-none text-white" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 <span className="lg:text-[1.275rem]">Tailored to you,</span>
               </h3>
-              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]">
+              <p className="text-lg md:text-base lg:text-lg font-medium leading-tight text-white lg:text-[0.96rem]" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                 Every holiday suggestion<br className="lg:hidden" /> is carefully crafted.
               </p>
             </div>
@@ -275,11 +275,11 @@ const FeatureGrid = () => {
             />
             {/* Text Content - On Top */}
             <div className="relative z-10 flex flex-col justify-end">
-              <Gift className="w-8 h-8 mb-2 text-white" />
-              <div className="mb-2 text-xl sm:text-xl lg:text-2xl font-medium text-white leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+              <Gift className="w-8 h-8 mb-2 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))' }} />
+              <div className="mb-2 text-xl sm:text-xl lg:text-2xl font-medium text-white leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>
                 <span className="lg:text-[1.275rem]">Totally free</span>
               </div>
-              <div className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]">Every detail taken care of,<br className="lg:hidden" /> without costing you a penny.</div>
+              <div className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>Every detail taken care of,<br className="lg:hidden" /> without costing you a penny.</div>
             </div>
           </div>
           <a
@@ -306,6 +306,7 @@ const FeatureGrid = () => {
               playsInline
               preload={videoPreload}
               poster="/images/sequence_03_poster.jpg"
+              aria-label="Background video showing personal travel service"
               className="absolute z-[1]"
               style={{
                 top: '50%',
@@ -340,11 +341,11 @@ const FeatureGrid = () => {
             
             <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end pb-8 pt-4 pl-5 pr-4 transition-colors md:p-6 lg:p-10 z-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>
               <div className="relative z-10">
-                <Heart className="w-8 h-8 mb-2 text-white" />
-                <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                <Heart className="w-8 h-8 mb-2 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))' }} />
+                <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white mb-2 leading-none" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                   <span className="lg:text-[1.275rem]">One contact</span>
                 </h3>
-                <p className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]">
+                <p className="text-lg md:text-base lg:text-lg font-medium text-white leading-tight lg:text-[0.96rem]" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>
                   One dedicated person from planning<br />
                   to your return, always here for you.
                 </p>

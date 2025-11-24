@@ -147,12 +147,12 @@ const Feature197 = ({
                         }}
                         className="!no-underline cursor-pointer py-6 sm:py-7 lg:py-8 transition [&_svg]:text-[#004F6E]"
                       >
-                        <h4
+                        <span
                           className={`text-xl sm:text-xl lg:text-2xl font-medium text-left ${tab.id === activeTabId ? "" : ""}`}
                           style={{ color: '#004F6E' }}
                         >
                           {tab.title}
-                        </h4>
+                        </span>
                       </AccordionTrigger>
                       <AccordionContent className="pb-2">
                         <p className="text-lg sm:text-xl leading-relaxed mb-4" style={{ color: '#004F6E' }}>

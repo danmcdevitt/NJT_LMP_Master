@@ -168,6 +168,7 @@ const HolidayTypeGallery = () => {
               variant="outline"
               onClick={() => scroll('prev')}
               disabled={!canScrollPrev}
+              aria-label="Previous holiday type"
               className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]"
             >
               <ArrowLeft className="size-5 transition-colors duration-200" />
@@ -177,6 +178,7 @@ const HolidayTypeGallery = () => {
               variant="outline"
               onClick={() => scroll('next')}
               disabled={!canScrollNext}
+              aria-label="Next holiday type"
               className="rounded-full hover:bg-[#004F6E] hover:border-[#004F6E] hover:text-[rgb(159,240,212)] active:bg-[#004F6E] active:border-[#004F6E] active:text-[rgb(159,240,212)] transition-colors duration-200 [&:hover_svg]:!text-[rgb(159,240,212)] [&:active_svg]:!text-[rgb(159,240,212)]"
             >
               <ArrowRight className="size-5 transition-colors duration-200" />
@@ -188,7 +190,19 @@ const HolidayTypeGallery = () => {
           <div
             ref={scrollContainerRef}
             onScroll={checkScrollability}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-5 lg:px-6 pb-10"
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                scroll('prev');
+              } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                scroll('next');
+              }
+            }}
+            tabIndex={0}
+            role="region"
+            aria-label="Holiday types carousel"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide px-5 lg:px-6 pb-10 focus:outline-none focus:ring-2 focus:ring-[#004F6E] focus:ring-offset-2 rounded-lg"
             style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
           >
             {DATA.map((product, index) => (
@@ -303,10 +317,10 @@ const HolidayTypeGallery = () => {
 
                       {/* White Headline and Body */}
                       <div className="absolute bottom-0 left-0 right-0 z-20 p-6 sm:p-8">
-                        <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white drop-shadow-lg mb-2" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)' }}>
+                        <h3 className="text-xl sm:text-xl lg:text-2xl font-medium text-white mb-2" style={{ fontSize: 'clamp(1.25rem, 4vw, 1.5rem)', textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8)' }}>
                           {product.headline}
                         </h3>
-                        <p className="text-base sm:text-base text-white/90 drop-shadow-lg leading-tight">
+                        <p className="text-base sm:text-base text-white leading-tight" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8)' }}>
                           {product.body}
                         </p>
                       </div>

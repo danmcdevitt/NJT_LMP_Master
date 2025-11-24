@@ -213,7 +213,7 @@ export default function Home() {
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'white' }}>
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
+      <nav aria-label="Main navigation" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
         <div className="w-[95vw] max-w-7xl mx-auto py-4">
           <div className="flex items-center justify-between px-5 sm:px-6 lg:px-8">
             <img
@@ -272,6 +272,7 @@ export default function Home() {
               playsInline
               preload={videoPreload}
               poster="/images/hero-video-2-poster.webp"
+              aria-label="Background video showing travel destinations"
               className="absolute z-[1]"
               style={{
                 top: '50%',
@@ -517,7 +518,7 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-6 sm:p-8">
                 <div className="space-y-1.5 sm:space-y-2 text-center">
-                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
+                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white`} style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
                     <a href="tel:07777000123" className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
@@ -636,7 +637,7 @@ export default function Home() {
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-8">
                 <div className="space-y-2 text-center">
-                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white drop-shadow-lg`}>Jane Smith</h3>
+                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white`} style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>Jane Smith</h3>
                   <Button asChild size="lg" className="shadow-none">
                     <a href="tel:07777000123" className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
