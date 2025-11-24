@@ -47,31 +47,51 @@ const FeatureGrid = () => {
     };
   }, []);
 
-  // Play video when section becomes visible
+  // Play video when section becomes visible - more aggressive approach
   useEffect(() => {
-    if (isVisible && contactVideoRef.current && shouldAutoplayVideo) {
-      const video = contactVideoRef.current;
-      
-      const attemptPlay = () => {
-        if (video.paused) {
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              // Autoplay was prevented - this is normal for some browsers
-              console.log('Contact video autoplay prevented:', error);
-            });
-          }
-        }
-      };
-      
-      // Try to play when video is ready
-      if (video.readyState >= 2) {
-        attemptPlay();
-      } else {
-        video.addEventListener('loadeddata', attemptPlay, { once: true });
-        video.addEventListener('canplay', attemptPlay, { once: true });
-      }
+    if (!contactVideoRef.current) return;
+    
+    const video = contactVideoRef.current;
+    
+    // Only attempt autoplay if connection allows it
+    if (!shouldAutoplayVideo) {
+      return;
     }
+    
+    const attemptPlay = async () => {
+      if (!video || video.ended) return;
+      
+      try {
+        if (video.paused && isVisible) {
+          await video.play();
+        }
+      } catch (error) {
+        // Autoplay was prevented - try again on user interaction
+        console.log('Contact video autoplay prevented, will retry:', error);
+      }
+    };
+    
+    // Try to play immediately if video is already loaded
+    if (video.readyState >= 2) {
+      attemptPlay();
+    }
+    
+    // Listen for various load events
+    const events = ['loadeddata', 'canplay', 'canplaythrough', 'loadedmetadata'];
+    events.forEach(event => {
+      video.addEventListener(event, attemptPlay, { once: true });
+    });
+    
+    // Also try when section becomes visible
+    if (isVisible) {
+      attemptPlay();
+    }
+    
+    return () => {
+      events.forEach(event => {
+        video.removeEventListener(event, attemptPlay);
+      });
+    };
   }, [isVisible, shouldAutoplayVideo]);
 
   return (
@@ -277,10 +297,10 @@ const FeatureGrid = () => {
               }}
             />
             
-            {/* Video Background */}
+            {/* Video Background - Optimized for fast loading */}
             <video
               ref={contactVideoRef}
-              autoPlay={shouldAutoplayVideo && isVisible}
+              autoPlay={shouldAutoplayVideo}
               loop
               muted
               playsInline
@@ -297,9 +317,25 @@ const FeatureGrid = () => {
                 height: 'auto',
                 objectFit: 'cover'
               }}
+              // Optimize video loading - disable unnecessary features
+              disablePictureInPicture
+              controlsList="nodownload nofullscreen noremoteplayback"
+              onLoadedData={(e) => {
+                // Ensure video plays when loaded, even if autoplay was blocked
+                if (shouldAutoplayVideo && isVisible) {
+                  const video = e.currentTarget;
+                  if (video.paused) {
+                    video.play().catch(() => {
+                      // Autoplay blocked, will be handled by useEffect
+                    });
+                  }
+                }
+              }}
             >
-              <source src="/Sequence%2003-converted.webm" type="video/webm" />
-              <source src="/Sequence%2003-converted.mp4" type="video/mp4" />
+              {/* Prioritize WebM (better compression) */}
+              <source src="/OneContact2.webm" type="video/webm" />
+              {/* MP4 fallback for older browsers */}
+              <source src="/OneContact2.mp4" type="video/mp4" />
             </video>
             
             <div className="sm:aspect-2/1 relative flex h-full w-full flex-col items-start justify-end pb-8 pt-4 pl-5 pr-4 transition-colors md:p-6 lg:p-10 z-10" style={{ backgroundColor: 'rgba(0, 79, 110, 0.5)' }}>

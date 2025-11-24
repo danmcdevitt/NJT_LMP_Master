@@ -38,6 +38,32 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/OneContact2.webm',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Content-Type',
+            value: 'video/webm',
+          },
+        ],
+      },
+      {
+        source: '/OneContact2.mp4',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'Content-Type',
+            value: 'video/mp4',
+          },
+        ],
+      },
     ];
   },
 };
