@@ -8,6 +8,7 @@ import { Feature197 } from "@/components/feature197";
 import { Footer13 } from "@/components/footer13";
 import { useEffect, useState, useRef } from "react";
 import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone, Heart } from "lucide-react";
+import { useConnectionQuality } from "@/lib/useConnectionQuality";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,6 +21,9 @@ export default function Home() {
   const [sparkleAnimated, setSparkleAnimated] = useState(false);
   const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const carouselContainerRef = useRef<HTMLDivElement>(null);
+  
+  // Connection quality detection for slow connections
+  const { shouldAutoplayVideo, videoPreload, isSlowConnection } = useConnectionQuality();
   
   // Profile card name font sizing
   const mobileNameRef = useRef<HTMLHeadingElement>(null);
@@ -227,11 +231,11 @@ export default function Home() {
             
             {/* Video Background */}
             <video
-              autoPlay
+              autoPlay={shouldAutoplayVideo}
               loop
               muted
               playsInline
-              preload="metadata"
+              preload={videoPreload}
               poster="/images/hero-video-2-poster.webp"
               className="absolute z-[1]"
               style={{

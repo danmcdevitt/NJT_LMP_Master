@@ -3,10 +3,14 @@
 import { ArrowRight, User, Gift, Plane, Star, ShieldCheck, Sparkles, Lightbulb, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CheckInAnimation } from "@/components/ui/CheckInAnimation";
+import { useConnectionQuality } from "@/lib/useConnectionQuality";
 
 const FeatureGrid = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  
+  // Connection quality detection for slow connections
+  const { shouldAutoplayVideo, videoPreload } = useConnectionQuality();
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -240,11 +244,11 @@ const FeatureGrid = () => {
             
             {/* Video Background */}
             <video
-              autoPlay
+              autoPlay={shouldAutoplayVideo}
               loop
               muted
               playsInline
-              preload="metadata"
+              preload={videoPreload}
               poster="/images/sequence_03_poster.jpg"
               className="absolute z-[1]"
               style={{
