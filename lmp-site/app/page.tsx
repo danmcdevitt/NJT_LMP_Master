@@ -404,7 +404,7 @@ export default function Home() {
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <Sparkles className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Expert help to find the<br className="hidden lg:block" /> right holiday for you
+                        Expert help to find<br /> the right holiday for you
                       </p>
                     </div>
 
@@ -426,7 +426,7 @@ export default function Home() {
                       <ArrowRight className="absolute right-0 top-4 w-5 h-5" style={{ color: '#004F6E' }} />
                       <Heart className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        A completely personal<br className="hidden lg:block" /> travel experience
+                        A completely personal<br /> travel experience
                       </p>
                     </div>
 
@@ -447,7 +447,7 @@ export default function Home() {
                       </div>
                       <Award className="w-7 h-7 sm:w-8 sm:h-8 mb-3" style={{ color: '#004F6E' }} />
                       <p className="text-lg sm:text-xl font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                        Award-winning<br className="hidden lg:block" /> customer service
+                        Award-winning<br /> customer service
                       </p>
                     </div>
                   </div>
@@ -462,7 +462,7 @@ export default function Home() {
                     </div>
                     <Sparkles className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Expert help to find the<br className="hidden lg:block" /> right holiday for you
+                      Expert help to find<br /> the right holiday for you
                     </p>
                   </div>
 
@@ -473,7 +473,7 @@ export default function Home() {
                     </div>
                     <Heart className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      A completely personal<br className="hidden lg:block" /> travel experience
+                      A completely personal<br /> travel experience
                     </p>
                   </div>
 
@@ -484,7 +484,7 @@ export default function Home() {
                     </div>
                     <Award className="w-6 h-6 mb-2" style={{ color: '#004F6E' }} />
                     <p className="text-lg font-medium leading-tight" style={{ color: 'rgb(0, 79, 110)' }}>
-                      Award-winning<br className="hidden lg:block" /> customer service
+                      Award-winning<br /> customer service
                     </p>
                   </div>
                 </div>
