@@ -79,8 +79,8 @@ export const metadata: Metadata = {
   category: "Travel",
   manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/images/NJfavicon.png",
+    apple: "/images/NJfavicon.png",
   },
 };
 
