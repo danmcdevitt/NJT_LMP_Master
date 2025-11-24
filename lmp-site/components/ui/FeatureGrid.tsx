@@ -8,6 +8,7 @@ import { useConnectionQuality } from "@/lib/useConnectionQuality";
 const FeatureGrid = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const contactVideoRef = useRef<HTMLVideoElement>(null);
   
   // Connection quality detection for slow connections
   const { shouldAutoplayVideo, videoPreload } = useConnectionQuality();
@@ -15,6 +16,13 @@ const FeatureGrid = () => {
   useEffect(() => {
     const element = sectionRef.current;
     if (!element) return;
+
+    // Check if already visible on page load
+    const rect = element.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (isInViewport) {
+      setIsVisible(true);
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,6 +46,33 @@ const FeatureGrid = () => {
       observer.disconnect();
     };
   }, []);
+
+  // Play video when section becomes visible
+  useEffect(() => {
+    if (isVisible && contactVideoRef.current && shouldAutoplayVideo) {
+      const video = contactVideoRef.current;
+      
+      const attemptPlay = () => {
+        if (video.paused) {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch((error) => {
+              // Autoplay was prevented - this is normal for some browsers
+              console.log('Contact video autoplay prevented:', error);
+            });
+          }
+        }
+      };
+      
+      // Try to play when video is ready
+      if (video.readyState >= 2) {
+        attemptPlay();
+      } else {
+        video.addEventListener('loadeddata', attemptPlay, { once: true });
+        video.addEventListener('canplay', attemptPlay, { once: true });
+      }
+    }
+  }, [isVisible, shouldAutoplayVideo]);
 
   return (
     <section ref={sectionRef} className="pt-6 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-24 px-5 sm:px-6 lg:px-8 relative w-[95vw] max-w-7xl mx-auto">
@@ -244,7 +279,8 @@ const FeatureGrid = () => {
             
             {/* Video Background */}
             <video
-              autoPlay={shouldAutoplayVideo}
+              ref={contactVideoRef}
+              autoPlay={shouldAutoplayVideo && isVisible}
               loop
               muted
               playsInline

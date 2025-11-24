@@ -6,6 +6,7 @@ import { FeatureGrid } from "@/components/ui/FeatureGrid";
 import { HolidayTypeGallery } from "@/components/ui/holidaytypegallery";
 import { Feature197 } from "@/components/feature197";
 import { Footer13 } from "@/components/footer13";
+import { PolicyModal } from "@/components/PolicyModal";
 import { useEffect, useState, useRef } from "react";
 import { Sparkles, MapPin, Award, ArrowRight, Plane, User, Phone, Heart } from "lucide-react";
 import { useConnectionQuality } from "@/lib/useConnectionQuality";
@@ -21,9 +22,42 @@ export default function Home() {
   const [sparkleAnimated, setSparkleAnimated] = useState(false);
   const cardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
   const carouselContainerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   // Connection quality detection for slow connections
   const { shouldAutoplayVideo, videoPreload, isSlowConnection } = useConnectionQuality();
+  
+  // Ensure video autoplays (fallback for browser autoplay policies)
+  useEffect(() => {
+    if (!videoRef.current) return;
+    
+    const video = videoRef.current;
+    
+    const attemptPlay = () => {
+      if (shouldAutoplayVideo && video.paused) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            // Autoplay was prevented - this is normal for some browsers
+            console.log('Video autoplay prevented:', error);
+          });
+        }
+      }
+    };
+    
+    // Try to play when video is ready
+    if (video.readyState >= 2) {
+      attemptPlay();
+    } else {
+      video.addEventListener('loadeddata', attemptPlay, { once: true });
+      video.addEventListener('canplay', attemptPlay, { once: true });
+    }
+    
+    return () => {
+      video.removeEventListener('loadeddata', attemptPlay);
+      video.removeEventListener('canplay', attemptPlay);
+    };
+  }, [shouldAutoplayVideo]);
   
   // Profile card name font sizing
   const mobileNameRef = useRef<HTMLHeadingElement>(null);
@@ -229,8 +263,9 @@ export default function Home() {
               }}
             />
             
-            {/* Video Background */}
+            {/* Video Background - Optimized for fast loading */}
             <video
+              ref={videoRef}
               autoPlay={shouldAutoplayVideo}
               loop
               muted
@@ -248,8 +283,13 @@ export default function Home() {
                 height: 'auto',
                 objectFit: 'cover'
               }}
+              // Optimize video loading - disable unnecessary features
+              disablePictureInPicture
+              controlsList="nodownload nofullscreen noremoteplayback"
             >
+              {/* Prioritize WebM (better compression, smaller file ~2.7MB vs MP4) */}
               <source src="/Sequence%2002-converted.webm" type="video/webm" />
+              {/* MP4 fallback for older browsers */}
               <source src="/Sequence%2002-converted.mp4" type="video/mp4" />
             </video>
 
@@ -627,6 +667,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer13 />
+
+      {/* Policy Modal */}
+      <PolicyModal />
 
     </main>
   );

@@ -82,14 +82,14 @@ const Footer13 = () => {
             </p>
             <div className="flex flex-row gap-4 sm:gap-6 items-center">
               <a
-                href="#"
+                href="#privacy"
                 className="text-white/90 hover:text-white transition-colors duration-200 text-sm sm:text-base whitespace-nowrap"
                 style={{ color: 'rgba(255, 255, 255, 0.9)' }}
               >
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="#terms"
                 className="text-white/90 hover:text-white transition-colors duration-200 text-sm sm:text-base whitespace-nowrap"
                 style={{ color: 'rgba(255, 255, 255, 0.9)' }}
               >

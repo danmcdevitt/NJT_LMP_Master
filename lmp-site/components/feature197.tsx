@@ -35,7 +35,7 @@ const defaultFeatures: FeatureItem[] = [
     backgroundImage: "/images/family2.webp",
     component: <Logos13 />,
     description:
-      "We work with all the leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from Jet2Holidays, TUI, P&O Cruises, Virgin Voyages, and hundreds more, all in one place.",
+      "We work with all the leading travel brands, from luxury cruise lines to trusted tour operators. Access exclusive deals and packages from easyJet holidays, TUI, P&O Cruises, Virgin Voyages, and hundreds more, all in one place.",
   },
   {
     id: 4,

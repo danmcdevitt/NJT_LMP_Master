@@ -358,6 +358,24 @@
     animation: heartTap 0.4s ease-out;
   }
 
+  @keyframes slide-in-from-bottom-full {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-out-to-bottom-full {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+
   @keyframes sparkle {
     0% { 
       opacity: 0; 
