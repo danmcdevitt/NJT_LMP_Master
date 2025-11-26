@@ -10,6 +10,7 @@ import { PolicyModal } from "@/components/PolicyModal";
 import { useEffect, useState, useRef } from "react";
 import { Sparkles, Award, ArrowRight, Plane, Phone, Heart } from "lucide-react";
 import { useConnectionQuality } from "@/lib/useConnectionQuality";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -225,12 +226,12 @@ export default function Home() {
             />
             <div className="flex items-center gap-2">
               <p className="hidden md:block text-[1.24rem] font-medium transition-all duration-300" style={{ color: '#004F6E' }}>
-                Contact Jane Smith on
+                Contact {SITE_CONFIG.agentName} on
               </p>
               <Button asChild size="lg" className="shadow-none group" style={{ backgroundColor: '#FF5353', color: 'white' }}>
-                <a href="tel:07777000123" className="flex items-center gap-2">
+                <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                   <Phone className="h-5 w-5" />
-                  07777 000 123
+                  {SITE_CONFIG.phone}
                 </a>
               </Button>
             </div>
@@ -495,33 +496,27 @@ export default function Home() {
           {/* Mobile Portrait Card - Below Hero (Mobile Only) */}
           <div className="lg:hidden w-[90vw] mx-auto px-5 sm:px-6 -mt-8 sm:-mt-12 relative z-20">
             <Card
-              glass
               className="border-0 overflow-hidden aspect-[3/4] w-full mx-auto relative"
+              style={{ backgroundColor: '#004F6E' }}
             >
-              {/* Background Image */}
-              <img
-                src="/images/logos/portraitjane.webp"
-                alt="Jane Smith - Travel Expert"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Frosted Glass Overlay from Bottom */}
-              <div 
-                className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
-                style={{ 
-                  WebkitBackdropFilter: 'blur(8px)',
-                  maskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)'
-                }} 
-              />
-
+              {/* Circular Image Mask */}
+              <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
+                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <img
+                    src={SITE_CONFIG.agentImage}
+                    alt={`${SITE_CONFIG.agentName} - Travel Expert`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-6 sm:p-8">
                 <div className="space-y-1.5 sm:space-y-2 text-center">
-                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white`} style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>Jane Smith</h3>
+                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white`}>{SITE_CONFIG.agentName}</h3>
                   <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
-                    <a href="tel:07777000123" className="flex items-center gap-2">
+                    <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
-                      07777 000 123
+                      {SITE_CONFIG.phone}
                     </a>
                   </Button>
                 </div>
@@ -614,33 +609,27 @@ export default function Home() {
 
             {/* Main Photo Card */}
             <Card
-              glass
               className="border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] relative z-10"
+              style={{ backgroundColor: '#004F6E' }}
             >
-              {/* Background Image */}
-              <img
-                src="/images/logos/portraitjane.webp"
-                alt="Jane Smith - Travel Expert"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              {/* Frosted Glass Overlay from Bottom */}
-              <div 
-                className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
-                style={{ 
-                  WebkitBackdropFilter: 'blur(8px)',
-                  maskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to top, black 0%, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 80%, transparent 100%)'
-                }} 
-              />
-
+              {/* Circular Image Mask */}
+              <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
+                <div className="w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <img
+                    src={SITE_CONFIG.agentImage}
+                    alt={`${SITE_CONFIG.agentName} - Travel Expert`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
               {/* Content at Bottom */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-8">
                 <div className="space-y-2 text-center">
-                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white`} style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7)' }}>Jane Smith</h3>
+                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white`}>{SITE_CONFIG.agentName}</h3>
                   <Button asChild size="lg" className="shadow-none">
-                    <a href="tel:07777000123" className="flex items-center gap-2">
+                    <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
-                      07777 000 123
+                      {SITE_CONFIG.phone}
                     </a>
                   </Button>
                 </div>

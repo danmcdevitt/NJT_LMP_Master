@@ -1,6 +1,6 @@
 # Luxury Travel Agency - Project Structure & Components
 
-**Last Updated:** January 2025
+**Last Updated:** 24.11.2025
 
 ## Documentation
 

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Phone, Sparkles } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 const CtaProfile = () => {
   return (
@@ -69,32 +70,26 @@ const CtaProfile = () => {
 
               {/* Main Profile Card */}
               <Card
-                glass
                 className="group border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] shadow-lg relative"
-                style={{ zIndex: 10 }}
+                style={{ zIndex: 10, backgroundColor: '#004F6E' }}
               >
-                {/* Background Image */}
-                <img
-                  src="/images/logos/portraitjane.webp"
-                  alt="Jane Smith - Travel Expert"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                
-                {/* Frosted Glass Overlay from Bottom */}
-                <div 
-                  className="absolute bottom-0 left-0 right-0 h-[20%] bg-white/20 backdrop-blur-sm" 
-                  style={{ 
-                    WebkitBackdropFilter: 'blur(8px)',
-                    maskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to top, black 0%, black 60%, transparent 100%)'
-                  }} 
-                />
-
+                {/* Circular Image Mask */}
+                <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
+                  <div className="w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                    <img
+                      src={SITE_CONFIG.agentImage}
+                      alt={`${SITE_CONFIG.agentName} - Travel Expert`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
                 {/* Content at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
                   <div className="space-y-4 text-center flex flex-col items-center">
-                    <h3 className="text-3xl font-medium text-white drop-shadow-lg">Jane Smith</h3>
-                    <Button size="lg" className="shadow-none w-full sm:w-auto">07777 000 123</Button>
+                    <h3 className="text-3xl font-medium text-white">{SITE_CONFIG.agentName}</h3>
+                    <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
+                      <a href={`tel:${SITE_CONFIG.phoneFormatted}`}>{SITE_CONFIG.phone}</a>
+                    </Button>
                   </div>
                 </div>
               </Card>

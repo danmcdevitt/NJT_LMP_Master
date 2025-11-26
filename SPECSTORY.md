@@ -1,8 +1,8 @@
 # LMP Site - SpecStory
 
 **Project:** Luxury Travel Agency - LMP Site  
-**Last Updated:** January 2025  
-**Last Synced:** January 2025  
+**Last Updated:** 24.11.2025  
+**Last Synced:** 24.11.2025  
 **Status:** Active Development
 
 ## Story Overview
@@ -304,5 +304,5 @@ This is a luxury travel agency website for Jane Smith, showcasing her partnershi
 - Update this documentation
 - Sync specstory after major changes
 
-**Last Sync:** January 2025
+**Last Sync:** 24.11.2025
 

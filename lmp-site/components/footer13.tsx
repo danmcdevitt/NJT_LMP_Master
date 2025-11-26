@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
+import { SITE_CONFIG } from "@/lib/constants";
 
 const Footer13 = () => {
   return (
@@ -26,9 +27,9 @@ const Footer13 = () => {
                 </p>
                 <div className="mt-6 sm:mt-8 flex flex-col gap-4 sm:flex-row">
                   <Button asChild size="lg" className="group" style={{ backgroundColor: '#FF5353', color: 'white' }}>
-                    <a href="tel:07777000123" className="flex items-center gap-2">
+                    <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
-                      07777 000 123
+                      {SITE_CONFIG.phone}
                     </a>
                   </Button>
                 </div>

@@ -7,10 +7,10 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.notjusttravel.com",
   // Affiliate/Agent Information - These should be dynamically set per affiliate
   // Placeholder content for main branch - will be replaced with dynamic values when handed off
-  agentName: process.env.NEXT_PUBLIC_AGENT_NAME || "Jane Smith",
-  phone: process.env.NEXT_PUBLIC_AGENT_PHONE || "07777 000 123",
-  phoneFormatted: process.env.NEXT_PUBLIC_AGENT_PHONE_FORMATTED || process.env.NEXT_PUBLIC_AGENT_PHONE?.replace(/\s/g, "") || "07777000123",
+  agentName: process.env.NEXT_PUBLIC_AGENT_NAME || "Not Just Travel",
+  phone: process.env.NEXT_PUBLIC_AGENT_PHONE || "01202 978219",
+  phoneFormatted: process.env.NEXT_PUBLIC_AGENT_PHONE_FORMATTED || process.env.NEXT_PUBLIC_AGENT_PHONE?.replace(/\s/g, "") || "01202978219",
   email: process.env.NEXT_PUBLIC_AGENT_EMAIL || "jane.smith@notjusttravel.com",
-  agentImage: process.env.NEXT_PUBLIC_AGENT_IMAGE || "/images/logos/portraitjane.webp",
+  agentImage: process.env.NEXT_PUBLIC_AGENT_IMAGE || "/images/NJteam.jpg",
   abtaNumber: process.env.NEXT_PUBLIC_ABTA_NUMBER || "K9413",
 };

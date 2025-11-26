@@ -1,6 +1,6 @@
 # LMP Site - Brand Guidelines
 
-**Last Updated:** January 2025  
+**Last Updated:** 24.11.2025  
 **Project:** Luxury Travel Agency - LMP Site
 
 ## Design System: Holiday Linen
