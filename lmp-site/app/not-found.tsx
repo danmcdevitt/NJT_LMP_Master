@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Home, Phone } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
+import { Home } from 'lucide-react';
 
 export default function NotFound() {
   return (
@@ -20,12 +19,6 @@ export default function NotFound() {
               <Home className="w-5 h-5" />
               Go Home
             </Link>
-          </Button>
-          <Button asChild size="lg" style={{ backgroundColor: '#FF5353', color: 'white' }}>
-            <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
-              <Phone className="w-5 h-5" />
-              Call Us
-            </a>
           </Button>
         </div>
       </div>
