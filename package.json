@@ -9,10 +9,9 @@
     "install": "cd lmp-site && npm install"
   },
   "dependencies": {
-    "next": "16.0.3"
+    "next": "16.0.10"
   },
   "engines": {
     "node": ">=18.0.0"
   }
 }
-
