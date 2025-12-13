@@ -494,14 +494,14 @@ export default function Home() {
           </section>
 
           {/* Mobile Portrait Card - Below Hero (Mobile Only) */}
-          <div className="lg:hidden w-[90vw] mx-auto px-5 sm:px-6 -mt-8 sm:-mt-12 relative z-20">
+          <div className="lg:hidden w-full mx-auto px-5 sm:px-6 -mt-8 sm:mt-8 relative z-20">
             <Card
-              className="border-0 overflow-hidden aspect-[3/4] w-full mx-auto relative"
+              className="border-0 overflow-hidden aspect-[3/4] w-full max-w-[380px] sm:mx-auto relative"
               style={{ backgroundColor: '#004F6E' }}
             >
               {/* Circular Image Mask */}
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
-                <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20">
+                <div className="w-52 h-52 sm:w-60 sm:h-60 rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <img
                     src={SITE_CONFIG.agentImage}
                     alt={`${SITE_CONFIG.agentName} - Travel Expert`}
@@ -510,9 +510,9 @@ export default function Home() {
                 </div>
               </div>
               {/* Content at Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-6 sm:p-8">
-                <div className="space-y-1.5 sm:space-y-2 text-center">
-                  <h3 ref={mobileNameRef} className={`${mobileFontSize} font-medium text-white`}>{SITE_CONFIG.agentName}</h3>
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 px-5 pb-10 sm:px-6 sm:pb-12">
+                <div className="space-y-4 sm:space-y-5 text-center">
+                  <h3 ref={mobileNameRef} className="text-[1.75rem] sm:text-[1.85rem] font-medium text-white leading-[1.1]">{SITE_CONFIG.agentName}</h3>
                   <Button asChild size="lg" className="shadow-none w-full sm:w-auto">
                     <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
@@ -527,19 +527,19 @@ export default function Home() {
           {/* About Section */}
           <section id="about-section" className="py-12 sm:py-16 lg:py-24 pb-6 sm:pb-16 lg:pb-24 relative">
             <div className="w-[95vw] max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-              <div className="w-full lg:max-w-2xl">
+              <div className="w-full lg:max-w-2xl text-center lg:text-left">
               <Card className="bg-transparent border-0 shadow-none">
                 <CardContent className="p-0">
                   <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-bold mb-4 sm:mb-6" style={{ backgroundColor: 'rgba(159, 240, 212, 0.15)', color: 'rgb(0, 120, 120)', border: '1px solid rgba(0, 120, 120, 0.3)' }}>
                     <Plane className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: 'rgb(0, 120, 120)' }} />
                     <span>YOUR BEST EVER HOLIDAY</span>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I&apos;m so excited to partner<br className="lg:hidden" /> with the<br className="hidden lg:block" /> award-winning<br className="lg:hidden" /> Not Just Travel</h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-2 sm:mb-3 lg:mb-4 leading-tight" style={{ color: '#004F6E' }}>I&apos;m so excited to partner with the<br className="hidden lg:block" /> award-winning Not Just Travel</h2>
                   <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-3 sm:mb-4 lg:mb-6">
                     Bringing you amazing holidays, cruises, flights, hotels and more. Combining the best choice and value with outstanding personal service and the confidence of the world&apos;s best lifestyle franchise behind every booking.
                   </p>
                   {/* Logo Images */}
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center lg:items-start justify-center lg:justify-start">
                     <img
                       src="/images/logos/TTF website - KTP & Acc-(2).png.webp"
                       alt="Not Just Travel and The Travel Franchise partnership awards and certifications"
@@ -560,23 +560,24 @@ export default function Home() {
         </div>
 
 
-        {/* Right Column - Sticky Card that overlays hero */}
-        <div 
-          className="hidden lg:block lg:col-span-1 lg:z-40 sticky self-start" 
-          style={{ 
+        {/* Right Column - Card that overlays hero (sticky only at xl+) */}
+        <div
+          className="hidden lg:block lg:col-span-1 lg:z-40 xl:sticky self-start"
+          style={{
             top: '120px'
           }}
         >
-          <div className="lg:-ml-[calc(95vw/3-2rem+4rem)] relative" style={{ paddingTop: 'calc((min(90vh, 800px) - 320px * 4/3) / 2 - 100px)' }}>
-            {/* Fan Cards - Behind main card, appear on scroll down */}
+          {/* lg: smaller card positioned lower, xl: larger card positioned higher */}
+          <div className="lg:-ml-[calc(95vw/3-2rem+2rem)] xl:-ml-[calc(95vw/3-2rem+4rem)] relative lg:pt-[180px] xl:pt-[calc((min(90vh,800px)-320px*4/3)/2-100px)]">
+            {/* Fan Cards - Behind main card, appear on scroll down (xl+ only) */}
             {/* Card 1 - Fan left */}
             <Card
-              className={`border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] shadow-lg transition-all duration-500 ease-out absolute top-0 left-0 ${
+              className={`hidden xl:block border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] shadow-lg transition-all duration-500 ease-out absolute top-0 left-0 ${
                 showFanCards ? 'opacity-100' : 'opacity-0'
               }`}
-              style={{ 
-                transform: showFanCards 
-                  ? 'translateX(-80px) rotate(-12deg)' 
+              style={{
+                transform: showFanCards
+                  ? 'translateX(-80px) rotate(-12deg)'
                   : 'translateX(0) rotate(0deg)',
                 zIndex: 8
               }}
@@ -590,12 +591,12 @@ export default function Home() {
 
             {/* Card 2 - Fan right */}
             <Card
-              className={`border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] shadow-lg transition-all duration-500 ease-out absolute top-0 left-0 ${
+              className={`hidden xl:block border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] shadow-lg transition-all duration-500 ease-out absolute top-0 left-0 ${
                 showFanCards ? 'opacity-100' : 'opacity-0'
               }`}
-              style={{ 
-                transform: showFanCards 
-                  ? 'translateX(80px) rotate(12deg)' 
+              style={{
+                transform: showFanCards
+                  ? 'translateX(80px) rotate(12deg)'
                   : 'translateX(0) rotate(0deg)',
                 zIndex: 9
               }}
@@ -609,12 +610,12 @@ export default function Home() {
 
             {/* Main Photo Card */}
             <Card
-              className="border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[320px] relative z-10"
+              className="border-0 overflow-hidden aspect-[3/4] w-[calc(95vw/3-2rem)] max-w-[260px] xl:max-w-[320px] relative z-10"
               style={{ backgroundColor: '#004F6E' }}
             >
               {/* Circular Image Mask */}
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
-                <div className="w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <div className="absolute top-6 xl:top-8 left-1/2 -translate-x-1/2 z-20">
+                <div className="w-[160px] h-[160px] xl:w-[220px] xl:h-[220px] rounded-full overflow-hidden border-4 border-white shadow-lg">
                   <img
                     src={SITE_CONFIG.agentImage}
                     alt={`${SITE_CONFIG.agentName} - Travel Expert`}
@@ -623,10 +624,10 @@ export default function Home() {
                 </div>
               </div>
               {/* Content at Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 p-8">
-                <div className="space-y-2 text-center">
-                  <h3 ref={desktopNameRef} className={`${desktopFontSize} font-medium text-white`}>{SITE_CONFIG.agentName}</h3>
-                  <Button asChild size="lg" className="shadow-none">
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center z-10 px-4 xl:px-6 pb-6 xl:pb-8">
+                <div className="space-y-3 xl:space-y-4 text-center">
+                  <h3 ref={desktopNameRef} className="text-[1.5rem] xl:text-[1.85rem] font-medium text-white leading-[1.1]">{SITE_CONFIG.agentName}</h3>
+                  <Button asChild size="default" className="shadow-none xl:h-11 xl:px-8">
                     <a href={`tel:${SITE_CONFIG.phoneFormatted}`} className="flex items-center gap-2">
                       <Phone className="h-5 w-5" />
                       {SITE_CONFIG.phone}

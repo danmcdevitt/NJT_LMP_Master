@@ -22,7 +22,7 @@ const ProfileCard = ({
     >
       {/* Circular Image Mask */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20">
-        <div className="w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden border-4 border-white shadow-lg">
+        <div className="w-[184px] h-[184px] lg:w-[220px] lg:h-[220px] rounded-full overflow-hidden border-4 border-white shadow-lg">
           <img
             src={image}
             alt={`${name} - Travel Expert`}
@@ -31,9 +31,9 @@ const ProfileCard = ({
         </div>
       </div>
       {/* Content at Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-8">
-        <div className="space-y-2">
-          <h3 className="text-[1.8rem] sm:text-[2.4rem] font-medium text-white">{name}</h3>
+      <div className="absolute bottom-0 left-0 right-0 z-10 px-6 pb-8">
+        <div className="space-y-4 text-center">
+          <h3 className="text-[1.75rem] lg:text-[1.85rem] font-medium text-white leading-[1.1]">{name}</h3>
           <Button size="lg" className="shadow-none">{phone}</Button>
         </div>
       </div>
